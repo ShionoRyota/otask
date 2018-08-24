@@ -4,25 +4,25 @@
   <%= devise_error_messages! %>
 
   <div class="field">
-    <%= f.label :メールアドレス %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <h9><%= f.label :メールアドレス %></h9><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", size: "50x1", style: "font-size:20px", placeholder: "gmailで登録してください"%>
   </div>
 
   <div class="field">
-    <%= f.label :パスワード %>
+    <h9><%= f.label :パスワード %></h9>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> 文字以上)</em>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+    <%= f.password_field :password, autocomplete: "new-password", size: "50x1", style: "font-size:20px", placeholder: "パスワードを入力してください" %>
   </div>
 
   <div class="field">
-    <%= f.label :パスワード再入力 %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    <h9><%= f.label :パスワード再入力 %></h9><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", size: "50x1", style: "font-size:20px", placeholder: "もう一度入力してください" %>
   </div>
 
   <div class="actions">
-    <%= f.submit "確認画面へ" %>
+    <button class="button" type="submit">確認して次へ</button>
   </div>
 <% end %>
 
