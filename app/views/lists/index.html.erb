@@ -1,0 +1,22 @@
+<header>
+ <div class="boxy">
+  <a href="http://127.0.0.1:3000/users">通知</a>
+ </div>
+ <div class="boxy">
+  <a href="http://127.0.0.1:3000/users">マイページへ</a>
+ </div>
+</header>
+
+
+
+<%= form_for @list do |form| %>
+<ul>
+  <li><%= form.label :name %><%= form.text_field :name %></li>
+  <li><%= form.submit %></li>
+</ul>
+<% end %>
+
+
+<% @lists.each do |list| %>
+  <p><%= link_to list.name, edit_user_path(list.id) %></p>
+<% end %>
