@@ -1,22 +1,36 @@
-<header>
- <div class="boxy">
-  <a href="http://127.0.0.1:3000/users">通知</a>
- </div>
- <div class="boxy">
-  <a href="http://127.0.0.1:3000/users">マイページへ</a>
- </div>
+<header class="align">
+
+  <nav class="navigation navigation--inline">
+    <ul>
+      <li>
+        <a href="http://127.0.0.1:3000/lists">
+          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#bell">
+          <span class="invisible">　通知画面へ　</span>
+        </a>
+      </li>
+      <li>
+        <a href="http://127.0.0.1:3000/lists">
+          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#bell">
+          <span class="invisible">　マイページへ　</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
 </header>
 
 
 
+
 <%= form_for @list do |form| %>
-<ul>
-  <li><%= form.label :name %><%= form.text_field :name %></li>
-  <li><%= form.submit  %></li>
-</ul>
+  <div class="mokuji"><%= form.label :取引先を登録 %></div>
+  <div class="fm"><%= form.text_field :name, size: "25x1", style: "font-size:30px", placeholder: "例: ◯△□製作所" %></div>
+  <button class="button" type="submit">登録する</button>
 <% end %>
 
 
 <% @lists.each do |list| %>
-  <p><%= link_to list.name, task_path(list.id) %></p>
+ <div class="box3">
+     <%= link_to list.name, edit_user_path(list.id) %>
+ </div>
 <% end %>

@@ -1,3 +1,71 @@
 // Place all the styles related to the lists controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// button.button {
+//   // display       : inline-block;
+//   border-radius : 25px;          /* 角丸       */
+//   font-size     : 15pt;        /* 文字サイズ */
+//   background: linear-gradient(-135deg, #0000FF, #1E90FF, #00FFFF);     /* 背景色     */
+//   color         : #FFFFFF;     /* 文字色     */
+//   transition    : .3s;         /* なめらか変化 */
+//   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
+//   border-style: none;
+//   width: 174px;
+//   height: 45px;
+//   font-weight: 500;
+//   margin-top: 20px;
+//   margin-bottom: 80px;
+//   text-align: center;
+
+// }
+
+div.fm {
+   margin-top: 10px;
+   border-top-left-radius: 25px;
+   border-top-right-radius: 25px;
+   border-bottom-right-radius: 25px;
+   border-bottom-left-radius: 25px;
+   height: 60px;
+   text-align: center;
+   margin-bottom: 120px;
+}
+
+div.mokuji {
+	color: #FFFFFF;
+	font-size: 20px;
+	text-align: center;
+	font-weight: 600;
+	margin-top: 120px;
+}
+
+
+button.button  { position: absolute; top: 200px; width: 174px;
+           height: 45px;padding: 10px;
+           background: linear-gradient(-135deg, #0000FF, #1E90FF, #00FFFF);     /* 背景色     */
+           border: 4px; font-size: 20px; color: #FFFFFF;
+           text-align: center;
+           border-top-left-radius: 25px;
+           border-top-right-radius: 25px;
+           border-bottom-right-radius: 25px;
+           border-bottom-left-radius: 25px;
+           left:0;
+           right:0;
+           margin:auto;
+           margin-top: 20px;
+           box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
+       }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
