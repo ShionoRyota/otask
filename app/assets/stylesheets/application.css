@@ -40,25 +40,3 @@ div.field {
  	text-align: center;
  	font-size: 50px;
  }
-
- button.button {
-  // display       : inline-block;
-  border-radius : 15px;          /* 角丸       */
-  font-size     : 15pt;        /* 文字サイズ */
-  text-align    : center;      /* 文字位置   */
-  background    : #ffffff;     /* 背景色     */
-  color         : #000000;     /* 文字色     */
-  transition    : .3s;         /* なめらか変化 */
- box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
- border-style: none;
- width: 174px;
- height: 45px;
- font-weight: 600;
- margin:auto;
- margin-top: 300px;
-
-}
-
-div.box {
-	border-radius : 25px;          /* 角丸       */
-}
