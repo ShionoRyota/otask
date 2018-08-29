@@ -12,11 +12,11 @@
 <%= form_for @list do |form| %>
 <ul>
   <li><%= form.label :name %><%= form.text_field :name %></li>
-  <li><%= form.submit %></li>
+  <li><%= form.submit  %></li>
 </ul>
 <% end %>
 
 
 <% @lists.each do |list| %>
-  <p><%= link_to list.name, edit_user_path(list.id) %></p>
+  <p><%= link_to list.name, task_path(list.id) %></p>
 <% end %>
