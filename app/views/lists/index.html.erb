@@ -9,7 +9,7 @@
         </a>
       </li>
       <li>
-        <a href="http://127.0.0.1:3000/lists">
+        <a href="http://127.0.0.1:3000/users">
           <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#bell">
           <span class="invisible">　マイページへ　</span>
         </a>
@@ -31,7 +31,7 @@
 
 <% @lists.each do |list| %>
  <div class="box3">
-     <%= link_to list.name, task_path(list.id) %>
+     <%= link_to list.name, tasks_path(list.id) %>
      <%= link_to "編集", edit_list_path(list) %>
      <%= link_to "削除", list_path(list), :method => :delete %>
  </div>

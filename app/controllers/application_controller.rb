@@ -6,6 +6,11 @@ class ApplicationController < ActionController::Base
         users_path
     end
 
+    def after_sign_out_path_for(resource)
+        new_user_registration_path
+    end
+
+
 
   protected
     def configure_permitted_parameters
@@ -16,4 +21,5 @@ class ApplicationController < ActionController::Base
     def sign_in_required
         redirect_to new_user_session_url unless user_signed_in?
     end
+
 end

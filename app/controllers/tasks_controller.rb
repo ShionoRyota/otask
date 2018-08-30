@@ -2,7 +2,7 @@ class TasksController < ApplicationController
 
 before_action :authenticate_user!
 
-  def show
+  def index
     @task = Task.new
     @tasks = current_user.tasks.all
   end
