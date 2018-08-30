@@ -31,12 +31,8 @@
 
 <% @lists.each do |list| %>
  <div class="box3">
-<<<<<<< HEAD
-     <%= link_to list.name, task_path(list.id) %>
-=======
      <%= link_to list.name, tasks_path(list.id) %>
      <%= link_to "編集", edit_list_path(list) %>
      <%= link_to "削除", list_path(list), :method => :delete %>
->>>>>>> a4cf84dccf77d9cc9bd0c0e27bc4a23c327abb3f
  </div>
 <% end %>
