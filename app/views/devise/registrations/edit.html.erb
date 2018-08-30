@@ -1,4 +1,4 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<h2><%= resource_name.to_s.humanize %> 情報編集</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
@@ -28,7 +28,7 @@
   <% end %>
 
   <div class="field">
-    <h9><%= f.label :新しいパスワード %></h9> <i>(もし変えたくないなら空白にしてください)</i><br />
+    <h9><%= f.label :新しいパスワード %></h9> <br><i>(もし変えたくないなら空白にしてください)</i><br><br>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> 文字以上)</em>
     <% end %><br />
@@ -46,11 +46,8 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Update" %>
+    <button class="button2" type="submit">更新する</button>
   </div>
 <% end %>
 
-
-<p><%= button_to "ログアウト", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :users %>
+<div class="actions"><button class="button4" type="submit"><%= link_to "戻る", :users, :style => 'color: #FFFFFF;' %></button></div>

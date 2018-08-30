@@ -72,6 +72,10 @@ body {
 }
 
 .list {
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  border-bottom-left-radius: 15px;
   width: $list-width;
   height: calc(100% - #{$gap} - #{$scrollbar-thickness});
 
