@@ -31,6 +31,6 @@
 
 <% @lists.each do |list| %>
  <div class="box3">
-     <%= link_to list.name, edit_user_path(list.id) %>
+     <%= link_to list.name, task_path(list.id) %>
  </div>
 <% end %>

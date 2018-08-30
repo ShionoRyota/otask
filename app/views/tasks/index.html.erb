@@ -6,12 +6,39 @@
   <title>drag and drop | jQuery JavaScript</title>
 </head>
 <body>
+
+<header class="align">
+
+  <nav class="navigation navigation--inline">
+    <ul>
+      <li>
+        <a href="http://127.0.0.1:3000/lists">
+          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#bell">
+          <span class="invisible">　通知画面へ　</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+</header>
+
 <style>
   body {
     margin: 10px;
   }
   .list {
+    padding-bottom: 20px;
+    margin-right: 60px;
     float: left;
+    width: $list-width;
+    height: calc(100% - #{$gap} - #{$scrollbar-thickness});
+
+  > * {
+    background-color: $list-bg-color;
+    color: #333;
+
+    padding: 0 $gap;
+  }
   }
   .list li {
     padding: 5px 10px;
@@ -21,32 +48,70 @@
   .list li:hover {
     cursor: move;
   }
-  .a { background-color: #fff999; }
+
+  .list li {
+      background-color: #fff;
+      padding: $gap;
+      &:not(:last-child) {
+        margin-bottom: $gap;
+      }
+
+      border-radius: $card-border-radius;
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+
+      img {
+        display: block;
+        width: calc(100% + 2 * #{$gap});
+        margin: -$gap 0 $gap (-$gap);
+        border-top-left-radius: $card-border-radius;
+        border-top-right-radius: $card-border-radius;
+      }
+    }
+  /*.a { background-color: #fff999; }
   .b { background-color: #f3981d; }
-  .c { background-color: #a4d5bd; }
+  .c { background-color: #a4d5bd; }*/
 </style>
 
-<div class="container">
+<!-- <div class="container"> -->
+<div class="lists">
   <div class="lists_wrap">
+  <div class="list">
     <ul class="list" id="list1">
+    <header1>TODO</header1>
       <% @tasks.each do |task| %>
        <li class="a"><%= link_to task.taskname, tasks_path(task.id) %></li>
       <% end %>
     </ul>
+  </div>
+  <div class="list">
     <ul class="list" id="list2">
-      <li class="b">BBB 1</li>
-      <li class="b">BBB 2</li>
-      <li class="b">BBB 3</li>
-      <li class="b">BBB 4</li>
-      <li class="b">BBB 5</li>
+    <header1>作業中</header1>
+      <li>シャフト</li>
+      <li>シャフト</li>
+      <li>
+        <img src="holder.js/300x150?auto=yes&bg=#ccc" alt="">シャフト
+      </li>
+      <li>シャフト</li>
+      <li>シャフト</li>
+      <li>シャフト</li>
+      <li>シャフト</li>
+      <li>シャフト</li>
+      <li>シャフト</li>
+      <li>シャフト</li>
+      <li>シャフト</li>
+      <li>シャフト</li>
     </ul>
+  </div>
+  <div class="list">
     <ul class="list" id="list3">
+    <header1>完了</header1>
       <li class="c">CCC 1</li>
       <li class="c">CCC 2</li>
       <li class="c">CCC 3</li>
       <li class="c">CCC 4</li>
       <li class="c">CCC 5</li>
     </ul>
+  </div>
   </div>
 </div>
 <script src="../js/jquery-3.3.1.min.js"></script>
@@ -92,4 +157,48 @@
 </ul>
 <% end %>
 
+<!-- 
+<div class="lists">
+        <div class="list">
+            <header>TODO</header>
+            <ul>
+                <li>シャフト</li>
+                <li>シャフト</li>
+                <li>シャフト</li>
+                <li>シャフト</li>
+            </ul>
+            <footer>＋仕事を追加する</footer>
+        </div>
+        <div class="list">
+            <header>作業中</header>
+            <ul>
+                <li>シャフト</li>
+                <li>シャフト</li>
+                <li>
+                    <img src="holder.js/300x150?auto=yes&bg=#ccc" alt="">
+                    シャフト
+                </li>
+                <li>シャフト</li>
+                <li>シャフト</li>
+                <li>シャフト</li>
+                <li>シャフト</li>
+                <li>シャフト</li>
+                <li>シャフト</li>
+                <li>シャフト</li>
+                <li>シャフト</li>
+                <li>シャフト</li>
+            </ul>
+            <footer>＋仕事を追加する</footer>
+        </div>
+        <div class="list">
+            <header>完了</header>
+            <ul>
+                <li>シャフト</li>
+                <li>シャフト</li>
+            </ul>
+            <footer>＋仕事を追加する</footer>
+        </div>
+    </div>
 
+
+ -->
