@@ -1,0 +1,5 @@
+<%= form_for @list do |form| %>
+  <div class="mokuji"><%= form.label :変更後の取引先を登録 %></div>
+  <div class="fm"><%= form.text_field :name, size: "25x1", style: "font-size:30px", placeholder: "例: ◯△□製作所" %></div>
+  <button class="button" type="submit">登録する</button>
+<% end %>
