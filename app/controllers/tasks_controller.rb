@@ -3,8 +3,16 @@ class TasksController < ApplicationController
 before_action :authenticate_user!
 
   def index
+    @tasks = current_user.tasks.all
+  end
+
+  def new
     @task = Task.new
     @tasks = current_user.tasks.all
+  end
+
+  def edit
+    @task = Task.find(params[:id])
   end
 
 
@@ -18,13 +26,22 @@ before_action :authenticate_user!
     end
   end
 
+  def update
+    @task = Task.find(params[:id])
+    @task.update_attributes(task_params)
+    redirect_to tasks_path
+  end
+
 
   def destroy
+    @task = Task.find(params[:id])
+    @task.destroy
+    redirect_to tasks_path
   end
 
   private
 
     def task_params
-      params.require(:task).permit(:taskname, :list_id, :user_id)
+      params.require(:task).permit(:taskname, :number, :price, :order_number, :term, :picture, :list_id, :user_id)
     end
 end

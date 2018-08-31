@@ -1,0 +1,48 @@
+<%= form_for @task do |f| %>
+<ul>
+  <div class="field">
+    <h9><%= f.label :仕事名 %></h9><br />
+    <%= f.text_field :taskname, size: "50x1", style: "font-size:20px", placeholder: "シャフト"%>
+  </div>
+
+  <div class="field">
+    <h9><%= f.label :画像 %></h9><br />
+        <%= f.file_field :picture %>
+        <%= image_tag @task.picture.url if @task.picture? %>
+  </div>
+
+  <div class="field">
+    <h9><%= f.label :注文番号 %></h9><br />
+    <%= f.text_field :order_number, size: "50x1", style: "font-size:20px", placeholder:"1234-5678" %>
+  </div>
+
+  <div class="field">
+    <h9><%= f.label :個数 %></h9><br />
+    <%= f.text_field :number, size: "50x1", style: "font-size:20px", placeholder: "10本"%>
+  </div>
+
+  <div class="field">
+    <h9><%= f.label :単価 %></h9><br />
+    <%= f.text_field :price, size: "50x1", style: "font-size:20px" %>
+  </div>
+
+
+<div class="birth_date_field">
+  <%= f.label :納期 %>
+  <%= raw sprintf(
+              f.date_select(
+                  :term,
+                  use_month_numbers: true,
+                  start_year:        2018,
+                  end_year:          (Time.now.year + 5),
+                  default:           Date.new(2018, 1, 1),
+                  date_separator:    '%s'),
+              '年 ', '月 ') + '日' %>
+</div>
+
+  <div class="actions">
+    <button class="button" type="submit">保存する</button>
+  </div>
+
+</ul>
+<% end %>

@@ -64,3 +64,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'jquery-rails'
 gem 'pry-rails'
 gem 'devise'
+gem 'carrierwave'
+gem 'mini_magick'
