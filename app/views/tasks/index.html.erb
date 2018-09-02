@@ -15,6 +15,8 @@
         <a href="http://127.0.0.1:3000/lists">
           <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#bell">
           <span class="invisible">　<　</span>
+          <%= link_to "＋追加する", new_task_path %>
+
         </a>
       </li>
     </ul>
@@ -79,37 +81,21 @@
     <ul class="list" id="list1">
     <header1>TODO</header1>
       <% @tasks.each do |task| %>
-       <li class="a"><%= link_to task.taskname, tasks_path(task.id) %></li>
+       <li class="a">
+        <%= link_to task.taskname, edit_task_path(task.id) %>
+        <%= link_to "削除", task_path(task), :method => :delete %>
+       </li>
       <% end %>
     </ul>
   </div>
   <div class="list">
     <ul class="list" id="list2">
     <header1>作業中</header1>
-      <li>シャフト</li>
-      <li>シャフト</li>
-      <li>
-        <img src="holder.js/300x150?auto=yes&bg=#ccc" alt="">シャフト
-      </li>
-      <li>シャフト</li>
-      <li>シャフト</li>
-      <li>シャフト</li>
-      <li>シャフト</li>
-      <li>シャフト</li>
-      <li>シャフト</li>
-      <li>シャフト</li>
-      <li>シャフト</li>
-      <li>シャフト</li>
     </ul>
   </div>
   <div class="list">
     <ul class="list" id="list3">
     <header1>完了</header1>
-      <li class="c">CCC 1</li>
-      <li class="c">CCC 2</li>
-      <li class="c">CCC 3</li>
-      <li class="c">CCC 4</li>
-      <li class="c">CCC 5</li>
     </ul>
   </div>
   </div>
@@ -149,7 +135,6 @@
 </script>
 </body>
 </html>
-
 
 
 <!--
