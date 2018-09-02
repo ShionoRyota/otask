@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>drag and drop | jQuery JavaScript</title>
+</head>
+<body>
+
+<header class="align">
+
+  <nav class="navigation navigation--inline">
+    <ul>
+      <li>
+        <a href="http://127.0.0.1:3000/lists">
+          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#bell">
+          <span class="invisible">　通知画面へ　</span>
+          <%= link_to "＋追加する", new_task_path %>
+
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+</header>
+
+<style>
+  body {
+    margin: 10px;
+  }
+  .list {
+    padding-bottom: 20px;
+    margin-right: 60px;
+    float: left;
+    width: $list-width;
+    height: calc(100% - #{$gap} - #{$scrollbar-thickness});
+
+  > * {
+    background-color: $list-bg-color;
+    color: #333;
+
+    padding: 0 $gap;
+  }
+  }
+  .list li {
+    padding: 5px 10px;
+    border: 1px solid #0c5460;
+    list-style: none;
+  }
+  .list li:hover {
+    cursor: move;
+  }
+
+  .list li {
+      background-color: #fff;
+      padding: $gap;
+      &:not(:last-child) {
+        margin-bottom: $gap;
+      }
+
+      border-radius: $card-border-radius;
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+
+      img {
+        display: block;
+        width: calc(100% + 2 * #{$gap});
+        margin: -$gap 0 $gap (-$gap);
+        border-top-left-radius: $card-border-radius;
+        border-top-right-radius: $card-border-radius;
+      }
+    }
+  /*.a { background-color: #fff999; }
+  .b { background-color: #f3981d; }
+  .c { background-color: #a4d5bd; }*/
+</style>
+
+<!-- <div class="container"> -->
+<div class="lists">
+  <div class="lists_wrap">
+  <div class="list">
+    <ul class="list" id="list1">
+    <header1>TODO</header1>
+      <% @tasks.each do |task| %>
+       <li class="a">
+        <%= link_to task.taskname, edit_task_path(task.id) %>
+        <%= link_to "削除", task_path(task), :method => :delete %>
+       </li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="list">
+    <ul class="list" id="list2">
+    <header1>作業中</header1>
+    </ul>
+  </div>
+  <div class="list">
+    <ul class="list" id="list3">
+    <header1>完了</header1>
+    </ul>
+  </div>
+  </div>
+</div>
+<script src="../js/jquery-3.3.1.min.js"></script>
+<script src="../js/Sortable/Sortable.min.js"></script>
+<script>
+  $(function(){
+    Sortable.create(list1, {
+      sort: 1,
+      group: {
+        name: 'common_lists',
+        pull: true,
+        put: true
+      },
+      animation: 150
+    });
+    Sortable.create(list2, {
+      sort: 1,
+      group: {
+        name: 'common_lists',
+        pull: true,
+        put: true
+      },
+      animation: 150
+    });
+    Sortable.create(list3, {
+      sort: 1,
+      group: {
+        name: 'common_lists',
+        pull: true,
+        put: true
+      },
+      animation: 150
+    });
+  });
+</script>
+</body>
+</html>
+
+
+<!--
+<div class="lists">
+        <div class="list">
+            <header>TODO</header>
+            <ul>
+                <li>シャフト</li>
+                <li>シャフト</li>
+                <li>シャフト</li>
+                <li>シャフト</li>
+            </ul>
+            <footer>＋仕事を追加する</footer>
+        </div>
+        <div class="list">
+            <header>作業中</header>
+            <ul>
+                <li>シャフト</li>
+                <li>シャフト</li>
+                <li>
+                    <img src="holder.js/300x150?auto=yes&bg=#ccc" alt="">
+                    シャフト
+                </li>
+                <li>シャフト</li>
+                <li>シャフト</li>
+                <li>シャフト</li>
+                <li>シャフト</li>
+                <li>シャフト</li>
+                <li>シャフト</li>
+                <li>シャフト</li>
+                <li>シャフト</li>
+                <li>シャフト</li>
+            </ul>
+            <footer>＋仕事を追加する</footer>
+        </div>
+        <div class="list">
+            <header>完了</header>
+            <ul>
+                <li>シャフト</li>
+                <li>シャフト</li>
+            </ul>
+            <footer>＋仕事を追加する</footer>
+        </div>
+    </div>
+
+
+ -->

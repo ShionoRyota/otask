@@ -21,9 +21,9 @@ ActiveRecord::Schema.define(version: 2018_08_30_051051) do
 
   create_table "tasks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "taskname"
-    t.integer "number"
-    t.integer "price"
-    t.integer "order_number"
+    t.string "number"
+    t.string "price"
+    t.string "order_number"
     t.integer "list_id"
     t.integer "user_id"
     t.datetime "term"

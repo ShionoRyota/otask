@@ -3,9 +3,9 @@ class CreateTasks < ActiveRecord::Migration[5.2]
     create_table :tasks do |t|
 
       t.string :taskname
-      t.integer :number
-      t.integer :price
-      t.integer :order_number
+      t.string :number
+      t.string :price
+      t.string :order_number
       t.integer :list_id
       t.integer :user_id
       t.datetime :term
