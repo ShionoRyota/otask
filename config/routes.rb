@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :users
   resources :lists
   resources :tasks
+  put "tasks/set_task"
 
   root to: 'users#index'
 end
