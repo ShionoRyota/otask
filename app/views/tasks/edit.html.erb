@@ -7,8 +7,13 @@
 
   <div class="field">
     <h9><%= f.label :画像 %></h9><br />
+<<<<<<< HEAD
         <%= f.file_field :picture, id: :book_img %>
     <%= image_tag @task.picture.url, id: :img_prev if @task.picture? %>
+=======
+        <div class="field"><%= f.file_field :picture %></div><br>
+    <div class="field"><%= image_tag @task.picture.url if @task.picture? %></div>
+>>>>>>> 76f0a2fcb84aaede43579a567cae3b0d838326ad
   </div>
 
   <div class="field">
@@ -40,7 +45,7 @@
 </div>
 
   <div class="actions">
-    <button class="button" type="submit">編集する</button>
+    <button class="button5" type="submit">編集する</button>
   </div>
 
 </ul>
