@@ -39,6 +39,11 @@ before_action :authenticate_user!
     redirect_to tasks_path
   end
 
+  def set_task
+    @tmp = params[:task_id]
+    render nothing: true
+  end
+
   private
 
     def task_params
