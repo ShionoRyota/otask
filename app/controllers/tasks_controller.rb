@@ -41,7 +41,9 @@ before_action :authenticate_user!
 
   def set_task
     @tmp = params[:task_id]
-    render nothing: true
+    Task.find(@tmp)
+    Task.flag_id += 1
+    render :action => 'index'
   end
 
   private

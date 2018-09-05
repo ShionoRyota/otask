@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 2018_09_05_035418) do
     t.integer "list_id"
     t.integer "user_id"
     t.datetime "term"
+    t.integer "flag_id", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "picture"
