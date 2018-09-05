@@ -82,8 +82,8 @@
     <header1>TODO</header1>
       <% @tasks.each do |task| %>
        <li class="a">
-        <%= link_to task.taskname, edit_task_path(task.id) %>
-        <%= link_to "削除", task_path(task), :method => :delete %>
+        <%= link_to task.taskname, edit_task_path(task.id), :style => 'color: #000000;' %>
+        <%= link_to "削除", task_path(task), :method => :delete, :style => 'color: #FF0000;' %>
        </li>
       <% end %>
     </ul>
@@ -102,6 +102,7 @@
 </div>
 <script src="../js/jquery-3.3.1.min.js"></script>
 <script src="../js/Sortable/Sortable.min.js"></script>
+<script src="js/jquery.cookie.1.4.1.min.js"></script>
 <script>
   $(function(){
     Sortable.create(list1, {
