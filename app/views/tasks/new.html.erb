@@ -1,5 +1,12 @@
 <%= form_for @task do |f| %>
 <ul>
+
+  <%= form_for @task do |f| %>
+  <%= f.label :list_id %>
+  <%= f.collection_select :list_id, List.all, :id, :name %>
+<%- end -%>
+
+
   <div class="field">
     <h9><%= f.label :仕事名 %></h9><br />
     <%= f.text_field :taskname, size: "50x1", style: "font-size:20px", placeholder: "シャフト"%>
@@ -7,7 +14,8 @@
 
   <div class="field">
     <h9><%= f.label :画像 %></h9><br />
-        <%= f.file_field :picture %>
+        <%= f.file_field :picture  %>
+
         <%= image_tag @task.picture.url if @task.picture? %>
   </div>
 
@@ -40,9 +48,13 @@
               '年 ', '月 ') + '日' %>
 </div>
 
+
+
   <div class="actions">
     <button class="button2" type="submit">保存する</button>
   </div>
 
 </ul>
 <% end %>
+
+
