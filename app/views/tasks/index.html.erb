@@ -75,7 +75,8 @@
 </style>
 
 <!-- <div class="container"> -->
-<div class="lists">
+
+ <div class="lists">
   <div class="lists_wrap">
   <div class="list">
     <ul class="list" id="list1">
@@ -99,7 +100,7 @@
     </ul>
   </div>
   </div>
-</div>
+ </div>
 <script src="../js/jquery-3.3.1.min.js"></script>
 <script src="../js/Sortable/Sortable.min.js"></script>
 <script src="js/jquery.cookie.1.4.1.min.js"></script>
@@ -133,6 +134,17 @@
       animation: 150
     });
   });
+
+
+  $('ul#list2').ondrop(function(){
+  $.ajax({
+    url: 'sources/set_content',
+    type: 'PUT',
+    data: {task_id: task_id},
+    datatype: 'json',
+  });
+});
+
 </script>
 </body>
 </html>
