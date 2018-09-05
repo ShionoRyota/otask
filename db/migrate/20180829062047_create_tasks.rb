@@ -9,6 +9,7 @@ class CreateTasks < ActiveRecord::Migration[5.2]
       t.integer :list_id
       t.integer :user_id
       t.datetime :term
+      t.integer :flag_id, default: 0
 
       t.timestamps
     end
