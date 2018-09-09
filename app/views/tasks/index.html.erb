@@ -83,8 +83,9 @@
     <header1>TODO</header1>
       <% @tasks.each do |task| %>
        <li class="a">
-        <%= link_to task.taskname, edit_task_path(task.id) %>
-        <%= link_to "削除", task_path(task), :method => :delete %>
+        <%= link_to task.taskname, edit_task_path(task.id), :style => 'color: #000000;' %>
+        <%= link_to "削除", task_path(task), :method => :delete, :style => 'color: #FF0000;' %>
+
        </li>
       <% end %>
     </ul>
@@ -102,8 +103,8 @@
   </div>
   </div>
  </div>
-<script src="../js/jquery-3.3.1.min.js"></script>
-<script src="../js/Sortable/Sortable.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-sortable/0.9.13/jquery-sortable-min.js"></script>
 
 
 <script>
@@ -138,14 +139,14 @@
   });
 
 
-  $('ul#list2').ondrop(function(){
+  $('ul#list2').ondrop = function(){
   $.ajax({
-    url: 'sources/set_content',
+    url: 'tasks/set_task',
     type: 'PUT',
     data: {task_id: task_id},
     datatype: 'json',
   });
-});
+};
 
 </script>
 </body>

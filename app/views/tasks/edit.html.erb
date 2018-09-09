@@ -8,6 +8,8 @@
   <div class="field">
     <h9><%= f.label :NEW画像 %></h9><br />
         <%= f.file_field :picture, id: :book_img %>
+  </div>
+  <div class="field"><br>
         <p>変更前</p>
     <%= image_tag @task.picture.url, id: :img_prev if @task.picture? %>
   </div>
@@ -65,7 +67,7 @@ $(function() {
 
     // 新幅・高さ
     var new_w = 280;
-    var new_h = 280;    
+    var new_h = 280;
 
     // 画像表示
     var reader = new FileReader();
