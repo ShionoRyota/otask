@@ -31,19 +31,12 @@ before_action :authenticate_user!
     end
   end
 
-<<<<<<< HEAD
-  def set_task
-    @tmp = Task.find(params[:id])
-    @tmp.flag_id += 1
-    @tmps = @tmp
-    redirect_to tasks_path
-=======
+
   def destroy
     @task = Task.find(params[:id]) #⑤
     if @task.destroy
       render :index #⑥
     end
->>>>>>> 24d133db29d3e3d9c446cfb823d1b7301e0d1753
   end
 
   private

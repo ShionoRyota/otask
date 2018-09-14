@@ -91,7 +91,6 @@
        </li>
             <% end %>
       <% end %>
-      <% end %>
     </ul>
 
   </div>
@@ -99,21 +98,12 @@
     <ul class="list" id="list2">
     <header1>作業中</header1>
     <% Task.where("list_id = ?", params[:list_id]).find_each do |task| %>
-<<<<<<< HEAD
-            <% Task.where(flag_id:0).find_each do |task| %>
-=======
             <% Task.where(flag_id:1).find_each do |task| %>
->>>>>>> 24d133db29d3e3d9c446cfb823d1b7301e0d1753
        <li class="a">
         <%= link_to task.taskname, :style => 'color: #000000;' %>
         <%= link_to "削除", list_tasks_path(task), :method => :delete, :style => 'color: #FF0000;' %>
-
        </li>
-<<<<<<< HEAD
             <% end %>
-=======
-      <% end %>
->>>>>>> 24d133db29d3e3d9c446cfb823d1b7301e0d1753
       <% end %>
     </ul>
   </div>
@@ -121,21 +111,12 @@
     <ul class="list" id="list3">
     <header1>完了</header1>
     <% Task.where("list_id = ?", params[:list_id]).find_each do |task| %>
-<<<<<<< HEAD
-            <% Task.where(flag_id:0).find_each do |task| %>
-=======
             <% Task.where(flag_id:2).find_each do |task| %>
->>>>>>> 24d133db29d3e3d9c446cfb823d1b7301e0d1753
        <li class="a">
         <%= link_to task.taskname, :style => 'color: #000000;' %>
         <%= link_to "削除", list_tasks_path(task), :method => :delete, :style => 'color: #FF0000;' %>
-
        </li>
-<<<<<<< HEAD
             <% end %>
-=======
-      <% end %>
->>>>>>> 24d133db29d3e3d9c446cfb823d1b7301e0d1753
       <% end %>
     </ul>
   </div>
