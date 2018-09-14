@@ -81,14 +81,12 @@
   <div class="list">
     <ul class="list" id="list1">
     <header1>TODO</header1>
-      <% Task.where("list_id = ?", params[:list_id]).find_each do |task| %>
-            <% Task.where(flag_id:0).find_each do |task| %>
+      <% Task.where("list_id = ? AND flag_id = 0", params[:list_id]).find_each do |task| %>
        <li class="a">
         <%= link_to task.taskname, :style => 'color: #000000;' %>
         <%= link_to "削除", list_tasks_path(task), :method => :delete, :style => 'color: #FF0000;' %>
 
        </li>
-      <% end %>
       <% end %>
     </ul>
 
@@ -96,28 +94,24 @@
   <div class="list">
     <ul class="list" id="list2">
     <header1>作業中</header1>
-    <% Task.where("list_id = ?", params[:list_id]).find_each do |task| %>
-            <% Task.where(flag_id:1).find_each do |task| %>
+    <% Task.where("list_id = ? AND flag_id = 1", params[:list_id]).find_each do |task| %>
        <li class="a">
         <%= link_to task.taskname, :style => 'color: #000000;' %>
         <%= link_to "削除", list_tasks_path(task), :method => :delete, :style => 'color: #FF0000;' %>
 
        </li>
-      <% end %>
       <% end %>
     </ul>
   </div>
   <div class="list">
     <ul class="list" id="list3">
     <header1>完了</header1>
-    <% Task.where("list_id = ?", params[:list_id]).find_each do |task| %>
-            <% Task.where(flag_id:2).find_each do |task| %>
+    <% Task.where("list_id = ? AND flag_id = 2", params[:list_id]).find_each do |task| %>
        <li class="a">
         <%= link_to task.taskname, :style => 'color: #000000;' %>
         <%= link_to "削除", list_tasks_path(task), :method => :delete, :style => 'color: #FF0000;' %>
 
        </li>
-      <% end %>
       <% end %>
     </ul>
   </div>
