@@ -40,9 +40,10 @@ before_action :authenticate_user!
   end
 
   def set_task
-    @tmp = params[:task_id]
+    @tmp = Task.find(params[:id])
     @tmp.flag_id += 1
-    render :action => 'index'
+    @tmps = @tmp
+    redirect_to tasks_path
   end
 
   private

@@ -30,7 +30,8 @@
   }
   .list {
     padding-bottom: 20px;
-    margin-right: 60px;
+    margin-right: 35px;
+    margin-left: 20px;
     float: left;
     width: $list-width;
     height: calc(100% - #{$gap} - #{$scrollbar-thickness});
@@ -81,12 +82,14 @@
   <div class="list">
     <ul class="list" id="list1">
     <header1>TODO</header1>
-      <% @tasks.each do |task| %>
+      <% Task.where("list_id = ?", params[:list_id]).find_each do |task| %>
+            <% Task.where(flag_id:0).find_each do |task| %>
        <li class="a">
-        <%= link_to task.taskname, edit_task_path(task.id), :style => 'color: #000000;' %>
-        <%= link_to "削除", task_path(task), :method => :delete, :style => 'color: #FF0000;' %>
+        <%= link_to task.taskname, :style => 'color: #000000;' %>
+        <%= link_to "削除", list_tasks_path(task), :method => :delete, :style => 'color: #FF0000;' %>
 
        </li>
+            <% end %>
       <% end %>
     </ul>
 
@@ -94,18 +97,35 @@
   <div class="list">
     <ul class="list" id="list2">
     <header1>作業中</header1>
+    <% Task.where("list_id = ?", params[:list_id]).find_each do |task| %>
+            <% Task.where(flag_id:0).find_each do |task| %>
+       <li class="a">
+        <%= link_to task.taskname, :style => 'color: #000000;' %>
+        <%= link_to "削除", list_tasks_path(task), :method => :delete, :style => 'color: #FF0000;' %>
+
+       </li>
+            <% end %>
+      <% end %>
     </ul>
   </div>
   <div class="list">
     <ul class="list" id="list3">
     <header1>完了</header1>
+    <% Task.where("list_id = ?", params[:list_id]).find_each do |task| %>
+            <% Task.where(flag_id:0).find_each do |task| %>
+       <li class="a">
+        <%= link_to task.taskname, :style => 'color: #000000;' %>
+        <%= link_to "削除", list_tasks_path(task), :method => :delete, :style => 'color: #FF0000;' %>
+
+       </li>
+            <% end %>
+      <% end %>
     </ul>
   </div>
   </div>
  </div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-sortable/0.9.13/jquery-sortable-min.js"></script>
-
 
 <script>
   $(function(){
@@ -136,65 +156,33 @@
       },
       animation: 150
     });
+
+  function save() {
+    var items = [];
+    $('.a').each(function() {
+      items.push({
+        css: {
+          left: $(this).css('left'),
+          top: $(this).css('top'),
+        },
+        html: $(this).html()
+      });
+    });
+    localStorage.a = JSON.stringify(items);
+  }
+
+  function load() {
+    if (!localStorage.a) return;
+    var items = JSON.parse(localStorage.a);
+    $.each(items, function(i, item) {
+      make().css(item.css).html(item.html);
+    });
+  }
+
+   load();
+
   });
 
-
-  $('ul#list2').ondrop = function(){
-  $.ajax({
-    url: 'tasks/set_task',
-    type: 'PUT',
-    data: {task_id: task_id},
-    datatype: 'json',
-  });
-};
-
-</script>
+</script> -->
 </body>
 </html>
-
-
-<!--
-<div class="lists">
-        <div class="list">
-            <header>TODO</header>
-            <ul>
-                <li>シャフト</li>
-                <li>シャフト</li>
-                <li>シャフト</li>
-                <li>シャフト</li>
-            </ul>
-            <footer>＋仕事を追加する</footer>
-        </div>
-        <div class="list">
-            <header>作業中</header>
-            <ul>
-                <li>シャフト</li>
-                <li>シャフト</li>
-                <li>
-                    <img src="holder.js/300x150?auto=yes&bg=#ccc" alt="">
-                    シャフト
-                </li>
-                <li>シャフト</li>
-                <li>シャフト</li>
-                <li>シャフト</li>
-                <li>シャフト</li>
-                <li>シャフト</li>
-                <li>シャフト</li>
-                <li>シャフト</li>
-                <li>シャフト</li>
-                <li>シャフト</li>
-            </ul>
-            <footer>＋仕事を追加する</footer>
-        </div>
-        <div class="list">
-            <header>完了</header>
-            <ul>
-                <li>シャフト</li>
-                <li>シャフト</li>
-            </ul>
-            <footer>＋仕事を追加する</footer>
-        </div>
-    </div>
-
-
- -->
