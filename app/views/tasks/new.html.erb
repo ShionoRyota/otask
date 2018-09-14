@@ -1,10 +1,5 @@
-<%= form_for @task do |f| %>
+<%= form_for @task, url: list_tasks_path do |f| %>
 <ul>
-
-  <%= form_for @task do |f| %>
-  <%= f.label :list_id %>
-  <%= f.collection_select :list_id, List.all, :id, :name %>
-<%- end -%>
 
 
   <div class="field">
@@ -47,6 +42,8 @@
                   date_separator:    '%s'),
               '年 ', '月 ') + '日' %>
 </div>
+
+
 
 
 

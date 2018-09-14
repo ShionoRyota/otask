@@ -15,7 +15,7 @@
         <a href="http://127.0.0.1:3000/lists">
           <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#bell">
           <span class="invisible">　<　</span>
-          <%= link_to "＋追加する", new_task_path %>
+          <%= link_to "＋追加する", new_list_task_path %>
 
         </a>
       </li>
@@ -81,12 +81,14 @@
   <div class="list">
     <ul class="list" id="list1">
     <header1>TODO</header1>
-      <% @tasks.each do |task| %>
+      <% Task.where("list_id = ?", params[:list_id]).find_each do |task| %>
+            <% Task.where(flag_id:0).find_each do |task| %>
        <li class="a">
-        <%= link_to task.taskname, edit_task_path(task.id), :style => 'color: #000000;' %>
-        <%= link_to "削除", task_path(task), :method => :delete, :style => 'color: #FF0000;' %>
+        <%= link_to task.taskname, :style => 'color: #000000;' %>
+        <%= link_to "削除", list_tasks_path(task), :method => :delete, :style => 'color: #FF0000;' %>
 
        </li>
+      <% end %>
       <% end %>
     </ul>
 
@@ -94,11 +96,29 @@
   <div class="list">
     <ul class="list" id="list2">
     <header1>作業中</header1>
+    <% Task.where("list_id = ?", params[:list_id]).find_each do |task| %>
+            <% Task.where(flag_id:1).find_each do |task| %>
+       <li class="a">
+        <%= link_to task.taskname, :style => 'color: #000000;' %>
+        <%= link_to "削除", list_tasks_path(task), :method => :delete, :style => 'color: #FF0000;' %>
+
+       </li>
+      <% end %>
+      <% end %>
     </ul>
   </div>
   <div class="list">
     <ul class="list" id="list3">
     <header1>完了</header1>
+    <% Task.where("list_id = ?", params[:list_id]).find_each do |task| %>
+            <% Task.where(flag_id:2).find_each do |task| %>
+       <li class="a">
+        <%= link_to task.taskname, :style => 'color: #000000;' %>
+        <%= link_to "削除", list_tasks_path(task), :method => :delete, :style => 'color: #FF0000;' %>
+
+       </li>
+      <% end %>
+      <% end %>
     </ul>
   </div>
   </div>

@@ -3,12 +3,11 @@ class TasksController < ApplicationController
 before_action :authenticate_user!
 
   def index
-    @tasks = current_user.tasks.all
   end
 
   def new
     @task = Task.new
-    @tasks = current_user.tasks.all
+
   end
 
   def edit
@@ -16,33 +15,27 @@ before_action :authenticate_user!
   end
 
 
-  def create
-    @task = Task.new(task_params)
-    @task.user = current_user
-    if @task.save!
-      redirect_to :tasks
-    else
-      render :action => 'index'
-    end
-  end
-
   def update
     @task = Task.find(params[:id])
     @task.update_attributes(task_params)
-    redirect_to tasks_path
+    redirect_to list_tasks_path
   end
 
+
+  def create
+    @list = List.find(params[:list_id]) #①
+    @task = @list.tasks.build(task_params) #②
+    @task.user_id = current_user.id #③
+    if @task.save
+      render :index #④
+    end
+  end
 
   def destroy
-    @task = Task.find(params[:id])
-    @task.destroy
-    redirect_to tasks_path
-  end
-
-  def set_task
-    @tmp = params[:task_id]
-    @tmp.flag_id += 1
-    render :action => 'index'
+    @task = Task.find(params[:id]) #⑤
+    if @task.destroy
+      render :index #⑥
+    end
   end
 
   private
