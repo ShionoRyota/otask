@@ -3,9 +3,6 @@ class TasksController < ApplicationController
 before_action :authenticate_user!
 
   def index
-        @login_user = Task.find_by(params[:id])
-        @one_week = @login_user.term.to_i - Time.now.to_i
-        @time_out = Time.now.to_i - Task.term.to_i
   end
 
   def new
@@ -22,21 +19,6 @@ before_action :authenticate_user!
     @task = Task.find(params[:id])
     @task.update_attributes(task_params)
     redirect_to list_tasks_path
-  end
-
-  def todo
-    @login_user = Task.find_by_id(params[:id])
-    @login_user.update(flag_id: 0)
-  end
-
-  def doing
-    @login_user = Task.find_by_id(params[:id])
-    @login_user.update(flag_id: 0)
-  end
-
-  def finish
-    @login_user = Task.find_by_id(params[:id])
-    @login_user.update(flag_id: 0)
   end
 
 
