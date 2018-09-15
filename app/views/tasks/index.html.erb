@@ -82,12 +82,29 @@
     <ul class="list" id="list1">
     <header1>TODO</header1>
       <% Task.where("list_id = ? AND flag_id = 0", params[:list_id]).find_each do |task| %>
-       <li class="a">
-        <%= link_to task.taskname, :style => 'color: #000000;' %>
-        <%= link_to "削除", list_tasks_path(task), :method => :delete, :style => 'color: #FF0000;' %>
-
-       </li>
-      <% end %>
+       <% if @time_out >= 0 %>
+        <li class="a1", onclick="Button_Click();">
+         <%= link_to '作業中', '/tasks/params[:id]/doing', :method => :put, remote: true %>
+         <%= link_to '完了', '/tasks/params[:id]/finish', :method => :put, remote: true %>
+         <%= link_to task.taskname, :style => 'color: #000000;' %>
+         <%= link_to "削除", list_tasks_path(task), :method => :delete, :style => 'color: #000000;' %>
+        </li>
+       <% elsif @one_week =< 604800 %>
+        <li class="a2", onclick="Button_Click();">
+         <%= link_to '作業中', '/tasks/params[:id]/doing', :method => :put, remote: true %>
+         <%= link_to '完了', '/tasks/params[:id]/finish', :method => :put, remote: true %>
+         <%= link_to task.taskname, :style => 'color: #000000;' %>
+         <%= link_to "削除", list_tasks_path(task), :method => :delete, :style => 'color: #000000;' %>
+        </li>
+       <% else %>
+        <li class="a", onclick="Button_Click();">
+         <%= link_to '作業中', '/tasks/params[:id]/doing', :method => :put, remote: true %>
+         <%= link_to '完了', '/tasks/params[:id]/finish', :method => :put, remote: true %>
+         <%= link_to task.taskname, :style => 'color: #000000;' %>
+         <%= link_to "削除", list_tasks_path(task), :method => :delete, :style => 'color: #FF0000;' %>
+        </li>
+       <% end %>
+     <% end %>
     </ul>
 
   </div>
@@ -95,7 +112,9 @@
     <ul class="list" id="list2">
     <header1>作業中</header1>
     <% Task.where("list_id = ? AND flag_id = 1", params[:list_id]).find_each do |task| %>
-       <li class="a">
+       <li class="a", onclick="Button_Click();">
+        <%= link_to 'TODO', '/tasks/params[:id]/todo', :method => :put, remote: true %>
+        <%= link_to '完了', '/tasks/params[:id]/finish', :method => :put, remote: true %>
         <%= link_to task.taskname, :style => 'color: #000000;' %>
         <%= link_to "削除", list_tasks_path(task), :method => :delete, :style => 'color: #FF0000;' %>
 
@@ -107,7 +126,9 @@
     <ul class="list" id="list3">
     <header1>完了</header1>
     <% Task.where("list_id = ? AND flag_id = 2", params[:list_id]).find_each do |task| %>
-       <li class="a">
+       <li class="a", onclick="Button_Click();">
+        <%= link_to 'TODO', '/tasks/params[:id]/todo', :method => :put, remote: true %>
+        <%= link_to '作業中', '/tasks/params[:id]/doing', :method => :put, remote: true %>
         <%= link_to task.taskname, :style => 'color: #000000;' %>
         <%= link_to "削除", list_tasks_path(task), :method => :delete, :style => 'color: #FF0000;' %>
 
@@ -161,6 +182,11 @@
     datatype: 'json',
   });
 };
+
+function Button_Click() {
+  window.location.reload();
+}
+
 
 </script>
 </body>
