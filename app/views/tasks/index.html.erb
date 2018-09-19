@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>OTask</title>
+  <title>drag and drop | jQuery JavaScript</title>
 </head>
 <body>
 
@@ -30,8 +30,7 @@
   }
   .list {
     padding-bottom: 20px;
-    margin-right: 35px;
-    margin-left: 20px;
+    margin-right: 60px;
     float: left;
     width: $list-width;
     height: calc(100% - #{$gap} - #{$scrollbar-thickness});
@@ -83,45 +82,96 @@
     <ul class="list" id="list1">
     <header1>TODO</header1>
       <% Task.where("list_id = ? AND flag_id = 0", params[:list_id]).find_each do |task| %>
-       <% if @time_out >= 0 %>
+
+      <% if @time_out.to_i >= 0 %>
         <li class="a1">
-         <%= link_to task.taskname, :style => 'color: #000000;', onclick="Button_Click();" %>
-         <%= link_to "削除", list_tasks_path(task), :method => :delete, :style => 'color: #000000;' %>
+         <%= link_to '作業中', doing_list_task_path(:id => task.id), :method => :put %>
+         <%= link_to '完了', finish_list_task_path(:id => task.id), :method => :put %>
+         <%= link_to task.taskname, edit_list_task_path(:id => task.id),  :style => 'color: #FF0000;' %>
+         <%= link_to "削除", list_task_path(:id => task.id), :method => :delete, :style => 'color: #FF0000;' %>
         </li>
-       <% elsif @one_week =< 604800 %>
+       <% elsif @one_week.to_i <= 604800 %>
         <li class="a2">
-         <%= link_to task.taskname, :style => 'color: #000000;', onclick="Button_Click();" %>
-         <%= link_to "削除", list_tasks_path(task), :method => :delete, :style => 'color: #000000;' %>
+         <%= link_to '作業中', doing_list_task_path(:id => task.id), :method => :put %>
+         <%= link_to '完了', finish_list_task_path(:id => task.id), :method => :put %>
+         <%= link_to task.taskname, edit_list_task_path(:id => task.id),  :style => 'color: #FFFF00;' %>
+         <%= link_to "削除", list_task_path(:id => task.id), :method => :delete, :style => 'color: #FFFF00;' %>
         </li>
        <% else %>
-        <li class="a">
-         <%= link_to task.taskname, :style => 'color: #000000;', onclick="Button_Click();" %>
-         <%= link_to "削除", list_tasks_path(task), :method => :delete, :style => 'color: #FF0000;' %>
+        <li class="a3">
+         <%= link_to '作業中', doing_list_task_path(:id => task.id), :method => :put %>
+         <%= link_to '完了', finish_list_task_path(:id => task.id), :method => :put %>
+         <%= link_to task.taskname, edit_list_task_path(:id => task.id),  :style => 'color: #000000;' %>
+         <%= link_to "削除", list_task_path(:id => task.id), :method => :delete, :style => 'color: #000000;' %>
         </li>
        <% end %>
-    </ul>
 
-  </div>
+     <% end %>
+    </ul>
+</div>
+
   <div class="list">
     <ul class="list" id="list2">
     <header1>作業中</header1>
     <% Task.where("list_id = ? AND flag_id = 1", params[:list_id]).find_each do |task| %>
-       <li class="a">
-        <%= link_to task.taskname, :style => 'color: #000000;' %>
-        <%= link_to "削除", list_tasks_path(task), :method => :delete, :style => 'color: #FF0000;' %>
+
+    <% if @time_out.to_i >= 0 %>
+       <li class="a1">
+        <%= link_to 'TODO', todo_list_task_path(:id => task.id), :method => :put %>
+        <%= link_to '完了', finish_list_task_path(:id => task.id), :method => :put %>
+        <%= link_to task.taskname, edit_list_task_path(:id => task.id), :style => 'color: #FF0000;' %>
+        <%= link_to "削除", list_task_path(:id => task.id), :method => :delete, :style => 'color: #FF0000;' %>
        </li>
-      <% end %>
+    <% elsif @one_week.to_i <= 604800 %>
+       <li class="a2">
+        <%= link_to 'TODO', todo_list_task_path(:id => task.id), :method => :put %>
+        <%= link_to '完了', finish_list_task_path(:id => task.id), :method => :put %>
+        <%= link_to task.taskname, edit_list_task_path(:id => task.id), :style => 'color: #FFFF00;' %>
+        <%= link_to "削除", list_task_path(:id => task.id), :method => :delete, :style => 'color: #FFFF00;' %>
+       </li>
+    <% else %>
+       <li class="a3">
+        <%= link_to 'TODO', todo_list_task_path(:id => task.id), :method => :put %>
+        <%= link_to '完了', finish_list_task_path(:id => task.id), :method => :put %>
+        <%= link_to task.taskname, edit_list_task_path(:id => task.id), :style => 'color: #000000;' %>
+        <%= link_to "削除", list_task_path(:id => task.id), :method => :delete, :style => 'color: #000000;' %>
+       </li>
+    <% end %>
+
+    <% end %>
     </ul>
   </div>
+
+
   <div class="list">
     <ul class="list" id="list3">
     <header1>完了</header1>
     <% Task.where("list_id = ? AND flag_id = 2", params[:list_id]).find_each do |task| %>
-       <li class="a">
-        <%= link_to task.taskname, :style => 'color: #000000;' %>
-        <%= link_to "削除", list_tasks_path(task), :method => :delete, :style => 'color: #FF0000;' %>
+
+    <% if @time_out.to_i >= 0 %>
+      <li class="a1">
+        <%= link_to 'TODO', todo_list_task_path(:id => task.id), :method => :put %>
+        <%= link_to '作業中', doing_list_task_path(:id => task.id), :method => :put %>
+        <%= link_to task.taskname, edit_list_task_path(:id => task.id), :style => 'color: #FF0000;' %>
+        <%= link_to "削除", list_task_path(:id => task.id), :method => :delete, :style => 'color: #FF0000;' %>
        </li>
-      <% end %>
+    <% elsif @one_week.to_i <= 604800 %>
+       <li class="a2">
+        <%= link_to 'TODO', todo_list_task_path(:id => task.id), :method => :put %>
+        <%= link_to '作業中', doing_list_task_path(:id => task.id), :method => :put %>
+        <%= link_to task.taskname, edit_list_task_path(:id => task.id), :style => 'color: #FFFF00;' %>
+        <%= link_to "削除", list_task_path(:id => task.id), :method => :delete, :style => 'color: #FFFF00;' %>
+       </li>
+    <% else %>
+       <li class="a3">
+        <%= link_to 'TODO', todo_list_task_path(:id => task.id), :method => :put %>
+        <%= link_to '作業中', doing_list_task_path(:id => task.id), :method => :put %>
+        <%= link_to task.taskname, edit_list_task_path(:id => task.id), :style => 'color: #000000;' %>
+        <%= link_to "削除", list_task_path(:id => task.id), :method => :delete, :style => 'color: #000000;' %>
+       </li>
+    <% end %>
+    <% end %>
+
     </ul>
   </div>
   </div>
@@ -130,7 +180,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-sortable/0.9.13/jquery-sortable-min.js"></script>
 
 
-<!-- <script>
+<script>
   $(function(){
     Sortable.create(list1, {
       sort: 1,
@@ -171,6 +221,59 @@
   });
 };
 
-</script> -->
+
+
+
+
+
+
+</script>
 </body>
 </html>
+
+
+<!--
+<div class="lists">
+        <div class="list">
+            <header>TODO</header>
+            <ul>
+                <li>シャフト</li>
+                <li>シャフト</li>
+                <li>シャフト</li>
+                <li>シャフト</li>
+            </ul>
+            <footer>＋仕事を追加する</footer>
+        </div>
+        <div class="list">
+            <header>作業中</header>
+            <ul>
+                <li>シャフト</li>
+                <li>シャフト</li>
+                <li>
+                    <img src="holder.js/300x150?auto=yes&bg=#ccc" alt="">
+                    シャフト
+                </li>
+                <li>シャフト</li>
+                <li>シャフト</li>
+                <li>シャフト</li>
+                <li>シャフト</li>
+                <li>シャフト</li>
+                <li>シャフト</li>
+                <li>シャフト</li>
+                <li>シャフト</li>
+                <li>シャフト</li>
+            </ul>
+            <footer>＋仕事を追加する</footer>
+        </div>
+        <div class="list">
+            <header>完了</header>
+            <ul>
+                <li>シャフト</li>
+                <li>シャフト</li>
+            </ul>
+            <footer>＋仕事を追加する</footer>
+        </div>
+    </div>
+
+
+ -->

@@ -14,10 +14,9 @@ ActiveRecord::Schema.define(version: 2018_08_30_051051) do
 
   create_table "lists", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
-    t.bigint "user_id"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_lists_on_user_id"
   end
 
   create_table "tasks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -25,15 +24,13 @@ ActiveRecord::Schema.define(version: 2018_08_30_051051) do
     t.string "number"
     t.string "price"
     t.string "order_number"
-    t.bigint "list_id"
-    t.bigint "user_id"
+    t.integer "list_id"
+    t.integer "user_id"
     t.datetime "term"
     t.integer "flag_id", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "picture"
-    t.index ["list_id"], name: "index_tasks_on_list_id"
-    t.index ["user_id"], name: "index_tasks_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
