@@ -9,13 +9,13 @@ class UsersController < ApplicationController
 	end
 
 	def pay
-	 @user = User.find(current_user[:id])
      Payjp.api_key = 'sk_test_da41c1a67e47faa9c167e35f'
 
      customer = Payjp::Customer.create(
       description: 'test'
      )
 
+     @user = User.find(current_user[:id])
      @user.customer_id = customer['id']
      @user.save
 

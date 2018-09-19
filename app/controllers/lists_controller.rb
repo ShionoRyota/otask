@@ -1,6 +1,8 @@
 class ListsController < ApplicationController
 
   before_action :authenticate_user!
+  before_action :no_card?
+
 
   def index
     @list = List.new
@@ -31,6 +33,13 @@ class ListsController < ApplicationController
     if @list.destroy
       redirect_to lists_path
     end
+  end
+
+  def no_card?
+      @current_user = User.find(current_user[:id])
+      if @current_user.customer_id.nil?
+        redirect_to users_show_path
+      end
   end
 
   private
