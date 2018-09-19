@@ -15,6 +15,7 @@ class UsersController < ApplicationController
       description: 'test'
      )
 
+
      plan = Payjp::Plan.create(
       amount: 2280,
       currency: 'jpy',
@@ -35,7 +36,7 @@ class UsersController < ApplicationController
        :currency => 'jpy'
      )
 
-    redirect_to "/users/index"
+    redirect_to users_path
 
     flash[:notice] = "支払い完了"
 
