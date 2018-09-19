@@ -1,6 +1,8 @@
 class TasksController < ApplicationController
 
 before_action :authenticate_user!
+before_action :no_card?
+
 
   def index
     @Task = Task.all
@@ -62,6 +64,13 @@ before_action :authenticate_user!
     @task = Task.find(params[:id]) #⑤
     @task.destroy
     render :index #④
+  end
+
+  def no_card?
+      @current_user = User.find(current_user[:id])
+      if @current_user.customer_id.nil?
+        redirect_to users_show_path
+      end
   end
 
   private
