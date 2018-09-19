@@ -17,8 +17,6 @@ class ListsController < ApplicationController
     @list.user = current_user
     if @list.save!
       redirect_to :lists
-    else
-      render :action => 'index'
     end
   end
 
@@ -29,9 +27,10 @@ class ListsController < ApplicationController
   end
 
   def destroy
-  @list = List.find(params[:id])
-  @list.destroy
-  redirect_to lists_path
+    @list = List.find(params[:id])
+    if @list.destroy
+      redirect_to lists_path
+    end
   end
 
   private

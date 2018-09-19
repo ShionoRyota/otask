@@ -2,13 +2,14 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users
   resources :lists do
-  	resources :tasks
+  	resources :tasks do
+  	member do
+    put 'todo'
+    put 'doing'
+    put 'finish'
+    end
+    end
   end
-
-  put '/tasks/:id/todo', to: 'tasks#todo'
-  put '/tasks/:id/doing', to: 'tasks#doing'
-  put '/tasks/:id/finish', to: 'tasks#finish'
-
 
   root to: 'users#index'
 end
