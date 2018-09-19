@@ -9,11 +9,17 @@ class UsersController < ApplicationController
 	end
 
 	def pay
+	 @user = User.find(current_user[:id])
      Payjp.api_key = 'sk_test_da41c1a67e47faa9c167e35f'
 
      customer = Payjp::Customer.create(
       description: 'test'
      )
+
+     @user.customer_id = customer['id']
+     @user.save
+
+
 
      plan = Payjp::Plan.create(
       amount: 2280,
@@ -29,13 +35,14 @@ class UsersController < ApplicationController
       customer: customer
      )
 
-     Payjp::Charge.create(
+     charge = Payjp::Charge.create(
        :amount => 2280,
        :card => params['payjp-token'],
        :currency => 'jpy'
      )
 
-    redirect_to "/users/index"
+
+    redirect_to users_path
 
     flash[:notice] = "支払い完了"
 
