@@ -3,6 +3,9 @@ class TasksController < ApplicationController
 before_action :authenticate_user!
 
   def index
+    @task = Task.find_by(list_id: params[:id])
+    @one_week = @task.term.to_i - Time.now.to_i
+    @time_out = Time.now.to_i - Task.term.to_i
   end
 
   def new
@@ -23,19 +26,19 @@ before_action :authenticate_user!
 
 
   def create
-    @list = List.find(params[:list_id]) #①
-    @task = @list.tasks.build(task_params) #②
-    @task.user_id = current_user.id #③
+    @list = List.find(params[:list_id])
+    @task = @list.tasks.build(task_params)
+    @task.user_id = current_user.id
     if @task.save
-      render :index #④
+      render :index
     end
   end
 
 
   def destroy
-    @task = Task.find(params[:id]) #⑤
+    @task = Task.find(params[:id])
     if @task.destroy
-      render :index #⑥
+      render :index
     end
   end
 

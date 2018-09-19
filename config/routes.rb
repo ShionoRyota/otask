@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   	resources :tasks
   end
   root to: 'users#index'
+  get 'users/show' => "users#show"
+  post '/pay' => "users#pay"
 end
