@@ -98,7 +98,7 @@
          <%= link_to "削除", list_task_path(:id => task.id), :method => :delete, :style => 'color: #FF0000;' %>
         </li>
        <% else %>
-        <li class="a3">
+        <li class="a">
          <%= link_to task.taskname, edit_list_task_path(:id => task.id),  :style => 'color: #000000;' %>
          <%= link_to '作業中', doing_list_task_path(:id => task.id), :method => :put %>
          <%= link_to '完了', finish_list_task_path(:id => task.id), :method => :put %>
@@ -130,7 +130,7 @@
         <%= link_to "削除", list_task_path(:id => task.id), :method => :delete, :style => 'color: #FFFF00;' %>
        </li>
     <% else %>
-       <li class="a3">
+       <li class="a">
        <%= link_to task.taskname, edit_list_task_path(:id => task.id),  :style => 'color: #000000;' %>
         <%= link_to 'TODO', todo_list_task_path(:id => task.id), :method => :put %>
         <%= link_to '完了', finish_list_task_path(:id => task.id), :method => :put %>
@@ -163,7 +163,7 @@
         <%= link_to "削除", list_task_path(:id => task.id), :method => :delete, :style => 'color: #FFFF00;' %>
        </li>
     <% else %>
-       <li class="a3">
+       <li class="a">
        <%= link_to task.taskname, edit_list_task_path(:id => task.id),  :style => 'color: #000000;' %>
         <%= link_to 'TODO', todo_list_task_path(:id => task.id), :method => :put %>
         <%= link_to '作業中', doing_list_task_path(:id => task.id), :method => :put %>
