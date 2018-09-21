@@ -132,9 +132,21 @@ before_action :no_card?
       end
   end
 
+<<<<<<< HEAD
   def a
     @list = List.find(params[:list_id]) #①
     @user = User.find(current_user[:id])
+=======
+  def invoice
+    @suppliers = List.find(params[:list_id])
+    @company = User.find(current_user[:id])
+  end
+
+  def delnote
+  end
+
+  def ahead
+>>>>>>> 4a27c73aceda50898db1b45f28fc7300daef796f
   end
 
   private
