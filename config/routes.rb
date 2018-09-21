@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users
   resources :lists do
+  	get 'tasks/invoice' => "tasks#invoice"
   	resources :tasks do
   	member do
     put 'todo'

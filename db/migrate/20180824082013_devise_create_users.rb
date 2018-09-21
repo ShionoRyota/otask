@@ -37,7 +37,10 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
 
       t.string :company_name
       t.string :president_name
+      t.string :postal_code
       t.string :address
+      t.string :phone_number
+      t.string :fax_number
 
 
       t.timestamps null: false
