@@ -1,0 +1,29 @@
+<header class="align">
+
+  <nav class="navigation navigation--inline">
+    <ul>
+      <li>
+        <a href="http://127.0.0.1:3000/lists">
+          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#bell">
+          <span class="invisible">　通知画面へ　</span>
+        </a>
+      </li>
+      <li>
+        <a href="http://127.0.0.1:3000/users">
+          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#bell">
+          <span class="invisible">　マイページへ　</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+</header>
+
+
+<% @lists.each do |list| %>
+ <div class="box3">
+     <a1><%= link_to list.name, list_task_path(list) %></a1>
+     <a2><%= link_to "編集", edit_list_path(list), :style => 'color: #000000;' %></a2>
+     <a3><%= link_to "削除", list_path(list), :method => :delete, :style => 'color: #FF0000;' %></a3>
+ </div>
+<% end %>

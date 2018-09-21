@@ -42,6 +42,10 @@ class ListsController < ApplicationController
       end
   end
 
+  def show
+    @lists = current_user.lists.all
+  end
+
   private
 
     def list_params
