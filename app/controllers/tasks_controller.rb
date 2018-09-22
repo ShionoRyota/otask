@@ -31,8 +31,6 @@ before_action :no_card?
 
   def edit
     @task = Task.find(params[:id])
-    @tasks = Task.where(params[:id]).select("sum(tasks.number * tasks.price) as total, tasks.id").group(:id).order(nil)
-    @total = @tasks.first.total
   end
 
 
@@ -48,7 +46,10 @@ before_action :no_card?
           else
              @task.update(color_id: 0)
           end
-    redirect_to list_tasks_path
+    @sale = (@task.number.to_i * @task.price.to_i)
+    if @task.update(sale: @sale)
+      redirect_to list_tasks_path
+    end
 
   end
 
@@ -115,7 +116,8 @@ before_action :no_card?
           else
                @task.color_id = 0
           end
-    if @task.save
+      @sale = (@task.number.to_i * @task.price.to_i)
+    if @task.update(sale: @sale)
       render :index #④
     end
   end

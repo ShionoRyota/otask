@@ -21,16 +21,34 @@
 
   <div class="field">
     <h9><%= f.label :個数 %></h9><br />
-    <%= f.text_field :number, size: "50x1", style: "font-size:20px", placeholder: "10本"%>
-  </div>
+    <%= f.text_field :number, id: "tasks_number", size: "50x1", style: "font-size:20px", placeholder: "10本"%>   </div>
 
   <div class="field">
     <h9><%= f.label :単価 %></h9><br />
-    <%= f.text_field :price, size: "50x1", style: "font-size:20px" %>
-  </div>
+    <%= f.text_field :price, id: "tasks_price", size: "50x1", style: "font-size:20px" %>  </div>
 
-    <li>合計金額 <%= (@task.number.to_i * @task.price.to_i) %>円(税抜き) </li>
-    <li>合計金額 <%= (@task.number.to_i * @task.price.to_i * 1.08) %>円(税込み) </li>
+
+<table border = "1">
+<tr> 合計(円)<td id = "answer"></td></tr>
+</table>
+
+<script type = "text/javascript">
+<!--
+window.onload = function() {
+var number = document.getElementById( "tasks_number" ); // DOM要素を用意しておく
+var price = document.getElementById( "tasks_price" ); // DOM要素を用意しておく
+var answer = document.getElementById( "answer" ); // DOM要素を用意しておく
+
+number.value = ""; // 初期化
+price.value = ""; // 初期化
+answer.value = ""; // 初期化
+
+price.onkeyup = function() { // キー入力が終わった瞬間に実行される関数の宣言
+answer.innerHTML = parseInt( number.value, 10 ) * parseInt( price.value, 10 ); // 実際の計算
+};
+}
+// -->
+</script>
 
 
 
@@ -50,13 +68,14 @@
 
 
 
-
-
   <div class="actions">
     <button class="button2" type="submit">保存する</button>
   </div>
 
 </ul>
 <% end %>
+
+
+
 
 
