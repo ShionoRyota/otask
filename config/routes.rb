@@ -2,11 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users
   resources :lists do
-<<<<<<< HEAD
-    get 'tasks/a' => "tasks#a"
-=======
   	get 'tasks/invoice' => "tasks#invoice"
->>>>>>> 4a27c73aceda50898db1b45f28fc7300daef796f
   	resources :tasks do
   	member do
     put 'todo'
@@ -14,6 +10,7 @@ Rails.application.routes.draw do
     put 'finish'
 
     put 'sale'
+    put 'task_clear'
     end
     end
   end

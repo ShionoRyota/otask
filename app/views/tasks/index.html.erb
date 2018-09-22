@@ -15,15 +15,11 @@
         <a href="http://127.0.0.1:3000/lists">
           <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#bell">
           <span class="invisible">　<　</span>
-<<<<<<< HEAD
-          <%= link_to "＋追加する", new_list_task_path %>
-          <%= link_to "請求", list_tasks_a_path %>
-=======
+
           <%= link_to "＋仕事を追加する", new_list_task_path %>
           <%= link_to "請求書作成画面へ", list_tasks_invoice_path %>
           <%= link_to "納品書作成画面へ", new_list_task_path %>
           <%= link_to "控え作成画面へ", new_list_task_path %>
->>>>>>> 4a27c73aceda50898db1b45f28fc7300daef796f
 
         </a>
       </li>
@@ -104,14 +100,9 @@
          <%= link_to '完了', finish_list_task_path(:id => task.id), :method => :put %>
          <%= link_to "削除", list_task_path(:id => task.id), :method => :delete, :style => 'color: #FFFF00;' %>
         </li>
-<<<<<<< HEAD
       <% end %>
       <% Task.where("list_id = ? AND flag_id = 0 AND color_id = 0", params[:list_id]).find_each do |task| %>
         <li class="a3">
-=======
-       <% else %>
-        <li class="a">
->>>>>>> 4a27c73aceda50898db1b45f28fc7300daef796f
          <%= link_to task.taskname, edit_list_task_path(:id => task.id),  :style => 'color: #000000;' %>
          <%= link_to '作業中', doing_list_task_path(:id => task.id), :method => :put %>
          <%= link_to '完了', finish_list_task_path(:id => task.id), :method => :put %>
@@ -138,18 +129,11 @@
         <%= link_to 'TODO', todo_list_task_path(:id => task.id), :method => :put %>
         <%= link_to '完了', finish_list_task_path(:id => task.id), :method => :put %>
         <%= link_to "削除", list_task_path(:id => task.id), :method => :delete, :style => 'color: #FFFF00;' %>
-<<<<<<< HEAD
       </li>
     <% end %>
     <% Task.where("list_id = ? AND flag_id = 1 AND color_id = 0", params[:list_id]).find_each do |task| %>
       <li class="a3">
         <%= link_to task.taskname, edit_list_task_path(:id => task.id),  :style => 'color: #000000;' %>
-=======
-       </li>
-    <% else %>
-       <li class="a">
-       <%= link_to task.taskname, edit_list_task_path(:id => task.id),  :style => 'color: #000000;' %>
->>>>>>> 4a27c73aceda50898db1b45f28fc7300daef796f
         <%= link_to 'TODO', todo_list_task_path(:id => task.id), :method => :put %>
         <%= link_to '完了', finish_list_task_path(:id => task.id), :method => :put %>
         <%= link_to "削除", list_task_path(:id => task.id), :method => :delete, :style => 'color: #000000;' %>
@@ -175,26 +159,47 @@
         <%= link_to task.taskname, edit_list_task_path(:id => task.id),  :style => 'color: #FFFF00;' %>
         <%= link_to 'TODO', todo_list_task_path(:id => task.id), :method => :put %>
         <%= link_to '作業中', doing_list_task_path(:id => task.id), :method => :put %>
-<<<<<<< HEAD
         <%= link_to "請求", sale_list_task_path(:id => task.id), :method => :put, :style => 'color: #FFFF00;' %>
       </li>
     <% end %>
     <% Task.where("list_id = ? AND flag_id = 2 AND color_id = 0", params[:list_id]).find_each do |task| %>
       <li class="a3">
         <%= link_to task.taskname, edit_list_task_path(:id => task.id),  :style => 'color: #000000;' %>
-=======
-        <%= link_to "削除", list_task_path(:id => task.id), :method => :delete, :style => 'color: #FFFF00;' %>
-       </li>
-    <% else %>
-       <li class="a">
-       <%= link_to task.taskname, edit_list_task_path(:id => task.id),  :style => 'color: #000000;' %>
->>>>>>> 4a27c73aceda50898db1b45f28fc7300daef796f
         <%= link_to 'TODO', todo_list_task_path(:id => task.id), :method => :put %>
         <%= link_to '作業中', doing_list_task_path(:id => task.id), :method => :put %>
         <%= link_to "請求", sale_list_task_path(:id => task.id), :method => :put, :style => 'color: #000000;' %>
       </li>
     <% end %>
+    </ul>
+  </div>
 
+<div class="list">
+    <ul class="list" id="list4">
+    <header1>請求</header1>
+    <% Task.where("list_id = ? AND flag_id = 3 AND color_id = 2", params[:list_id]).find_each do |task| %>
+      <li class="a1">
+        <%= link_to task.taskname, edit_list_task_path(:id => task.id),  :style => 'color: #FF0000;' %>
+        <%= link_to '完了に戻す', finish_list_task_path(:id => task.id), :method => :put %>
+        <%= link_to "履歴に残す", task_clear_list_task_path(:id => task.id), :method => :put, :style => 'color: #FF0000;' %>
+        <%= link_to "削除", list_task_path(:id => task.id), :method => :delete, :style => 'color: #000000;' %>
+      </li>
+    <% end %>
+    <% Task.where("list_id = ? AND flag_id = 3 AND color_id = 1", params[:list_id]).find_each do |task| %>
+      <li class="a2">
+        <%= link_to task.taskname, edit_list_task_path(:id => task.id),  :style => 'color: #FFFF00;' %>
+        <%= link_to '完了に戻す', finish_list_task_path(:id => task.id), :method => :put %>
+        <%= link_to "履歴に残す", task_clear_list_task_path(:id => task.id), :method => :put, :style => 'color: #FFFF00;' %>
+        <%= link_to "削除", list_task_path(:id => task.id), :method => :delete, :style => 'color: #000000;' %>
+      </li>
+    <% end %>
+    <% Task.where("list_id = ? AND flag_id = 3 AND color_id = 0", params[:list_id]).find_each do |task| %>
+      <li class="a3">
+        <%= link_to task.taskname, edit_list_task_path(:id => task.id),  :style => 'color: #000000;' %>
+        <%= link_to '完了に戻す', finish_list_task_path(:id => task.id), :method => :put %>
+        <%= link_to "履歴に残す", task_clear_list_task_path(:id => task.id), :method => :put, :style => 'color: #000000;' %>
+        <%= link_to "削除", list_task_path(:id => task.id), :method => :delete, :style => 'color: #000000;' %>
+      </li>
+    <% end %>
     </ul>
   </div>
   </div>

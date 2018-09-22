@@ -31,6 +31,8 @@ before_action :no_card?
 
   def edit
     @task = Task.find(params[:id])
+    @tasks = Task.where(params[:id]).select("sum(tasks.number * tasks.price) as total, tasks.id").group(:id).order(nil)
+    @total = @tasks.first.total
   end
 
 
@@ -40,11 +42,11 @@ before_action :no_card?
     @aa = @task.term
             @bb = (@aa - Time.new.to_time)
           if @bb <= 0
-             @task.update(flag_id: 0, color_id: 2)
+             @task.update(color_id: 2)
           elsif 0 < @bb && @bb <= 604800
-             @task.update(flag_id: 0, color_id: 1)
+             @task.update(color_id: 1)
           else
-             @task.update(flag_id: 0, color_id: 0)
+             @task.update(color_id: 0)
           end
     redirect_to list_tasks_path
 
@@ -132,11 +134,7 @@ before_action :no_card?
       end
   end
 
-<<<<<<< HEAD
-  def a
-    @list = List.find(params[:list_id]) #①
-    @user = User.find(current_user[:id])
-=======
+
   def invoice
     @suppliers = List.find(params[:list_id])
     @company = User.find(current_user[:id])
@@ -146,7 +144,12 @@ before_action :no_card?
   end
 
   def ahead
->>>>>>> 4a27c73aceda50898db1b45f28fc7300daef796f
+  end
+
+  def task_clear
+    @login_user = Task.find(params[:id])
+    @login_user.update(flag_id: 4)
+    redirect_back(fallback_location: list_tasks_path)
   end
 
   private
