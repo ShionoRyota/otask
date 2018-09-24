@@ -29,6 +29,9 @@
     <%= f.text_field :price, size: "50x1", style: "font-size:20px" %>
   </div>
 
+    <li>合計金額 <%= (@task.number.to_i * @task.price.to_i) %>円(税抜き) </li>
+    <li>合計金額 <%= (@task.number.to_i * @task.price.to_i * 1.08) %>円(税込み) </li>
+
   <div class="birth_date_field">
   <%= f.label :納期 %>
   <%= raw sprintf(
