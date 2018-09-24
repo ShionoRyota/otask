@@ -79,9 +79,13 @@ before_action :no_card?
   end
 
   def delnote
+    @suppliers = List.find(params[:list_id])
+    @company = User.find(current_user[:id])
   end
 
   def ahead
+    @suppliers = List.find(params[:list_id])
+    @company = User.find(current_user[:id])
   end
 
   private

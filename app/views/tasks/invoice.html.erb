@@ -1,6 +1,7 @@
 <style>
   body {
   	background-color: #FFFFFF;
+    margin-top: 80px;
 }
 
 h1 {
@@ -18,16 +19,19 @@ p {
 
 .info {
 	text-align: center;
-	margin-right: 615px;
+	margin-right: 550px;
 }
 
 
 
 .info2 {
-	text-align: left;
-	margin-left: 920px;
+  position: relative;
+  left: 800px;
 }
 
+li {
+  list-style: none;
+}
 
 </style>
 
@@ -42,12 +46,12 @@ p {
 </div>
 
 <div class= "info2">
- <p2><%= @company.company_name %></p2><br><br>
- <p2>〒<%= @company.postal_code %></p2><br>
- <p2>〒<%= @company.address %></p2><br>
- <p2>TEL.<%= @company.phone_number %></p2><br>
- <p2>FAX.<%= @company.fax_number %></p2>
-</div>
+ <li><%= @company.company_name %></li>
+ <li>〒<%= @company.postal_code %></li>
+ <li>〒<%= @company.address %></li>
+ <li>TEL.<%= @company.phone_number %></li>
+ <li>FAX.<%= @company.fax_number %></li>
+</div><br><br>
 
 <table border = "1">
 
