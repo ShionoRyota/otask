@@ -62,7 +62,7 @@ li {
   </tr>
 
     <% Task.where("list_id = ? AND flag_id = 3", params[:list_id]).find_each do |task| %>
-          <tr><td><%= task.taskname %></td><td><%= task.number %></td><td><%= task.price %></td><td><%= task.sale %></td><td><%= task.taskname %></td></tr>
+          <tr><td><%= task.taskname %></td><td><%= task.number %></td><td><%= task.price %></td><td><%= task.sale %></td><td><%= task.remarks %></td></tr>
     <% end %>
 
   </tr>
