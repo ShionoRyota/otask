@@ -140,16 +140,25 @@ before_action :no_card?
   def invoice
     @suppliers = List.find(params[:list_id])
     @company = User.find(current_user[:id])
+    @total = Task.where(flag_id: 3).sum(:sale)
+    @tax = (@total.to_i * 0.08)
+    @sum = (@total + @tax)
   end
 
   def delnote
     @suppliers = List.find(params[:list_id])
     @company = User.find(current_user[:id])
+    @total = Task.where(flag_id: 3).sum(:sale)
+    @tax = (@total.to_i * 0.08)
+    @sum = (@total + @tax)
   end
 
   def ahead
     @suppliers = List.find(params[:list_id])
     @company = User.find(current_user[:id])
+    @total = Task.where(flag_id: 3).sum(:sale)
+    @tax = (@total.to_i * 0.08)
+    @sum = (@total + @tax)
   end
 
   def task_clear
