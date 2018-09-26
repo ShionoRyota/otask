@@ -64,6 +64,7 @@ before_action :no_card?
           else
              @login_user.update(flag_id: 0, color_id: 0)
           end
+    @login_user.update(sale_time: "NULL")
     redirect_back(fallback_location: list_tasks_path)
   end
 
@@ -78,6 +79,7 @@ before_action :no_card?
           else
              @login_user.update(flag_id: 1, color_id: 0)
           end
+    @login_user.update(sale_time: "NULL")
     redirect_back(fallback_location: list_tasks_path)
   end
 
@@ -92,12 +94,13 @@ before_action :no_card?
           else
              @login_user.update(flag_id: 2, color_id: 0)
           end
+    @login_user.update(sale_time: "NULL")
     redirect_back(fallback_location: list_tasks_path)
   end
 
   def sale
     @login_user = Task.find(params[:id])
-    @login_user.update(flag_id: 3)
+    @login_user.update(flag_id: 3, sale_time: Time.now)
     redirect_back(fallback_location: list_tasks_path)
   end
 
@@ -143,15 +146,6 @@ before_action :no_card?
     @total = Task.where(flag_id: 3).sum(:sale)
     @tax = (@total.to_i * 0.08).round
     @sum = (@total + @tax)
-
-    @a = Task.where(created_at: 1.day.ago.all_day)
-    @b = Task.where(flag_id: 3)
-    if @a && @b
-      @user = User.find(current_user[:id])
-      @task = Task.where(flag_id: 3).sum(:sale)
-      @user.update(sales: @task)
-    end
-
   end
 
   def delnote

@@ -3,6 +3,9 @@ class UsersController < ApplicationController
 
 	def index
 		@login_user = User.find(current_user[:id])
+    @user = User.find(current_user[:id])
+    @task = Task.where(sale_time: Time.zone.now.all_day).sum(:sale)
+    @user.update(sales: @task)
 	end
 
 	def show
