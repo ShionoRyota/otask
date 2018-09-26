@@ -42,6 +42,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.string :phone_number
       t.string :fax_number
 
+      t.integer :sales, default: 0
+
 
       t.timestamps null: false
     end

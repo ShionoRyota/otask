@@ -141,15 +141,24 @@ before_action :no_card?
     @suppliers = List.find(params[:list_id])
     @company = User.find(current_user[:id])
     @total = Task.where(flag_id: 3).sum(:sale)
-    @tax = (@total.to_i * 0.08)
+    @tax = (@total.to_i * 0.08).round
     @sum = (@total + @tax)
+
+    @a = Task.where(created_at: 1.day.ago.all_day)
+    @b = Task.where(flag_id: 3)
+    if @a && @b
+      @user = User.find(current_user[:id])
+      @task = Task.where(flag_id: 3).sum(:sale)
+      @user.update(sales: @task)
+    end
+
   end
 
   def delnote
     @suppliers = List.find(params[:list_id])
     @company = User.find(current_user[:id])
     @total = Task.where(flag_id: 3).sum(:sale)
-    @tax = (@total.to_i * 0.08)
+    @tax = (@total.to_i * 0.08).round
     @sum = (@total + @tax)
   end
 
@@ -157,7 +166,7 @@ before_action :no_card?
     @suppliers = List.find(params[:list_id])
     @company = User.find(current_user[:id])
     @total = Task.where(flag_id: 3).sum(:sale)
-    @tax = (@total.to_i * 0.08)
+    @tax = (@total.to_i * 0.08).round
     @sum = (@total + @tax)
   end
 
