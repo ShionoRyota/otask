@@ -27,9 +27,10 @@
     <h9><%= f.label :単価 %></h9><br />
     <%= f.text_field :price, id: "tasks_price", size: "50x1", style: "font-size:20px" %>  </div>
 
-
+    <body>
+<form>
 <table border = "1">
-<tr> 合計(円)<td id = "answer"></td></tr>
+<tr> <td id = "answer"></td> </tr>
 </table>
 
 <script type = "text/javascript">
@@ -49,6 +50,7 @@ answer.innerHTML = parseInt( number.value, 10 ) * parseInt( price.value, 10 ); /
 }
 // -->
 </script>
+</body>
 
 
 
@@ -66,6 +68,11 @@ answer.innerHTML = parseInt( number.value, 10 ) * parseInt( price.value, 10 ); /
               '年 ', '月 ') + '日' %>
 </div>
 
+
+  <div class="field">
+    <h9><%= f.label :備考 %></h9><br />
+    <%= f.text_field :remarks, size: "50x1", style: "font-size:20px" %>
+  </div>
 
 
   <div class="actions">
