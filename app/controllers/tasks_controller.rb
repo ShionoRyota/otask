@@ -17,11 +17,15 @@ before_action :no_card?
           end
       end
 
+      @suppliers = List.find(params[:list_id])
+
 
   end
 
   def show
       @Task = Task.all
+
+      @suppliers = List.find(params[:list_id])
   end
 
   def new
