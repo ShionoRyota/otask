@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 2018_08_30_051051) do
     t.integer "color_id", default: 0
     t.integer "sale"
     t.string "remarks"
+    t.datetime "sale_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "picture"

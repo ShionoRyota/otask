@@ -13,6 +13,7 @@ class CreateTasks < ActiveRecord::Migration[5.2]
       t.integer :color_id, default: 0
       t.integer :sale
       t.string :remarks
+      t.datetime :sale_time
 
       t.timestamps
     end
