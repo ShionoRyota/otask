@@ -7,6 +7,10 @@ class ListsController < ApplicationController
   def index
     @list = List.new
     @lists = current_user.lists.all
+
+    @user = User.find(current_user[:id])
+    @task = Task.where(sale_time: Time.zone.now.all_day).sum(:sale)
+    @user.update(sales: @task)
   end
 
   def edit
@@ -44,6 +48,10 @@ class ListsController < ApplicationController
 
   def show
     @lists = current_user.lists.all
+
+    @user = User.find(current_user[:id])
+    @task = Task.where(sale_time: Time.zone.now.all_day).sum(:sale)
+    @user.update(sales: @task)
   end
 
   private

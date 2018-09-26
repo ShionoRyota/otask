@@ -19,6 +19,9 @@ before_action :no_card?
 
       @suppliers = List.find(params[:list_id])
 
+    @user = User.find(current_user[:id])
+    @task = Task.where(sale_time: Time.zone.now.all_day).sum(:sale)
+    @user.update(sales: @task)
 
   end
 
@@ -26,6 +29,10 @@ before_action :no_card?
       @Task = Task.all
 
       @suppliers = List.find(params[:list_id])
+
+      @user = User.find(current_user[:id])
+      @task = Task.where(sale_time: Time.zone.now.all_day).sum(:sale)
+      @user.update(sales: @task)
   end
 
   def new
