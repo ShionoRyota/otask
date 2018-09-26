@@ -73,6 +73,11 @@
         border-top-right-radius: $card-border-radius;
       }
     }
+
+    #list4 {
+      margin-top: 50px;
+
+    }
   /*.a { background-color: #fff999; }
   .b { background-color: #f3981d; }
   .c { background-color: #a4d5bd; }*/
@@ -171,9 +176,37 @@
       </li>
     <% end %>
     </ul>
+
+    <ul class="list" id="list4">
+    <header1>請求</header1>
+    <% Task.where("list_id = ? AND flag_id = 3 AND color_id = 2", params[:list_id]).find_each do |task| %>
+      <li class="a1">
+        <%= link_to task.taskname, edit_list_task_path(:id => task.id),  :style => 'color: #FF0000;' %>
+        <%= link_to '完了に戻す', finish_list_task_path(:id => task.id), :method => :put %>
+        <%= link_to "履歴に残す", task_clear_list_task_path(:id => task.id), :method => :put, :style => 'color: #FF0000;' %>
+        <%= link_to "削除", list_task_path(:id => task.id), :method => :delete, :style => 'color: #000000;' %>
+      </li>
+    <% end %>
+    <% Task.where("list_id = ? AND flag_id = 3 AND color_id = 1", params[:list_id]).find_each do |task| %>
+      <li class="a2">
+        <%= link_to task.taskname, edit_list_task_path(:id => task.id),  :style => 'color: #FFFF00;' %>
+        <%= link_to '完了に戻す', finish_list_task_path(:id => task.id), :method => :put %>
+        <%= link_to "履歴に残す", task_clear_list_task_path(:id => task.id), :method => :put, :style => 'color: #FFFF00;' %>
+        <%= link_to "削除", list_task_path(:id => task.id), :method => :delete, :style => 'color: #000000;' %>
+      </li>
+    <% end %>
+    <% Task.where("list_id = ? AND flag_id = 3 AND color_id = 0", params[:list_id]).find_each do |task| %>
+      <li class="a3">
+        <%= link_to task.taskname, edit_list_task_path(:id => task.id),  :style => 'color: #000000;' %>
+        <%= link_to '完了に戻す', finish_list_task_path(:id => task.id), :method => :put %>
+        <%= link_to "履歴に残す", task_clear_list_task_path(:id => task.id), :method => :put, :style => 'color: #000000;' %>
+        <%= link_to "削除", list_task_path(:id => task.id), :method => :delete, :style => 'color: #000000;' %>
+      </li>
+    <% end %>
+    </ul>
   </div>
 
-<div class="list">
+<!-- <div class="list">
     <ul class="list" id="list4">
     <header1>請求</header1>
     <% Task.where("list_id = ? AND flag_id = 3 AND color_id = 2", params[:list_id]).find_each do |task| %>
@@ -203,7 +236,7 @@
     </ul>
   </div>
   </div>
- </div>
+ </div> -->
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-sortable/0.9.13/jquery-sortable-min.js"></script>
 
