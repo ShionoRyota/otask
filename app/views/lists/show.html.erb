@@ -34,7 +34,7 @@ div.box10  { width: 350px;
            text-align: center;
        }
 
-       a1 {
+       a {
           color: #000000;
           font-size: 15px;
           text-decoration: none;
@@ -47,8 +47,8 @@ div.box10  { width: 350px;
 
 <% @lists.each do |list| %>
  <div class="box10">
-     <a1><%= link_to list.name, list_task_path(list) %></a1>
-     <a2><%= link_to "編集", edit_list_path(list), :style => 'color: #000000;' %></a2>
-     <a3><%= link_to "削除", list_path(list), :method => :delete, :style => 'color: #FF0000;' %></a3>
+     <a><%= link_to list.name, list_task_path(list) %></a>
+     <a><%= link_to "編集", edit_list_path(list), :style => 'color: #000000;' %></a>
+     <a><%= link_to "削除", list_path(list), :method => :delete, :style => 'color: #FF0000;' %></a>
  </div>
 <% end %>

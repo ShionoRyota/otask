@@ -5,6 +5,7 @@
   <nav class="navigation navigation--inline">
     <ul>
       <li>
+
         <a href="http://127.0.0.1:3000/lists">
           <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#bell">
           <span class="invisible">　<　</span>
@@ -15,6 +16,8 @@
           <%= link_to "控え作成画面へ", list_tasks_ahead_path %>
 
         </a>
+
+        <a2><%= @list.name %></a2>
       </li>
     </ul>
   </nav>
@@ -74,6 +77,13 @@
   /*.a { background-color: #fff999; }
   .b { background-color: #f3981d; }
   .c { background-color: #a4d5bd; }*/
+
+  a2 {
+    color: #1E90FF;
+    font-size: 15px;
+    font-weight: 600;
+    margin-left: 30px;
+  }
 </style>
 
 <!-- <div class="container"> -->
