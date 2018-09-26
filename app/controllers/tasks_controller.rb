@@ -141,7 +141,7 @@ before_action :no_card?
     @suppliers = List.find(params[:list_id])
     @company = User.find(current_user[:id])
     @total = Task.where(flag_id: 3).sum(:sale)
-    @tax = (@total.to_i * 0.08)
+    @tax = (@total.to_i * 0.08).round
     @sum = (@total + @tax)
   end
 
@@ -149,7 +149,7 @@ before_action :no_card?
     @suppliers = List.find(params[:list_id])
     @company = User.find(current_user[:id])
     @total = Task.where(flag_id: 3).sum(:sale)
-    @tax = (@total.to_i * 0.08)
+    @tax = (@total.to_i * 0.08).round
     @sum = (@total + @tax)
   end
 
@@ -157,7 +157,7 @@ before_action :no_card?
     @suppliers = List.find(params[:list_id])
     @company = User.find(current_user[:id])
     @total = Task.where(flag_id: 3).sum(:sale)
-    @tax = (@total.to_i * 0.08)
+    @tax = (@total.to_i * 0.08).round
     @sum = (@total + @tax)
   end
 
