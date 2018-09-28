@@ -17,7 +17,7 @@ before_action :no_card?
           end
       end
 
-      @suppliers = List.find(params[:list_id])
+      @list = List.find(params[:list_id]) #①
 
     @user = User.find(current_user[:id])
     @task = Task.where(user_id: @user, sale_time: Time.zone.now.all_day).sum(:sale)
