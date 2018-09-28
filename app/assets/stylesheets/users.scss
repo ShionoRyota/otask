@@ -219,8 +219,58 @@ div.box5  { position: absolute; top: 150px; left: 250px; width: 204px;
           }
        }
 
-       div.box9  { position: absolute; top: 300px;  width: 400px;
-           height: 200px;padding: 10px;
+       div.box9  { position: absolute; top: 150px;  width: 400px;
+           height: 160px;padding: 10px;
+           background: #FFFFFF;
+           border: 4px; font-size: 80px; color: #000;
+           text-align: center;
+           border-top-left-radius: 30px;
+           border-top-right-radius: 30px;
+           border-bottom-right-radius: 30px;
+           border-bottom-left-radius: 30px;
+           bottom:0;
+           // left:0;
+           right:0;
+           // margin:auto;
+           box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
+           float: right;
+           margin-right: 250px;
+          a {
+          color: #000000;
+          font-size: 30px;
+          text-decoration: none;
+          font-weight: 600;
+          align-items: center;
+          }
+       }
+
+       div.box10  { position: absolute; top: 350px;  width: 400px;
+           height: 160px;padding: 10px;
+           background: #FFFFFF;
+           border: 4px; font-size: 80px; color: #000;
+           text-align: center;
+           border-top-left-radius: 30px;
+           border-top-right-radius: 30px;
+           border-bottom-right-radius: 30px;
+           border-bottom-left-radius: 30px;
+           bottom:0;
+           // left:0;
+           right:0;
+           // margin:auto;
+           box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
+           float: right;
+           margin-right: 250px;
+          a {
+          color: #000000;
+          font-size: 30px;
+          text-decoration: none;
+          font-weight: 600;
+          align-items: center;
+          }
+       }
+
+       div.box11  { position: absolute; top: 550px;  width: 400px;
+           height: 160px;padding: 10px;
            background: #FFFFFF;
            border: 4px; font-size: 80px; color: #000;
            text-align: center;
