@@ -1,8 +1,22 @@
 class PictureUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
-  # include CarrierWave::RMagick
+  include CarrierWave::RMagick
   include CarrierWave::MiniMagick
   process resize_to_limit: [300, 300]
+  version :thumb do
+    process :cover
+    process :resize_to_limit => [300, 300]
+    process :convert => 'jpg'
+    def full_filename (for_file = model.logo.file)
+      "thumbnail.jpg"
+    end
+  end
+
+  def cover
+    manipulate! do |frame, index|
+      frame
+    end
+  end
 
   # Choose what kind of storage to use for this uploader:
   storage :file
@@ -15,7 +29,7 @@ class PictureUploader < CarrierWave::Uploader::Base
   end
 
   def extension_whitelist
-    %w(jpg jpeg gif png )
+    %w(jpg jpeg gif png pdf)
   end
 
 

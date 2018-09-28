@@ -1,4 +1,5 @@
-<%= form_for @task, url: list_tasks_path do |f| %>
+<%= form_for @task, :html => {:multipart => true}, url: list_tasks_path do |f| %>
+
 <ul>
 
 

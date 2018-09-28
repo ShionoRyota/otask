@@ -12,6 +12,8 @@
   <div class="field"><br>
         <p>変更前</p>
     <%= image_tag @task.picture.url, id: :img_prev if @task.picture? %>
+    <%= image_tag @task.picture.url(:thumb).to_s %>
+
   </div>
 
   <div class="field">
