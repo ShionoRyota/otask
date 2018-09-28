@@ -27,11 +27,14 @@
     <h9><%= f.label :単価 %></h9><br />
     <%= f.text_field :price, id: "tasks_price", size: "50x1", style: "font-size:20px" %>  </div>
 
-    <body>
+
+<html>
+<body>
 <form>
 <table border = "1">
 <tr> <td id = "answer"></td> </tr>
 </table>
+</form>
 
 <script type = "text/javascript">
 <!--
@@ -51,6 +54,9 @@ answer.innerHTML = parseInt( number.value, 10 ) * parseInt( price.value, 10 ); /
 // -->
 </script>
 </body>
+</html>
+
+
 
 
 

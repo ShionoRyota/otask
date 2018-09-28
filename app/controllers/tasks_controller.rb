@@ -20,7 +20,7 @@ before_action :no_card?
       @list = List.find(params[:list_id]) #①
 
     @user = User.find(current_user[:id])
-    @task = Task.where(sale_time: Time.zone.now.all_day).sum(:sale)
+    @task = Task.where(user_id: @user, sale_time: Time.zone.now.all_day).sum(:sale)
     @user.update(sales: @task)
 
   end
@@ -31,7 +31,7 @@ before_action :no_card?
       @suppliers = List.find(params[:list_id])
 
       @user = User.find(current_user[:id])
-      @task = Task.where(sale_time: Time.zone.now.all_day).sum(:sale)
+      @task = Task.where(user_id: @user, sale_time: Time.zone.now.all_day).sum(:sale)
       @user.update(sales: @task)
   end
 
@@ -154,7 +154,7 @@ before_action :no_card?
   def invoice
     @suppliers = List.find(params[:list_id])
     @company = User.find(current_user[:id])
-    @total = Task.where(flag_id: 3).sum(:sale)
+    @total = Task.where(user_id: @company, flag_id: 3).sum(:sale)
     @tax = (@total.to_i * 0.08).round
     @sum = (@total + @tax)
   end
@@ -162,7 +162,7 @@ before_action :no_card?
   def delnote
     @suppliers = List.find(params[:list_id])
     @company = User.find(current_user[:id])
-    @total = Task.where(flag_id: 3).sum(:sale)
+    @total = Task.where(user_id: @company, flag_id: 3).sum(:sale)
     @tax = (@total.to_i * 0.08).round
     @sum = (@total + @tax)
   end
@@ -170,7 +170,7 @@ before_action :no_card?
   def ahead
     @suppliers = List.find(params[:list_id])
     @company = User.find(current_user[:id])
-    @total = Task.where(flag_id: 3).sum(:sale)
+    @total = Task.where(user_id: @company, flag_id: 3).sum(:sale)
     @tax = (@total.to_i * 0.08).round
     @sum = (@total + @tax)
   end
