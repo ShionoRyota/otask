@@ -4,8 +4,10 @@ class UsersController < ApplicationController
 	def index
 		@login_user = User.find(current_user[:id])
     @user = User.find(current_user[:id])
-    @task = Task.where(sale_time: Time.zone.now.all_day).sum(:sale)
+    @task = Task.where(user_id: @user, sale_time: Time.zone.now.all_day).sum(:sale)
     @user.update(sales: @task)
+    @tasks = Task.where(user_id: @user, sale_time: Time.zone.now.all_month).sum(:sale)
+    @taskss = Task.where(user_id: @user, sale_time: Time.zone.now.all_year).sum(:sale)
 	end
 
 	def show
@@ -50,6 +52,10 @@ class UsersController < ApplicationController
 
     flash[:notice] = "支払い完了"
 
+  end
+
+  def sale_history
+    @login_user = User.find(current_user[:id])
   end
 
 end
