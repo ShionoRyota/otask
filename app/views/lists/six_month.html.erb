@@ -1,1 +1,22 @@
-<p><%= @task %></p>
+<header class="align">
+
+  <nav class="navigation navigation--inline">
+    <ul>
+      <li>
+        <%= link_to "マイページへ", 'http://127.0.0.1:3000/users' %>
+      </li>
+      <li>
+        <a href="http://127.0.0.1:3000/lists">
+          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#bell">
+          <span class="invisible">　通知画面へ　</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+</header>
+
+
+<div class="mokuji1">6月売上</div>
+
+<div class="mokuji1">合計 <%= @task %> 円</div>
