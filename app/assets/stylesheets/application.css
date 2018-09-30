@@ -51,7 +51,7 @@ i {
 	font-weight: 500;
 }
 
-button.button2  { position: absolute; top: 650px; width: 174px;
+button.button2  { /*position: absolute; *//*top: 650px; */width: 174px;
            height: 45px;padding: 10px;
            background: linear-gradient(-135deg, #0000FF, #1E90FF, #00FFFF);     /* 背景色     */
            border: 4px; font-size: 20px; color: #FFFFFF;

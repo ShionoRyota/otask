@@ -1,26 +1,52 @@
-<h2>Log in</h2>
+<h2>ログイン</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.label :メールアドレス %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", size: "50x1", style: "font-size:20px", placeholder: "gmailでログインしてください" %>
   </div>
 
   <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
+    <%= f.label :パスワード %><br />
+    <%= f.password_field :password, autocomplete: "current-password", size: "50x1", style: "font-size:20px", placeholder: "パスワードを入力してください" %>
   </div>
 
   <% if devise_mapping.rememberable? -%>
     <div class="field">
       <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
+      <%= f.label :記憶する %>
+    </div><br><br><br>
   <% end -%>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
+    <button class="actions" type="submit">ログイン</button>
+
 <% end %>
 
 <%= render "devise/shared/links" %>
+
+<style>
+  button.actions {
+           position: absolute; top: 600px; width: 174px;
+           height: 45px;padding: 10px;
+           background: linear-gradient(-135deg, #0000FF, #1E90FF, #00FFFF);     /* 背景色     */
+           border: 4px; font-size: 20px; color: #FFFFFF;
+           text-align: center;
+           border-top-left-radius: 25px;
+           border-top-right-radius: 25px;
+           border-bottom-right-radius: 25px;
+           border-bottom-left-radius: 25px;
+           left:0;
+           right:0;
+           margin:auto;
+           margin-top: 20px;
+           box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
+       }
+
+       div.field {
+        margin-top: 30px;
+       }
+
+       h2 {
+          margin-top: 150px;
+        }
+</style>
