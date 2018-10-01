@@ -188,6 +188,81 @@ before_action :no_card?
     @tasks = Task.where(list_id: @list, user_id: @user, sale_time: Time.new(2018,10,01).beginning_of_month..Time.new(2018,10,31).end_of_month)
   end
 
+  def one_detail
+    @user = User.find(current_user[:id])
+    @list = List.find(params[:list_id])
+    @tasks = Task.where(list_id: @list, user_id: @user, sale_time: Time.new(2019,01,01).beginning_of_month..Time.new(2019,01,31).end_of_month)
+  end
+
+  def two_detail
+    @user = User.find(current_user[:id])
+    @list = List.find(params[:list_id])
+    @tasks = Task.where(list_id: @list, user_id: @user, sale_time: Time.new(2019,02,01).beginning_of_month..Time.new(2019,02,28).end_of_month)
+  end
+
+  def three_detail
+    @user = User.find(current_user[:id])
+    @list = List.find(params[:list_id])
+    @tasks = Task.where(list_id: @list, user_id: @user, sale_time: Time.new(2019,03,01).beginning_of_month..Time.new(2019,03,31).end_of_month)
+  end
+
+  def four_detail
+    @user = User.find(current_user[:id])
+    @list = List.find(params[:list_id])
+    @tasks = Task.where(list_id: @list, user_id: @user, sale_time: Time.new(2019,04,01).beginning_of_month..Time.new(2019,04,30).end_of_month)
+  end
+
+  def five_detail
+    @user = User.find(current_user[:id])
+    @list = List.find(params[:list_id])
+    @tasks = Task.where(list_id: @list, user_id: @user, sale_time: Time.new(2019,05,01).beginning_of_month..Time.new(2019,05,31).end_of_month)
+  end
+
+  def six_detail
+    @user = User.find(current_user[:id])
+    @list = List.find(params[:list_id])
+    @tasks = Task.where(list_id: @list, user_id: @user, sale_time: Time.new(2019,06,01).beginning_of_month..Time.new(2019,06,30).end_of_month)
+  end
+
+  def seven_detail
+    @user = User.find(current_user[:id])
+    @list = List.find(params[:list_id])
+    @tasks = Task.where(list_id: @list, user_id: @user, sale_time: Time.new(2019,07,01).beginning_of_month..Time.new(2019,07,31).end_of_month)
+  end
+
+
+  def eight_detail
+    @user = User.find(current_user[:id])
+    @list = List.find(params[:list_id])
+    @tasks = Task.where(list_id: @list, user_id: @user, sale_time: Time.new(2019,8,01).beginning_of_month..Time.new(2019,8,31).end_of_month)
+  end
+
+
+  def nine_detail
+    @user = User.find(current_user[:id])
+    @list = List.find(params[:list_id])
+    @tasks = Task.where(list_id: @list, user_id: @user, sale_time: Time.new(2019,9,01).beginning_of_month..Time.new(2019,9,30).end_of_month)
+  end
+
+
+  def ten_detail
+    @user = User.find(current_user[:id])
+    @list = List.find(params[:list_id])
+    @tasks = Task.where(list_id: @list, user_id: @user, sale_time: Time.new(2018,10,01).beginning_of_month..Time.new(2018,10,31).end_of_month)
+  end
+
+  def eleven_detail
+    @user = User.find(current_user[:id])
+    @list = List.find(params[:list_id])
+    @tasks = Task.where(list_id: @list, user_id: @user, sale_time: Time.new(2018,11,01).beginning_of_month..Time.new(2018,11,30).end_of_month)
+  end
+
+  def twelve_detail
+    @user = User.find(current_user[:id])
+    @list = List.find(params[:list_id])
+    @tasks = Task.where(list_id: @list, user_id: @user, sale_time: Time.new(2018,12,01).beginning_of_month..Time.new(2018,12,31).end_of_month)
+  end
+
 
   private
 

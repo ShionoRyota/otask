@@ -17,8 +17,19 @@ Rails.application.routes.draw do
   	get 'tasks/invoice' => "tasks#invoice"
   	get 'tasks/ahead' => "tasks#ahead"
   	get 'tasks/delnote' => "tasks#delnote"
-    get 'tasks/detail' => "tasks#detail"
 
+    get 'tasks/one_detail' => "tasks#one_detail"
+    get 'tasks/two_detail' => "tasks#two_detail"
+    get 'tasks/three_detail' => "tasks#three_detail"
+    get 'tasks/four_detail' => "tasks#four_detail"
+    get 'tasks/five_detail' => "tasks#five_detail"
+    get 'tasks/six_detail' => "tasks#six_detail"
+    get 'tasks/seven_detail' => "tasks#seven_detail"
+    get 'tasks/eight_detail' => "tasks#eight_detail"
+    get 'tasks/nine_detail' => "tasks#nine_detail"
+    get 'tasks/ten_detail' => "tasks#ten_detail"
+    get 'tasks/eleven_detail' => "tasks#eleven_detail"
+    get 'tasks/twelve_detail' => "tasks#twelve_detail"
   	resources :tasks do
   	member do
     put 'todo'
