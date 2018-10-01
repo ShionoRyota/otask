@@ -12,10 +12,13 @@ Rails.application.routes.draw do
   get 'lists/ten_month' => "lists#ten_month"
   get 'lists/eleven_month' => "lists#eleven_month"
   get 'lists/twelve_month' => "lists#twelve_month"
+
   resources :lists do
   	get 'tasks/invoice' => "tasks#invoice"
   	get 'tasks/ahead' => "tasks#ahead"
   	get 'tasks/delnote' => "tasks#delnote"
+    get 'tasks/detail' => "tasks#detail"
+
   	resources :tasks do
   	member do
     put 'todo'

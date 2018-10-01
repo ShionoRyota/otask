@@ -182,9 +182,16 @@ before_action :no_card?
     redirect_back(fallback_location: list_tasks_path)
   end
 
+  def  detail
+    @user = User.find(current_user[:id])
+    @list = List.find(params[:list_id])
+    @tasks = Task.where(list_id: @list, user_id: @user, sale_time: Time.new(2018,10,01).beginning_of_month..Time.new(2018,10,31).end_of_month)
+  end
+
+
   private
 
     def task_params
-      params.require(:task).permit(:taskname, :number, :price, :order_number, :term, :picture, :list_id, :user_id)
+      params.require(:task).permit(:taskname, :number, :price, :order_number, :term, :picture, :remarks, :list_id, :user_id)
     end
 end

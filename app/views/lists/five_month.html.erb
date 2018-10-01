@@ -20,3 +20,9 @@
 <div class="mokuji1">5月売上</div>
 
 <div class="mokuji1">合計 <%= @task %> 円</div>
+
+<% @lists.each do |list| %>
+ <div class="box3">
+     <a1><%= link_to list.name, list_tasks_detail_path(list) %></a1>
+ </div>
+<% end %>
