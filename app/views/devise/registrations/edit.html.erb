@@ -1,8 +1,17 @@
 <h2><%= resource_name.to_s.humanize %> 情報編集</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
+<% if @user.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= @user.errors.count %>件のエラーがあります。</h2>
 
+    <ul>
+    <% @user.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
   <div class="field">
     <h9><%= f.label :事業者名 %></h9><br />
     <%= f.text_field :company_name, size: "50x1", style: "font-size:20px", placeholder: "○△□工場"%>
