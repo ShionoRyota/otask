@@ -135,6 +135,7 @@ before_action :no_card?
     if @task.update(sale: @sale)
       render :index
     else
+      @task = @list.tasks.new(task_params) #②
       render :new
     end
   end
