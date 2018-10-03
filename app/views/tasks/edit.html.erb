@@ -2,7 +2,7 @@
 <ul>
   <div class="field">
     <h9><%= f.label :仕事名 %></h9><br />
-    <%= f.text_field :taskname, size: "50x1", style: "font-size:20px", placeholder: "シャフト"%>
+    <%= f.text_area :taskname, size: "50x2", style: "font-size:20px", placeholder: "シャフト"%>
   </div>
 
   <div class="field">
@@ -10,7 +10,7 @@
         <%= f.file_field :picture, id: :book_img %>
   </div>
   <div class="field"><br>
-        <p>変更前</p>
+        <h9>変更前</h9><br><br>
     <%= image_tag @task.picture.url, id: :img_prev if @task.picture? %>
     <%= image_tag @task.picture.url(:thumb).to_s %>
 
@@ -28,7 +28,7 @@
 
   <div class="field">
     <h9><%= f.label :単価 %></h9><br />
-    <%= f.text_field :price, size: "50x1", style: "font-size:20px" %>
+    <%= f.text_field :price, size: "50x1", style: "font-size:20px", placeholder: "1000円" %>
   </div><br><br>
 
     <li><a>合計金額 <%= (@task.number.to_i * @task.price.to_i) %>円(税抜き)</a></li><br>

@@ -14,7 +14,7 @@
 
   <div class="field">
     <h9><%= f.label :仕事名 %></h9><br />
-    <%= f.text_field :taskname, size: "50x1", style: "font-size:20px", placeholder: "シャフト"%>
+    <%= f.text_area :taskname, size: "50x2", style: "font-size:20px", placeholder: "シャフト"%>
   </div>
 
   <div class="field">
@@ -31,11 +31,11 @@
 
   <div class="field">
     <h9><%= f.label :個数 %></h9><br />
-    <%= f.text_field :number, id: "tasks_number", size: "50x1", style: "font-size:20px", placeholder: "10本" %>   </div>
+    <%= f.text_field :number, id: "tasks_number", size: "50x1", style: "font-size:20px", placeholder: "10本"%>   </div>
 
   <div class="field">
     <h9><%= f.label :単価 %></h9><br />
-    <%= f.text_field :price, id: "tasks_price", size: "50x1", style: "font-size:20px" %>  </div>
+    <%= f.text_field :price, id: "tasks_price", size: "50x1", style: "font-size:20px", placeholder: "1000円" %>  </div>
 
 
 <html>
@@ -72,7 +72,7 @@ answer.innerHTML = parseInt( number.value, 10 ) * parseInt( price.value, 10 ); /
 
 
 <div class="birth_date_field">
-  <%= f.label :納期 %>
+  <h9><%= f.label :納期 %></h9><br>
   <%= raw sprintf(
               f.date_select(
                   :term,
