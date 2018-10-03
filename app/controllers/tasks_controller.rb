@@ -133,7 +133,9 @@ before_action :no_card?
           end
       @sale = (@task.number.to_i * @task.price.to_i)
     if @task.update(sale: @sale)
-      render :index #④
+      render :index
+    else
+      render :new
     end
   end
 

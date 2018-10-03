@@ -1,0 +1,30 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+    attributes:
+      user:
+        name: ユーザーネーム
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: パスワード(確認用)
+        current_password: 現在のパスワード
+        remember_me: 保存する
+        company_name: 事業者名
+        president_name: 代表者名
+        postal_code: 郵便番号
+        address: 住所
+        phone_number: 電話番号
+
+
+    models:
+      list: リスト
+    attributes:
+      list:
+        name: 取引先の名前
+
+    models:
+      task: タスク
+    attributes:
+      task:
+        taskname: 仕事名

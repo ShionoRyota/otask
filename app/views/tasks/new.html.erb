@@ -1,5 +1,14 @@
 <%= form_for @task, :html => {:multipart => true}, url: list_tasks_path do |f| %>
-
+<% if @task.errors.any? %>
+    <div id="error_explanation" class="alert alert-danger">
+      <h2>エラーがあります</h2>
+      <ul>
+      <% @task.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
 <ul>
 
 

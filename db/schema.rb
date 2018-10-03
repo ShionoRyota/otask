@@ -44,11 +44,11 @@ ActiveRecord::Schema.define(version: 2018_08_30_051051) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.string "company_name"
-    t.string "president_name"
-    t.string "postal_code"
-    t.string "address"
-    t.string "phone_number"
+    t.string "company_name", null: false
+    t.string "president_name", null: false
+    t.string "postal_code", null: false
+    t.string "address", null: false
+    t.string "phone_number", null: false
     t.string "fax_number"
     t.integer "sales", default: 0
     t.datetime "created_at", null: false
