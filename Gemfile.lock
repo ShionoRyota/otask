@@ -85,6 +85,9 @@ GEM
       railties (>= 4.1.0, < 6.0)
       responders
       warden (~> 1.2.3)
+    devise-i18n (1.6.5)
+      devise (>= 4.4)
+    devise-i18n-views (0.3.7)
     domain_name (0.5.20180417)
       unf (>= 0.0.5, < 1.0.0)
     erubi (1.7.1)
@@ -248,6 +251,8 @@ DEPENDENCIES
   chromedriver-helper
   coffee-rails (~> 4.2)
   devise
+  devise-i18n
+  devise-i18n-views
   jbuilder (~> 2.5)
   jquery-rails
   listen (>= 3.0.5, < 3.2)
