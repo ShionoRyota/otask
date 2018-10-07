@@ -9,9 +9,7 @@
         <a href="http://127.0.0.1:3000/lists">
           <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#bell">
           <span class="invisible">　<　</span>
-        <div data-turbolinks="false">
-          <%= link_to "＋仕事を追加する", new_list_task_path %>
-        </div>
+          <%= link_to "＋仕事を追加する", new_list_task_path, data: {"turbolinks" => false} %>
           <%= link_to "請求書作成画面へ", list_tasks_invoice_path %>
           <%= link_to "納品書作成画面へ", list_tasks_delnote_path %>
           <%= link_to "控え作成画面へ", list_tasks_ahead_path %>

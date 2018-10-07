@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: { registrations: 'users/registrations',
+                                    confirmations: 'users/confirmations',
+                                    passwords:     'users/passwords',
+                                    unlocks:       'users/unlocks' }
+
+  devise_scope :user do
+    get 'confirm_email', to: 'users/registrations#confirm_email'
+  end
+
   get 'lists/one_month' => "lists#one_month"
   get 'lists/two_month' => "lists#two_month"
   get 'lists/three_month' => "lists#three_month"

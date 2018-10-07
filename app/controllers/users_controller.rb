@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 	protect_from_forgery except: :pay
+  before_action :authenticate_user!, except: [:index]
+  before_action :no_card?, except: [:show, :pay]
 
 	def index
 		@login_user = User.find(current_user[:id])
@@ -56,6 +58,13 @@ class UsersController < ApplicationController
 
   def sale_history
     @login_user = User.find(current_user[:id])
+  end
+
+  def no_card?
+      @current_user = User.find(current_user[:id])
+      if @current_user.customer_id.nil?
+        redirect_to "/users/sign_in"
+      end
   end
 
 end
