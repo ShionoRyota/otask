@@ -1,3 +1,22 @@
+<style>
+ table {
+  margin: auto;
+  margin-bottom: 30px;
+  margin-top: 20px;
+  color: #FFFFFF;
+ }
+.goukei {
+  text-align: center;
+  color: #FFFFFF;
+  margin-top: 20px;
+}
+
+
+</style>
+
+
+
+
 <%= form_for @task, :html => {:multipart => true}, url: list_tasks_path do |f| %>
 <% if @task.errors.any? %>
     <div id="error_explanation" class="alert alert-danger">
@@ -40,11 +59,11 @@
 
 <html>
 <body>
-<form>
-<table border = "1">
-<tr> <td id = "answer"></td> </tr>
-</table>
-</form>
+
+<div class="goukei">合計金額 (税抜)</div>
+ <table border = "1">
+   <tr><td id = "answer">円</td></tr>
+ </table>
 
 <script type = "text/javascript">
 <!--
