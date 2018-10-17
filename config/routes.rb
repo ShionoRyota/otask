@@ -26,6 +26,8 @@ Rails.application.routes.draw do
   	get 'tasks/ahead' => "tasks#ahead"
   	get 'tasks/delnote' => "tasks#delnote"
 
+    get 'tasks/color' => "tasks#color"
+
     get 'tasks/one_detail' => "tasks#one_detail"
     get 'tasks/two_detail' => "tasks#two_detail"
     get 'tasks/three_detail' => "tasks#three_detail"

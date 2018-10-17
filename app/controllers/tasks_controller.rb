@@ -8,18 +8,7 @@ before_action :no_card?
   def index
       @Task = Task.all
       @aa = Task.find_by(params[:id])
-      if !@login_user.nil?
-            @aa = @login_user.term
-            @bb = (@aa - Time.new.to_time)
-          if @bb <= 0
-               render :red_line
-          elsif 0 < @bb && @bb <= 604800
-               render :yellow_line
-          end
-      end
-
       @list = List.find(params[:list_id]) #①
-
     @user = User.find(current_user[:id])
     @task = Task.where(user_id: @user, sale_time: Time.zone.now.all_day).sum(:sale)
     @user.update(sales: @task)
@@ -38,11 +27,25 @@ before_action :no_card?
 
   def new
     @task = Task.new
-
   end
 
   def edit
     @task = Task.find(params[:id])
+  end
+
+  def color
+    tasks = Task.all
+    @tasks = tasks.each{ |tasks|
+      @tas = tasks.term
+      @time = (@tas - Time.new.to_time)
+        if @time <= 0
+          tasks.update(color_id: 2)
+        elsif 0 < @time && @time <= 604800
+          tasks.update(color_id: 1)
+        else
+          tasks.update(color_id: 0)
+        end
+    }
   end
 
 
@@ -122,15 +125,7 @@ before_action :no_card?
     @list = List.find(params[:list_id]) #①
     @task = @list.tasks.build(task_params) #②
     @task.user_id = current_user.id
-    @aa = @task.term
-            @bb = (@aa - Time.new.to_time)
-          if @bb <= 0
-               @task.color_id = 2
-          elsif 0 < @bb && @bb <= 604800
-               @task.color_id = 1
-          else
-               @task.color_id = 0
-          end
+    
       @sale = (@task.number.to_i * @task.price.to_i)
     if @task.update(sale: @sale)
       render :index
