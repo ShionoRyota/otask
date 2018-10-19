@@ -100,6 +100,16 @@ a {
   font-weight: 600;
 }
 
+ @media only screen and (max-width: 750px) {
+    .navigation a {
+    padding: 1.5rem;
+    position: relative;
+    text-decoration: none;
+    color: #000000;
+    font-size: 15px;
+    font-weight: 600;
+   }
+ }
 // .navigation a:focus::after,
 // .navigation a:hover::after {
 //   opacity: 1;
@@ -147,6 +157,39 @@ div.box5  { position: absolute; top: 150px; left: 250px; width: 204px;
           }
        }
 
+       div.box15  {
+        // display: none;
+       }
+
+
+       @media only screen and (max-width: 750px) {
+        div.box15  { width: 204px;
+           height: 65px; padding: 10px;
+           background: #FFFFFF;
+           border: 4px; font-size: 80px; color: #000;
+           text-align: center;
+           border-top-left-radius: 30px;
+           border-top-right-radius: 30px;
+           border-bottom-right-radius: 30px;
+           border-bottom-left-radius: 30px;
+           margin:auto;
+           margin-top: 300px;
+           box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
+          a {
+          color: #000000;
+          font-size: 30px;
+          text-decoration: none;
+          font-weight: 600;
+          align-items: center;
+          }
+       }
+      }
+
+      @media only screen and (max-width: 750px) {
+        .box5 { display: none !important; }
+      }
+
+
        div.box6  { position: absolute; top: 300px; left: 250px; width: 204px;
            height: 65px;padding: 10px;
            background: #FFFFFF;
@@ -170,6 +213,11 @@ div.box5  { position: absolute; top: 150px; left: 250px; width: 204px;
           align-items: center;
           }
        }
+
+       @media only screen and (max-width: 750px) {
+        .box6 { display: none !important; }
+      }
+
 
        div.box7  { position: absolute; top: 450px; left: 250px; width: 204px;
            height: 65px;padding: 10px;
@@ -318,4 +366,44 @@ div.box5  { position: absolute; top: 150px; left: 250px; width: 204px;
           text-align: center;
           }
        }
+
+       @media only screen and (max-width: 750px) {
+           div.box3  { width: 240px;
+           height: 10px; padding: 20px;
+           background: #FFFFFF;
+           border: 4px; font-size: 13px; color: #000;
+           border-top-left-radius: 30px;
+           border-top-right-radius: 30px;
+           border-bottom-right-radius: 30px;
+           border-bottom-left-radius: 30px;
+           box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
+           left:0;
+           right:0;
+           margin: auto;
+           margin-top: 20px;
+           text-align: center;
+
+          a.A1 {
+            font-size: 15px;
+            width: 260px;
+            position: relative;right: 30px;
+           }
+
+           a.A2 {
+            font-size: 15px;
+            width: 260px;
+            position: relative;right: 30px;
+           }
+
+           a.A3 {
+            font-size: 15px;
+            width: 260px;
+            position: relative;right: 30px;
+           }
+       }
+      }
+
+       @media only screen and (max-width: 750px) {
+        .boxs2 { display: none !important; }
+      }
 

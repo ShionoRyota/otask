@@ -1,3 +1,4 @@
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <header class="align">
 
   <nav class="navigation navigation--inline">
@@ -21,15 +22,15 @@
 
 <%= form_for @list do |form| %>
   <div class="mokuji"><%= form.label :取引先を登録 %></div>
-  <div class="fm"><%= form.text_field :name, size: "25x1", style: "font-size:30px", placeholder: "例: ○△□製作所" %></div>
+  <div class="fm"><%= form.text_field :name, size: "25x1", style: "font-size:30px", placeholder: "例: ○△□製作所", class: "smfield" %></div>
   <button class="button" type="submit">登録する</button>
 <% end %>
 
 
 <% @lists.each do |list| %>
  <div class="box3">
-     <a1><%= link_to list.name, list_tasks_path(list) %></a1>
-     <a2><%= link_to "編集", edit_list_path(list), :style => 'color: #000000;' %></a2>
-     <a3><%= link_to "削除", list_path(list), :method => :delete, :style => 'color: #FF0000;' %></a3>
+     <a1><%= link_to list.name, list_tasks_path(list), class: "A1" %></a1>
+     <a2><%= link_to "編集", edit_list_path(list), :style => 'color: #000000;', class: "A2" %></a2>
+     <a3><%= link_to "削除", list_path(list), :method => :delete, :style => 'color: #FF0000;', class: "A3" %></a3>
  </div>
 <% end %>

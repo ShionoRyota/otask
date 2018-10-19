@@ -1,3 +1,5 @@
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
 <style>
   body {
   	background-color: #FFFFFF;
@@ -15,7 +17,11 @@ table {
 }
 
 p {
-	text-align: center;
+	text-align: left;
+}
+
+h5 {
+  text-align: center;
 }
 
 .info {
@@ -35,7 +41,11 @@ li {
 }
 
 td {
-  height: 17px;
+  height: 40px;
+}
+
+span.taskname {
+  text-align: left;
 }
 
 
@@ -43,7 +53,7 @@ td {
 
 <body>
 <h1>請求書</h1>
-<p><%= Date.today.strftime("%Y-%m-%d")%></p>
+<h5><%= Date.today.strftime("%Y-%m-%d")%></h5>
 
 <div class= "info">
  <h1><%= @suppliers.name %>様</h1>
@@ -58,41 +68,17 @@ td {
  <li>FAX.<%= @company.fax_number %></li>
 </div><br><br>
 
-<table border = "1">
+<table border = "1" cellpadding="0">
 
-  <p>下記の通りご請求申し上げます。<p>
+  <h5>下記の通りご請求申し上げます。</h5>
   <tr>
     <th>品番・品名</th><th>数量</th><th>単価</th><th>金額</th><th>備考</th>
   </tr>
 
     <% Task.where("list_id = ? AND flag_id = 3", params[:list_id]).find_each do |task| %>
-          <tr><td><%= task.taskname %></td><td><%= task.number %></td><td><%= task.price %></td><td><%= task.sale %></td><td><%= task.remarks %></td></tr>
+          <tr><td><%= simple_format(task.taskname) %></td><td><%= task.number %></td><td><%= task.price %></td><td><%= task.sale %></td><td><span class="taskname"><%= task.remarks %></span></td></tr>
     <% end %>
 
-  </tr>
-
-  <tr>
-    <td></td><td></td><td></td><td></td><td></td>
-  </tr>
-
-  <tr>
-    <td></td><td></td><td></td><td></td><td></td>
-  </tr>
-
-  <tr>
-    <td></td><td></td><td></td><td></td><td></td>
-  </tr>
-
-  <tr>
-    <td></td><td></td><td></td><td></td><td></td>
-  </tr>
-
-  <tr>
-    <td></td><td></td><td></td><td></td><td></td>
-  </tr>
-
-  <tr>
-    <td></td><td></td><td></td><td></td><td></td>
   </tr>
 
   <tr>
