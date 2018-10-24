@@ -110,7 +110,7 @@ body {
     overflow-y: auto;
 
     li {
-      background-color: #fff;
+      // background-color: #fff;
       padding: $gap;
       &:not(:last-child) {
         margin-bottom: $gap;
@@ -139,6 +139,7 @@ li.a {
 	// text-align: center;
 	font-size: 15px;
 	font-weight: 600;
+  background-color: #FFFFFF;
 }
 
 
@@ -154,7 +155,7 @@ li.a2 {
   // text-align: center;
   font-size: 15px;
   font-weight: 600;
-  background-color: yellow;
+  background-color: #FFD700;
 }
 
 table th {/*table内のthに対して*/
