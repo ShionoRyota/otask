@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_30_051051) do
+ActiveRecord::Schema.define(version: 2018_10_24_092759) do
 
   create_table "lists", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -34,7 +34,14 @@ ActiveRecord::Schema.define(version: 2018_08_30_051051) do
     t.datetime "sale_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "picture"
+  end
+
+  create_table "thumbnails", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "images"
+    t.bigint "task_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["task_id"], name: "index_thumbnails_on_task_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -71,4 +78,5 @@ ActiveRecord::Schema.define(version: 2018_08_30_051051) do
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
   end
 
+  add_foreign_key "thumbnails", "tasks"
 end

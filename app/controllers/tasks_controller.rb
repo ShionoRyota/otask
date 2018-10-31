@@ -1,4 +1,3 @@
-# encoding: utf-8
 class TasksController < ApplicationController
 
 before_action :authenticate_user!
@@ -27,10 +26,13 @@ before_action :no_card?
 
   def new
     @task = Task.new
+    3.times { @task.thumbnails.build }
   end
 
   def edit
     @task = Task.find(params[:id])
+    0.times { @task.thumbnails.build }
+
   end
 
   def color
@@ -125,7 +127,6 @@ before_action :no_card?
     @list = List.find(params[:list_id]) #①
     @task = @list.tasks.build(task_params) #②
     @task.user_id = current_user.id
-    
       @sale = (@task.number.to_i * @task.price.to_i)
     if @task.update(sale: @sale)
       render :index
@@ -135,11 +136,16 @@ before_action :no_card?
     end
   end
 
+
   def destroy
     @list = List.find(params[:list_id]) #①
     @task = Task.find(params[:id]) #⑤
     @task.destroy
     redirect_to list_tasks_path #④
+  end
+
+  def download
+    @task = Thumbnail.find_by(task_id: params[:id])
   end
 
   def no_card?
@@ -260,6 +266,6 @@ before_action :no_card?
   private
 
     def task_params
-      params.require(:task).permit(:taskname, :number, :price, :order_number, :term, :picture, :remarks, :list_id, :user_id)
+      params.require(:task).permit(:taskname, :number, :price, :order_number, :term, :remarks, :list_id, :user_id, thumbnails_attributes:[:id, :images])
     end
 end
