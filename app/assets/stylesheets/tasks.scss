@@ -110,7 +110,7 @@ body {
     overflow-y: auto;
 
     li {
-      background-color: #fff;
+      // background-color: #fff;
       padding: $gap;
       &:not(:last-child) {
         margin-bottom: $gap;
@@ -136,13 +136,15 @@ div.birth_date_field {
 }
 
 li.a {
-	text-align: center;
+	// text-align: center;
 	font-size: 15px;
 	font-weight: 600;
+  background-color: #FFFFFF;
 }
 
+
 li.a1 {
-  text-align: center;
+  // text-align: center;
   font-size: 15px;
   font-weight: 600;
   background-color: red;
@@ -150,10 +152,10 @@ li.a1 {
 
 
 li.a2 {
-  text-align: center;
+  // text-align: center;
   font-size: 15px;
   font-weight: 600;
-  background-color: yellow;
+  background-color: #FFD700;
 }
 
 table th {/*table内のthに対して*/
@@ -162,7 +164,7 @@ table th {/*table内のthに対して*/
 }
 
 table td {/*table内のtdに対して*/
-  padding: 10px 10px;/*上下3pxで左右10px*/
+  // padding: 10px 10px;/*上下3pxで左右10px*/
   font-size: 15px;
 }
 

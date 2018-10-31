@@ -1,3 +1,4 @@
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <style>
  table {
   margin: auto;
@@ -11,6 +12,21 @@
   margin-top: 20px;
 }
 
+@media only screen and (max-width: 750px) {
+    .textArea {
+      width: 240px;
+      font-size: 18px;
+    }
+ }
+
+ @media only screen and (max-width: 750px) {
+    button.button2 {
+      width: 144px;
+      height: 35px;
+      font-size: 18px;
+      padding: 0px;
+    }
+ }
 
 </style>
 
@@ -25,13 +41,16 @@
       </ul>
     </div>
   <% end %>
+<<<<<<< HEAD
 <ul>
 
 
 
+=======
+>>>>>>> af9f3a9050853f0af4b46853b278f9bad8dcd667
   <div class="field">
-    <h9><%= f.label :仕事名 %></h9><br />
-    <%= f.text_area :taskname, size: "50x2", style: "font-size:20px", placeholder: "シャフト"%>
+    <br><h9><%= f.label :仕事名 %></h9><br />
+    <%= f.text_area :taskname, size: "50x2", style: "font-size:20px", placeholder: "シャフト", class: "textArea" %>
   </div>
 
   <div class="field">
@@ -45,16 +64,16 @@
 
   <div class="field">
     <h9><%= f.label :注文番号 %></h9><br />
-    <%= f.text_field :order_number, size: "50x1", style: "font-size:20px", placeholder:"1234-5678" %>
+    <%= f.text_field :order_number, size: "50x1", style: "font-size:20px", placeholder:"1234-5678", class: "textArea" %>
   </div>
 
   <div class="field">
     <h9><%= f.label :個数 %></h9><br />
-    <%= f.text_field :number, id: "tasks_number", size: "50x1", style: "font-size:20px", placeholder: "10本"%>   </div>
+    <%= f.text_field :number, id: "tasks_number", size: "50x1", style: "font-size:20px", placeholder: "10本", class: "textArea"%>   </div>
 
   <div class="field">
     <h9><%= f.label :単価 %></h9><br />
-    <%= f.text_field :price, id: "tasks_price", size: "50x1", style: "font-size:20px", placeholder: "1000円" %>  </div>
+    <%= f.text_field :price, id: "tasks_price", size: "50x1", style: "font-size:20px", placeholder: "1000円", class: "textArea" %>  </div>
 
 
 <html>
@@ -105,7 +124,7 @@ answer.innerHTML = parseInt( number.value, 10 ) * parseInt( price.value, 10 ); /
 
   <div class="field2">
     <h9><%= f.label :備考 %></h9><br />
-    <%= f.text_field :remarks, size: "50x1", style: "font-size:20px" %>
+    <%= f.text_area :remarks, size: "50x2", style: "font-size:20px", class: "textArea" %>
   </div>
 
 

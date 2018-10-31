@@ -1,3 +1,4 @@
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <header class="align">
 
   <nav class="navigation navigation--inline">
@@ -23,7 +24,7 @@
 
 <% @lists.each do |list| %>
  <div class="box15">
-     <a1><%= link_to list.name, list_tasks_one_detail_path(list) %></a1>
+     <a><%= link_to list.name, list_tasks_one_detail_path(list) %></a>
  </div>
 <% end %>
 
