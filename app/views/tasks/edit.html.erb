@@ -1,4 +1,6 @@
-<%= form_for @task, url: list_task_path do |f| %>
+<%# encoding: UTF-8 %>
+
+<%= form_for @task, url: list_task_path, multipart: true do |f| %>
 <ul>
   <div class="field">
     <h9><%= f.label :仕事名 %></h9><br />
@@ -7,13 +9,16 @@
 
   <div class="field">
     <h9><%= f.label :NEW画像 %></h9><br />
-        <%= f.file_field :picture, id: :book_img %>
+    <%= f.fields_for :thumbnails do |thumbnail| %>
+    <%= thumbnail.file_field :images %>
+    <% end %>
+
   </div>
   <div class="field"><br>
         <h9>変更前</h9><br><br>
-    <%= image_tag @task.picture.url, id: :img_prev if @task.picture? %>
-    <%= image_tag @task.picture.url(:thumb).to_s %>
-
+    <% Thumbnail.where("task_id = ?", params[:id]).find_each do |thumbnails| %>
+            <%= link_to image_tag(thumbnails.images.to_s, :width => '100', :height => '100'), download_list_task_path %>
+    <% end %>
   </div>
 
   <div class="field">
@@ -59,6 +64,7 @@
 </ul>
 <% end %>
 
+
 <script type="text/javascript">
 $(function() {
   $('input[type=file]').after('<span></span>');
@@ -67,17 +73,9 @@ $(function() {
   $('input[type=file]').change(function() {
     var file = $(this).prop('files')[0];
 
-    // 画像以外は処理を停止
-    if (! file.type.match('image.*')) {
-      // クリア
-      $(this).val('');
-      $('span').html('');
-      return;
-    }
-
     // 新幅・高さ
-    var new_w = 280;
-    var new_h = 280;
+    var new_w = 100;
+    var new_h = 100;
 
     // 画像表示
     var reader = new FileReader();
@@ -125,6 +123,7 @@ $(function() {
     reader.readAsDataURL(file);
   });
 });
+
 
 </script>
 

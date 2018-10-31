@@ -14,9 +14,6 @@
 
 </style>
 
-
-
-
 <%= form_for @task, :html => {:multipart => true}, url: list_tasks_path do |f| %>
 <% if @task.errors.any? %>
     <div id="error_explanation" class="alert alert-danger">
@@ -31,6 +28,7 @@
 <ul>
 
 
+
   <div class="field">
     <h9><%= f.label :仕事名 %></h9><br />
     <%= f.text_area :taskname, size: "50x2", style: "font-size:20px", placeholder: "シャフト"%>
@@ -38,10 +36,12 @@
 
   <div class="field">
     <h9><%= f.label :画像 %></h9><br />
-        <%= f.file_field :picture  %>
+    <%= f.fields_for :thumbnails do |thumbnail| %>
+    <%= thumbnail.file_field :images %>
+    <% end %>
 
-        <%= image_tag @task.picture.url if @task.picture? %>
   </div>
+
 
   <div class="field">
     <h9><%= f.label :注文番号 %></h9><br />
@@ -98,7 +98,6 @@ answer.innerHTML = parseInt( number.value, 10 ) * parseInt( price.value, 10 ); /
                   use_month_numbers: true,
                   start_year:        2018,
                   end_year:          (Time.now.year + 5),
-                  default:           Date.new(2018, 1, 1),
                   date_separator:    '%s'),
               '年 ', '月 ') + '日' %>
 </div>
@@ -111,13 +110,76 @@ answer.innerHTML = parseInt( number.value, 10 ) * parseInt( price.value, 10 ); /
 
 
   <div class="actions">
-    <button class="button2" type="submit">保存する</button><br><br>
+    <button class="button2" type="submit" id="post">保存する</button><br><br>
   </div>
 
 </ul>
 <% end %>
 
+<script type="text/javascript">
+$(function() {
+  $('input[type=file]').after('<span></span>');
+
+  // アップロードするファイルを選択
+  $('input[type=file]').change(function() {
+    var file = $(this).prop('files')[0];
+
+    // 新幅・高さ
+    var new_w = 100;
+    var new_h = 100;
+
+    // 画像表示
+    var reader = new FileReader();
+    reader.onload = function() {
+      var img_src = $('<img>').attr('src', reader.result);
+
+      var org_img = new Image();
+      org_img.src = reader.result;
+      org_img.onload = function() {
+        // 元幅・高さ
+        var org_w = this.width;
+        var org_h = this.height;
+        // 幅 ＜ 規定幅 && 高さ ＜ 規定高さ
+        if (org_w < new_w && org_h < new_h) {
+          // 幅・高さは変更しない
+          new_w = org_w;
+          new_h = org_h;
+        } else {
+          // 幅 ＞ 規定幅 || 高さ ＞ 規定高さ
+          if (org_w > org_h) {
+            // 幅 ＞ 高さ
+            var percent_w = new_w / org_w;
+            // 幅を規定幅、高さを計算
+            new_h = Math.ceil(org_h * percent_w);
+          } else if (org_w < org_h) {
+            // 幅 ＜高さ
+            var percent_h = new_h / org_h;
+            // 高さを規定幅、幅を計算
+            new_w = Math.ceil(org_w * percent_h);
+          }
+        }
+
+        // リサイズ画像
+        $('span').html($('<canvas>').attr({
+          'id': 'canvas',
+          'width': new_w,
+          'height': new_h
+        }));
+        var ctx = $('#canvas')[0].getContext('2d');
+        var resize_img = new Image(); 
+        resize_img.src = reader.result;
+        ctx.drawImage(resize_img, 0, 0, new_w, new_h);
+      };
+    }
+    reader.readAsDataURL(file);
+  });
+});
+
+</script>
 
 
-
-
+<style>
+#preview img{
+  width: 100px;
+}
+</style>

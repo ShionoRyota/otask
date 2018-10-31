@@ -2,7 +2,10 @@ class Task < ApplicationRecord
 
   belongs_to :user
   belongs_to :list
-  mount_uploader :picture, PictureUploader
+  has_many :thumbnails, dependent: :destroy
+
+  accepts_nested_attributes_for :thumbnails
+
 
   validates :taskname, presence: true
 end

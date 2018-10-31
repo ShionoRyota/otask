@@ -46,6 +46,8 @@ Rails.application.routes.draw do
     put 'doing'
     put 'finish'
 
+    get 'download'
+
     put 'sale'
     put 'task_clear'
     end
