@@ -76,8 +76,11 @@ GEM
       archive-zip (~> 0.10)
       nokogiri (~> 1.8)
     chronic (0.10.2)
+<<<<<<< HEAD
+=======
     codeclimate-engine-rb (0.4.1)
       virtus (~> 1.0)
+>>>>>>> 6399f3bac39be7be26a1d1628d11030c1b1721f2
     coderay (1.1.2)
     coercible (1.0.0)
       descendants_tracker (~> 0.0.1)
@@ -162,9 +165,12 @@ GEM
     nokogiri (1.8.5)
       mini_portile2 (~> 2.3.0)
     orm_adapter (0.5.0)
+<<<<<<< HEAD
+=======
     parser (2.5.3.0)
       ast (~> 2.4.0)
     path_expander (1.0.3)
+>>>>>>> 6399f3bac39be7be26a1d1628d11030c1b1721f2
     payjp (0.0.6)
       rest-client (~> 2.0)
     pry (0.12.0)

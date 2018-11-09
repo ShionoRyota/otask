@@ -1,6 +1,5 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <header class="align">
-
   <nav class="navigation navigation--inline">
     <ul>
       <li>
@@ -11,11 +10,12 @@
       </li>
     </ul>
   </nav>
-
 </header>
 
+<div class = "mokuji">
 <% @tasks.each do |task| %>
  <div class="box3">
      <a><%= task.taskname %>,        <%= task.sale %>円</a>
+ </div>
  </div>
 <% end %>

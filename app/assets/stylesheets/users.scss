@@ -82,6 +82,7 @@ a {
   // border-radius: 0.25rem;
   // box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
   bottom: 0px;
+  margin-left: 200px;
 }
 
 .navigation ul {
@@ -92,7 +93,7 @@ a {
 
 .navigation a {
   // display: block;
-  padding: 1.5rem;
+  // padding: 1.5rem;
   position: relative;
   text-decoration: none;
   color: #000000;
@@ -133,8 +134,8 @@ a {
 }
 
 
-div.box5  { position: absolute; top: 150px; left: 250px; width: 204px;
-           height: 65px;padding: 10px;
+       div.box5  { position: absolute; top: 200px; left: 280px; width: 300px;
+           height: 140px;padding: 10px;
            background: #FFFFFF;
            border: 4px; font-size: 80px; color: #000;
            text-align: center;
@@ -146,14 +147,16 @@ div.box5  { position: absolute; top: 150px; left: 250px; width: 204px;
            // left:0;
            right:0;
            // margin:auto;
-           margin-top: 40px;
            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
+           float: right;
+           margin-right: 250px;
           a {
           color: #000000;
-          font-size: 30px;
+          font-size: 40px;
           text-decoration: none;
           font-weight: 600;
-          align-items: center;
+          position: relative; top: 45px;
+
           }
        }
 
@@ -243,32 +246,9 @@ div.box5  { position: absolute; top: 150px; left: 250px; width: 204px;
           }
        }
 
-       div.box8  { position: absolute; top: 600px; left: 250px; width: 210px;
-           height: 65px;padding: 10px;
-           background: #FFFFFF;
-           border: 4px; font-size: 80px; color: #000;
-           text-align: center;
-           border-top-left-radius: 30px;
-           border-top-right-radius: 30px;
-           border-bottom-right-radius: 30px;
-           border-bottom-left-radius: 30px;
-           bottom:0;
-           // left:0;
-           right:0;
-           // margin:auto;
-           margin-top: 40px;
-           box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
-          a {
-          color: #000000;
-          font-size: 30px;
-          text-decoration: none;
-          font-weight: 600;
-          align-items: center;
-          }
-       }
 
-       div.box9  { position: absolute; top: 150px;  width: 400px;
-           height: 160px;padding: 10px;
+       div.box8  { position: absolute; top: 550px; left: 280px; width: 300px;
+           height: 140px;padding: 10px;
            background: #FFFFFF;
            border: 4px; font-size: 80px; color: #000;
            text-align: center;
@@ -285,10 +265,38 @@ div.box5  { position: absolute; top: 150px; left: 250px; width: 204px;
            margin-right: 250px;
           a {
           color: #000000;
-          font-size: 30px;
+          font-size: 40px;
           text-decoration: none;
           font-weight: 600;
-          align-items: center;
+          position: relative; top: 45px;
+
+          }
+       }
+
+
+       div.box9  { position: absolute; top: 200px; left: 800px; width: 300px;
+           height: 140px;padding: 10px;
+           background: #FFFFFF;
+           border: 4px; font-size: 80px; color: #000;
+           text-align: center;
+           border-top-left-radius: 30px;
+           border-top-right-radius: 30px;
+           border-bottom-right-radius: 30px;
+           border-bottom-left-radius: 30px;
+           bottom:0;
+           // left:0;
+           right:0;
+           // margin:auto;
+           box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
+           float: right;
+           margin-right: 250px;
+          a {
+          color: #000000;
+          font-size: 40px;
+          text-decoration: none;
+          font-weight: 600;
+          position: relative; top: 45px;
+
           }
        }
 
@@ -317,8 +325,9 @@ div.box5  { position: absolute; top: 150px; left: 250px; width: 204px;
           }
        }
 
-       div.box12  { position: absolute; top: 550px;  width: 400px;
-           height: 160px;padding: 10px;
+
+       div.box12  { position: absolute; top: 550px; left: 800px; width: 300px;
+           height: 140px;padding: 10px;
            background: #FFFFFF;
            border: 4px; font-size: 80px; color: #000;
            text-align: center;
@@ -335,12 +344,14 @@ div.box5  { position: absolute; top: 150px; left: 250px; width: 204px;
            margin-right: 250px;
           a {
           color: #000000;
-          font-size: 30px;
+          font-size: 40px;
           text-decoration: none;
           font-weight: 600;
-          align-items: center;
+          position: relative; top: 45px;
+
           }
        }
+
 
 
        div.box3  { width: 350px;
@@ -406,4 +417,3 @@ div.box5  { position: absolute; top: 150px; left: 250px; width: 204px;
        @media only screen and (max-width: 750px) {
         .boxs2 { display: none !important; }
       }
-
