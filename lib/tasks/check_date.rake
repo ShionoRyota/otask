@@ -1,3 +1,5 @@
+
+# 一定時間ごとに納期がすぎてないかチェックする
 namespace :check_date do
 	desc "check_state"
 	task :check_state => :environment do

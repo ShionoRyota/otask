@@ -63,14 +63,14 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'jquery-rails'
 gem 'pry-rails'
-gem 'devise'
-gem 'carrierwave', '~> 1.0.0'
-gem 'mini_magick'
-gem 'rmagick'
-gem 'payjp'
-gem 'rails-i18n'
-gem 'devise-i18n'
-gem 'devise-i18n-views'
-gem 'whenever', :require => false
+gem 'devise' # 認証機能
+gem 'carrierwave', '~> 1.0.0'  #画像アップロード
+gem 'mini_magick' # 画像編集
+gem 'rmagick' # 画像編集
+gem 'payjp' # クレカ支払い登録
+# gem 'rails-i18n'
+gem 'devise-i18n' # deviseの日本語化
+gem 'devise-i18n-views'  # deviseの日本語化
+gem 'whenever', :require => false  #定期的な納期のチェック
 
 

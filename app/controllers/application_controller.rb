@@ -1,15 +1,17 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery with: :null_session
-  before_action :configure_permitted_parameters, if: :devise_controller?
+  protect_from_forgery with: :null_session # CSRF対策を無効
+  before_action :configure_permitted_parameters, if: :devise_controller? # sign_upのパラメータ追加
 
     # def after_sign_up_path_for(resource)
     #      users_show_path
     # end
 
+# ログイン後のリダイレクト先
     def after_sign_in_path_for(resource)
           "http://127.0.0.1:3000/users/show"
     end
 
+# ログアウト後のリダイレクト先
     def after_sign_out_path_for(resource)
         new_user_registration_path
     end
@@ -22,6 +24,7 @@ class ApplicationController < ActionController::Base
       devise_parameter_sanitizer.permit(:account_update, keys: [:company_name, :president_name, :address, :postal_code, :phone_number, :fax_number])
     end
 
+  # ログインしていなければログインページヘリダイレクト
     def sign_in_required
         redirect_to new_user_session_url unless user_signed_in?
     end

@@ -28,17 +28,26 @@
   </div>
 
   <div class="field">
-    <h9><%= f.label :個数 %></h9><br />
-    <%= f.text_field :number, size: "50x1", style: "font-size:20px", placeholder: "10本"%>
+    <h9><%= f.label :単価 %></h9><br />
+    <%= f.text_field :price, size: "50x1", style: "font-size:20px", placeholder: "1000円" %>
   </div>
 
   <div class="field">
-    <h9><%= f.label :単価 %></h9><br />
-    <%= f.text_field :price, size: "50x1", style: "font-size:20px", placeholder: "1000円" %>
+    <h9><%= f.label :個数 %></h9><br />
+    <%= f.text_field :number, size: "50x1", style: "font-size:20px", placeholder: "10本"%>
   </div><br><br>
 
     <li><a>合計金額 <%= (@task.number.to_i * @task.price.to_i) %>円(税抜き)</a></li><br>
     <li><a>合計金額 <%= (@task.number.to_i * @task.price.to_i * 1.08).round %>円(税込み)</a></li><br><br>
+
+  <div class="field">
+    <h9><%= f.label :材料代 %></h9><br />
+    <%= f.text_field :material_cost, id: "tasks_material_cost", size: "50x1", style: "font-size:20px", placeholder: "1000円", class: "textArea" %>  </div>
+
+ <div class="field">
+    <h9><%= f.label :作業の所要時間 %></h9><br />
+    <%= f.text_field :duration, size: "50x1", style: "font-size:20px", placeholder: "2時間", class: "textArea" %>  </div>
+
 
   <div class="birth_date_field">
   <h9><%= f.label :納期 %><h9><br>

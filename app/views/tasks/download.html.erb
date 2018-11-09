@@ -1,6 +1,8 @@
 <div class="center">
     <% Thumbnail.where("task_id = ?", params[:id]).find_each do |thumbnails| %>
-            <%= link_to image_tag(thumbnails.images.to_s) %>
+        <li>
+         <%= link_to image_tag(thumbnails.images.to_s) %>
+        </li>
     <% end %>
 </div>
 
