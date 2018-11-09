@@ -24,14 +24,16 @@ ActiveRecord::Schema.define(version: 2018_10_24_092759) do
     t.string "number"
     t.string "price"
     t.string "order_number"
-    t.integer "list_id"
-    t.integer "user_id"
     t.datetime "term"
+    t.string "remarks"
     t.integer "flag_id", default: 0
     t.integer "color_id", default: 0
     t.integer "sale"
-    t.string "remarks"
+    t.integer "material_cost"
+    t.string "duration"
     t.datetime "sale_time"
+    t.integer "list_id"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

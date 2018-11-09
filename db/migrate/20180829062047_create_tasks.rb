@@ -11,6 +11,8 @@ class CreateTasks < ActiveRecord::Migration[5.2]
       t.integer :flag_id, default: 0 # taskの進歩状況
       t.integer :color_id, default: 0 # 納期が迫ることによる色
       t.integer :sale #単価×個数
+      t.integer :material_cost #材料費
+      t.string :duration #作業の所要時間
       t.datetime :sale_time #taskが請求欄に行った時間（この時点で売上に入るため）
       t.integer :list_id
       t.integer :user_id

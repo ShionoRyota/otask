@@ -245,6 +245,6 @@ before_action :no_card? # クレカ登録してるか確認(課金者以外排�
   private
 
     def task_params
-      params.require(:task).permit(:taskname, :number, :price, :order_number, :term, :remarks, :list_id, :user_id, thumbnails_attributes:[:id, :images])
+      params.require(:task).permit(:taskname, :number, :price, :order_number, :term, :remarks, :material_cost, :duration, :list_id, :user_id, thumbnails_attributes:[:id, :images])
     end
 end
