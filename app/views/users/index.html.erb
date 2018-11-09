@@ -19,12 +19,22 @@
           </span>
         </a>
       </li>
+      <li>
+        <a href="http://127.0.0.1:3000/users">
+          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#bell">
+          <span class="mail icon"></span>
+        </a>
+      </li>
+      <li>
+        <a href="http://127.0.0.1:3000/users">
+          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#bell">
+          <span class="calendar"></span>
+        </a>
+      </li>
     </ul>
   </nav>
 
 </header>
-
-
 
 
 <div class="box5"><a href="http://127.0.0.1:3000/lists">仕事管理</a></div>
@@ -48,13 +58,13 @@
 
 .demoSpan1{width:40px; height:40px; display:block;}
 
-.demoSpan1:before{content:''; height:20px; width:24px; display:block; border:3px #333 solid; border-top:0; position:absolute; top:15px; left:5px;}
+.demoSpan1:before{content:''; height:25px; width:29px; display:block; border:3px #333 solid; border-top:0; position:absolute; top:15px; left:5px;}
 
-.demoSpan1:after{content:''; height:8px; width:6px; display:block; position:absolute; top:25px; left:15px; border:2px solid #333;}
+.demoSpan1:after{content:''; height:8px; width:6px; display:block; position:absolute; top:25px; left:17px; border:2px solid #333;}
 
-.demoSpan2:before{content:''; height:12px; width:5px; display:block; position:absolute; top:3px; left:28px; background:#333;}
+.demoSpan2:before{content:''; height:12px; width:3px; display:block; position:absolute; top:3px; left:37px; background:#333;}
 
-.demoSpan2:after{content:''; height:24px; width:23px; border-top:5px #333 solid; border-right:5px #333 solid; position:absolute; top:4px; left:6px; transform:scale(1,0.8) rotate(-45deg);-webkit-transform:scale(1,0.8) rotate(-45deg);-moz-transform:scale(1,0.8) rotate(-45deg);-o-transform:scale(1,0.8) rotate(-45deg);-ms-transform:scale(1,0.8) rotate(-45deg);}
+.demoSpan2:after{content:''; height:28px; width:27px; border-top:5px #333 solid; border-right:5px #333 solid; position:absolute; top:3px; left:6px; transform:scale(1,0.8) rotate(-45deg);-webkit-transform:scale(1,0.8) rotate(-45deg);-moz-transform:scale(1,0.8) rotate(-45deg);-o-transform:scale(1,0.8) rotate(-45deg);-ms-transform:scale(1,0.8) rotate(-45deg);}
 
   </style>
 
@@ -67,4 +77,93 @@
 
 .demoSpan3:after{width:7px; background:#333; transform:rotate(-45deg);-webkit-transform:rotate(-45deg);-moz-transform:rotate(-45deg);-o-transform:rotate(-45deg);-ms-transform:rotate(-45deg); top:17px; left:944px;}
 
+</style>
+
+<style>
+  .mail.icon {
+  color: #000;
+  position: absolute;
+  margin-left: 215px;
+  margin-top: 4px;
+  width: 40px;
+  height: 30px;
+  border-radius: 3px;
+  border: solid 3px currentColor;
+}
+.mail.icon:before {
+  content: '';
+  position: absolute;
+  left: 19px;
+  top: -14px;
+  width: 2px;
+  height: 25px;
+  background-color: currentColor;
+  -webkit-transform-origin: bottom;
+          transform-origin: bottom;
+  -webkit-transform: rotate(-61deg);
+          transform: rotate(-61deg);
+}
+.mail.icon:after {
+  content: '';
+  position: absolute;
+  left: 19px;
+  top: -14px;
+  width: 2px;
+  height: 25px;
+  background-color: currentColor;
+  -webkit-transform-origin: bottom;
+          transform-origin: bottom;
+  -webkit-transform: rotate(61deg);
+          transform: rotate(61deg);
+}
+</style>
+
+<style>
+  /* 枠 */
+.calendar {
+  font-size: 30px;
+  position: relative;
+  top: 5px;
+  left: 580px;
+  width: 1.4em;
+  height: 1em;
+  border: 0.1em solid #000000;
+  border-radius: 0.1em;
+  box-shadow: inset 0 0.3em 0 0 #000000;
+}
+/* リング */
+.calendar::before {
+  content: "";
+  position: absolute;
+  top: -0.4em;
+  left: 0.2em;
+  width: 0.2em;
+  height: 0.5em;
+  border-radius: 0.1em;
+  background-color: #000000;
+  box-shadow:
+    0 0 0 0.1em #fff,
+    0.8em 0 0 0 #000000,
+    0.8em 0 0 0.1em #fff
+  ;
+}
+/* 日付 */
+.calendar::after {
+  content: "";
+  position: absolute;
+  top: 0.4em;
+  left: 0.15em;
+  width: 0.2em;
+  height: 0.2em;
+  background-color: #000000;
+  box-shadow:
+    0.3em 0 0 0 #000000,
+    0.6em 0 0 0 #000000,
+    0.9em 0 0 0 #000000,
+    0 0.3em 0 0 #000000,
+    0.3em 0.3em 0 0 #000000,
+    0.6em 0.3em 0 0 #000000,
+    0.9em 0.3em 0 0 #000000
+  ;
+}
 </style>
