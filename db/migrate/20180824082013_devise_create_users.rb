@@ -4,7 +4,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
   def change
     create_table :users do |t|
 
-      t.string :customer_id
+      t.string :customer_id #pay.jp連携
 
       ## Database authenticatable
       t.string :email,              null: false, default: ""
@@ -35,15 +35,14 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.string   :unlock_token # Only if unlock strategy is :email or :both
       t.datetime :locked_at
 
-      t.string :company_name
-      t.string :president_name
-      t.string :postal_code
-      t.string :address
-      t.string :phone_number
-      t.string :fax_number
-
+      t.string :company_name # 事業者名
+      t.string :president_name # 代表者名
+      t.string :postal_code # 郵便番号
+      t.string :address # 住所
+      t.string :phone_number # 電話番号
+      t.string :fax_number # FAX番号
+    #検討
       t.integer :sales, default: 0
-
 
       t.timestamps null: false
     end

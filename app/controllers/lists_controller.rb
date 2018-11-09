@@ -1,39 +1,47 @@
 class ListsController < ApplicationController
 
-  before_action :authenticate_user!
-  before_action :no_card?
+  before_action :authenticate_user! #ログイン済ユーザーのみにアクセスを許可する
+  before_action :no_card? #クレカ登録してるか確認(課金者以外排除)
 
-
+#list表示画面
   def index
     @list = List.new
-    @lists = current_user.lists.all
+    @lists = current_user.lists.all #自分のlistのみ全て表示
 
+  ##検討
     @user = User.find(current_user[:id])
     @task = Task.where(user_id: @user, sale_time: Time.zone.now.all_day).sum(:sale)
     @user.update(sales: @task)
+
   end
 
-  def edit
-    @list = List.find(params[:id])
-  end
-
-
+#list作成
 	def create
     @list = List.new(list_params)
     @list.user = current_user
+
+  ##検討
     if @list.save
       redirect_to :lists
     else
       redirect_to :lists
     end
+
   end
 
+#listの内容変更
+  def edit
+    @list = List.find(params[:id])
+  end
+
+#editの内容に変更
   def update
     @list = List.find(params[:id])
     @list.update_attributes(list_params)
     redirect_to lists_path
   end
 
+#リスト削除
   def destroy
     @list = List.find(params[:id])
     if @list.destroy
@@ -41,21 +49,26 @@ class ListsController < ApplicationController
     end
   end
 
+#クレジット登録しているか確認
   def no_card?
       @current_user = User.find(current_user[:id])
-      if @current_user.customer_id.nil?
+      if @current_user.customer_id.nil?  #登録していなければ登録画面へ
         redirect_to users_show_path
       end
   end
 
+#請求済みの仕事のlistを表示
   def show
     @lists = current_user.lists.all
-
     @user = User.find(current_user[:id])
+
+  ##検討
     @task = Task.where(user_id: @user,sale_time: Time.zone.now.all_day).sum(:sale)
     @user.update(sales: @task)
+
   end
 
+# 売上履歴（できれば一つにまとめたい）
   def one_month
     @user = User.find(current_user[:id])
     @task = Task.where(user_id: @user, sale_time: Time.new(2019,01,01).beginning_of_month..Time.new(2019,01,31).end_of_month).sum(:sale)
