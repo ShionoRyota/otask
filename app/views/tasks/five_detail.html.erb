@@ -14,8 +14,11 @@
 
 </header>
 
+
+<div class = "mokuji">
 <% @tasks.each do |task| %>
  <div class="box3">
      <a><%= task.taskname %>,        <%= task.sale %>円</a>
  </div>
+</div>
 <% end %>

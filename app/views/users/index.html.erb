@@ -4,10 +4,31 @@
   <nav class="navigation navigation--inline">
     <ul>
       <li>
-        <a href="http://127.0.0.1:3000/users">
+        <!-- <a href="http://127.0.0.1:3000/users">
           <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#bell">
           <span class="invisible">　通知画面へ　</span>
-        </a>
+        </a> -->
+<style type="text/css">
+ span{height:40px; width:40px; display:block; position:relative;} 
+
+.demoSpan1{width:40px; height:40px; display:block;}
+
+.demoSpan1:before{content:''; height:20px; width:24px; display:block; border:3px #333 solid; border-top:0; position:absolute; top:15px; left:5px;}
+
+.demoSpan1:after{content:''; height:8px; width:6px; display:block; position:absolute; top:25px; left:15px; border:2px solid #333;}
+
+.demoSpan2:before{content:''; height:12px; width:5px; display:block; position:absolute; top:3px; left:28px; background:#333;}
+
+.demoSpan2:after{content:''; height:24px; width:23px; border-top:5px #333 solid; border-right:5px #333 solid; position:absolute; top:4px; left:6px; transform:scale(1,0.8) rotate(-45deg);-webkit-transform:scale(1,0.8) rotate(-45deg);-moz-transform:scale(1,0.8) rotate(-45deg);-o-transform:scale(1,0.8) rotate(-45deg);-ms-transform:scale(1,0.8) rotate(-45deg);}
+
+  </style>
+<link href="http://127.0.0.1:3000/lists">
+<span class="demoSpan1">
+<span class="demoSpan2">
+</span>
+</span>
+ </body>
+</html>
       </li>
     </ul>
   </nav>
@@ -16,19 +37,19 @@
 
 
 
-<div class="boxs">
- <div class="box5"><a href="http://127.0.0.1:3000/lists">仕事管理へ</a></div>
- <div class="box6"><a href="http://127.0.0.1:3000/users/edit">ユーザー編集</a></div>
-</div>
+
+<div class="box5"><a href="http://127.0.0.1:3000/lists">仕事管理</a></div>
+<div class="box8"><a href="http://127.0.0.1:3000/lists/show">請求済みの仕事</a></div>
+
 
 <div class="box15"><a href="http://127.0.0.1:3000/lists">仕事管理へ</a></div>
 
 
-<div class="boxs2">
- <div class="box7"><a href="http://127.0.0.1:3000/users/sale_history">売上履歴</a></div>
- <div class="box8"><a href="http://127.0.0.1:3000/lists/show">請求済みの仕事</a></div>
- <div class="box9"><a>今日の売上<br><br><br><br><%= @login_user.sales %>円</a></div><br><br><br><br>
- <div class="box11"><a>今月の売上<br><br><br><br><%= @tasks %>円</a></div> <br><br><br><br>
- <div class="box12"><a>今年の売上<br><br><br><br><%= @taskss %>円<br><br><br><br></a></div>
-</div>
 
+
+ <div class="box9"><a>収支管理</a></div>
+ <div class="box12"><a href="http://127.0.0.1:3000/users/edit">ユーザー編集</a></div>
+
+ <!-- <div class="box7"><a href="http://127.0.0.1:3000/users/sale_history">売上履歴</a></div> -->
+ <!-- <div class="box9"><a>今日の売上<br><br><br><br><%= @login_user.sales %>円</a></div> -->
+ <!-- <div class="box11"><a>今月の売上<br><br><br><br><%= @tasks %>円</a></div> <br><br><br><br> -->
