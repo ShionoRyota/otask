@@ -67,9 +67,21 @@ class UsersController < ApplicationController
 
 # 収支管理
   def income_and_expenditure
-
+    @user = User.find(current_user[:id])
+    @task = Task.where(user_id: @user, sale_time: Time.zone.now.all_day).sum(:sale)
+    @user.update(sales: @task)
+    @tasks = Task.where(user_id: @user, sale_time: Time.zone.now.all_month).sum(:sale)
+    @taskss = Task.where(user_id: @user, sale_time: Time.zone.now.all_year).sum(:sale)
   end
 
+# 支出管理
+  def expenditure
+  end
+
+# 支出履歴
+  def expenditure_history
+    @login_user = User.find(current_user[:id])
+  end
 #クレジット登録しているか確認
   def no_card?
       @current_user = User.find(current_user[:id])

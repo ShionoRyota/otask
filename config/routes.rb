@@ -58,6 +58,8 @@ Rails.application.routes.draw do
   get 'users/show' => "users#show" # user登録の記入内容確認画面
   get 'users/sale_history', to: 'users#sale_history' #売上履歴
   get 'users/income_and_expenditure', to: 'users#income_and_expenditure' #収支管理
+  get 'users/expenditure', to: 'users#expenditure' #収支管理
+  get 'users/expenditure_history', to: 'users#expenditure_history' #収支管理
   post '/pay' => "users#pay" # pay.jp連携
   get 'lists/show' => "lists#show" #請求済みの仕事のlistを表示
   get 'tasks/show' => "tasks#show" # 請求済みの仕事のtaskの表示
