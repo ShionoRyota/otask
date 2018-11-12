@@ -67,4 +67,19 @@ Rails.application.routes.draw do
   get 'lists/show' => "lists#show" #請求済みの仕事のlistを表示
   get 'tasks/show' => "tasks#show" # 請求済みの仕事のtaskの表示
 
+#支出履歴
+  get 'users/expenditure_one_month' => "users#expenditure_one_month"
+  get 'users/expenditure_two_month' => "users#expenditure_two_month"
+  get 'users/expenditure_three_month' => "users#expenditure_three_month"
+  get 'users/expenditure_four_month' => "users#expenditure_four_month"
+  get 'users/expenditure_five_month' => "users#expenditure_five_month"
+  get 'users/expenditure_six_month' => "users#expenditure_six_month"
+  get 'users/expenditure_seven_month' => "users#expenditure_seven_month"
+  get 'users/expenditure_eight_month' => "users#expenditure_eight_month"
+  get 'users/expenditure_nine_month' => "users#expenditure_nine_month"
+  get 'users/expenditure_ten_month' => "users#expenditure_ten_month"
+  get 'users/expenditure_eleven_month' => "users#expenditure_eleven_month"
+  get 'users/expenditure_twelve_month' => "users#expenditure_twelve_month"
+
+
 end

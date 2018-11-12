@@ -90,4 +90,77 @@ class UsersController < ApplicationController
       end
   end
 
+  # 売上履歴（できれば一つにまとめたい）
+  def expenditure_one_month
+    @user = User.find(current_user[:id])
+    @task = Task.where(user_id: @user, sale_time: Time.new(2019,01,01).beginning_of_month..Time.new(2019,01,31).end_of_month).sum(:sale)
+    @lists = current_user.lists.all
+  end
+
+  def expenditure_two_month
+    @user = User.find(current_user[:id])
+    @task = Task.where(user_id: @user, sale_time: Time.new(2019,02,01).beginning_of_month..Time.new(2019,02,28).end_of_month).sum(:sale)
+    @lists = current_user.lists.all
+  end
+
+  def expenditure_three_month
+    @user = User.find(current_user[:id])
+    @task = Task.where(user_id: @user, sale_time: Time.new(2019,03,01).beginning_of_month..Time.new(2019,03,31).end_of_month).sum(:sale)
+    @lists = current_user.lists.all
+  end
+
+  def expenditure_four_month
+    @user = User.find(current_user[:id])
+    @task = Task.where(user_id: @user, sale_time: Time.new(2019,04,01).beginning_of_month..Time.new(2019,04,30).end_of_month).sum(:sale)
+    @lists = current_user.lists.all
+  end
+
+  def expenditure_five_month
+    @user = User.find(current_user[:id])
+    @task = Task.where(user_id: @user, sale_time: Time.new(2019,05,01).beginning_of_month..Time.new(2019,05,31).end_of_month).sum(:sale)
+    @lists = current_user.lists.all
+  end
+
+  def expenditure_six_month
+    @user = User.find(current_user[:id])
+    @task = Task.where(user_id: @user, sale_time: Time.new(2019,06,01).beginning_of_month..Time.new(2019,06,30).end_of_month).sum(:sale)
+    @lists = current_user.lists.all
+  end
+
+  def expenditure_seven_month
+    @user = User.find(current_user[:id])
+    @task = Task.where(user_id: @user, sale_time: Time.new(2019,07,01).beginning_of_month..Time.new(2019,07,31).end_of_month).sum(:sale)
+    @lists = current_user.lists.all
+  end
+
+  def expenditure_eight_month
+    @user = User.find(current_user[:id])
+    @task = Task.where(user_id: @user, sale_time: Time.new(2019,8,01).beginning_of_month..Time.new(2019,8,31).end_of_month).sum(:sale)
+    @lists = current_user.lists.all
+  end
+
+  def expenditure_nine_month
+    @user = User.find(current_user[:id])
+    @task = Task.where(user_id: @user, sale_time: Time.new(2018,9,01).beginning_of_month..Time.new(2018,9,30).end_of_month).sum(:sale)
+    @lists = current_user.lists.all
+  end
+
+  def expenditure_ten_month
+    @user = User.find(current_user[:id])
+    @task = Task.where(user_id: @user, sale_time: Time.new(2018,10,01).beginning_of_month..Time.new(2018,10,31).end_of_month).sum(:sale)
+    @lists = current_user.lists.all
+  end
+
+  def expenditure_eleven_month
+    @user = User.find(current_user[:id])
+    @task = Task.where(user_id: @user, sale_time: Time.new(2018,11,01).beginning_of_month..Time.new(2018,11,30).end_of_month).sum(:sale)
+    @lists = current_user.lists.all
+  end
+
+  def expenditure_twelve_month
+    @user = User.find(current_user[:id])
+    @task = Task.where(user_id: @user, sale_time: Time.new(2018,12,01).beginning_of_month..Time.new(2018,12,31).end_of_month).sum(:sale)
+    @lists = current_user.lists.all
+  end
+
 end
