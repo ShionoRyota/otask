@@ -105,6 +105,17 @@ class UsersController < ApplicationController
     @brokerage_fee_expenditure_month = Task.where(user_id: @user, sale_time: Time.new(2019,01,01).beginning_of_month..Time.new(2019,01,31).end_of_month).sum(:brokerage_fee)
     @processing_fee_expenditure_month = Task.where(user_id: @user, sale_time: Time.new(2019,01,01).beginning_of_month..Time.new(2019,01,31).end_of_month).sum(:processing_fee)
     @expenditure_month = @expenditure_input_month + @material_cost_expenditure_month + @brokerage_fee_expenditure_month + @processing_fee_expenditure_month
+
+    @expenditures_rent = Expenditure.where(expenditure_item: "家賃・地代", user_id: @user, updated_at: DateTime.new(2019, 01, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 01, 31, 23, 59, 59).end_of_month)
+    @expenditures_utility = Expenditure.where(expenditure_item: "光熱費", user_id: @user, updated_at: DateTime.new(2019, 01, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 01, 31, 23, 59, 59).end_of_month)
+    @expenditures_personnel = Expenditure.where(expenditure_item: "人件費", user_id: @user, updated_at: DateTime.new(2019, 01, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 01, 31, 23, 59, 59).end_of_month)
+    @expenditures_transport = Expenditure.where(expenditure_item: "交通費", user_id: @user, updated_at: DateTime.new(2019, 01, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 01, 31, 23, 59, 59).end_of_month)
+    @expenditures_net = Expenditure.where(expenditure_item: "ネット通信費", user_id: @user, updated_at: DateTime.new(2019, 01, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 01, 31, 23, 59, 59).end_of_month)
+    @expenditures_loan = Expenditure.where(expenditure_item: "機械ローン", user_id: @user, updated_at: DateTime.new(2019, 01, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 01, 31, 23, 59, 59).end_of_month)
+    @expenditures_otherwise = Expenditure.where(expenditure_item: "その他", user_id: @user, updated_at: DateTime.new(2019, 01, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 01, 31, 23, 59, 59).end_of_month)
+    @material_cost = Task.where(user_id: @user, sale_time: DateTime.new(2019, 01, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 01, 31, 23, 59, 59).end_of_month)
+    @brokerage_fee = Task.where(user_id: @user, sale_time: DateTime.new(2019, 01, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 01, 31, 23, 59, 59).end_of_month)
+    @processing_fee = Task.where(user_id: @user, sale_time: DateTime.new(2019, 01, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 01, 31, 23, 59, 59).end_of_month)
   end
 
   def expenditure_two_month
@@ -114,6 +125,17 @@ class UsersController < ApplicationController
     @brokerage_fee_expenditure_month = Task.where(user_id: @user, sale_time: Time.new(2019,02,01).beginning_of_month..Time.new(2019,02,28).end_of_month).sum(:brokerage_fee)
     @processing_fee_expenditure_month = Task.where(user_id: @user, sale_time: Time.new(2019,02,01).beginning_of_month..Time.new(2019,02,28).end_of_month).sum(:processing_fee)
     @expenditure_month = @expenditure_input_month + @material_cost_expenditure_month + @brokerage_fee_expenditure_month + @processing_fee_expenditure_month
+
+    @expenditures_rent = Expenditure.where(expenditure_item: "家賃・地代", user_id: @user, updated_at: DateTime.new(2019, 02, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 02, 28, 23, 59, 59).end_of_month)
+    @expenditures_utility = Expenditure.where(expenditure_item: "光熱費", user_id: @user, updated_at: DateTime.new(2019, 02, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 02, 28, 23, 59, 59).end_of_month)
+    @expenditures_personnel = Expenditure.where(expenditure_item: "人件費", user_id: @user, updated_at: DateTime.new(2019, 02, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 02, 28, 23, 59, 59).end_of_month)
+    @expenditures_transport = Expenditure.where(expenditure_item: "交通費", user_id: @user, updated_at: DateTime.new(2019, 02, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 02, 28, 23, 59, 59).end_of_month)
+    @expenditures_net = Expenditure.where(expenditure_item: "ネット通信費", user_id: @user, updated_at: DateTime.new(2019, 02, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 02, 28, 23, 59, 59).end_of_month)
+    @expenditures_loan = Expenditure.where(expenditure_item: "機械ローン", user_id: @user, updated_at: DateTime.new(2019, 02, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 02, 28, 23, 59, 59).end_of_month)
+    @expenditures_otherwise = Expenditure.where(expenditure_item: "その他", user_id: @user, updated_at: DateTime.new(2019, 02, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 02, 28, 23, 59, 59).end_of_month)
+    @material_cost = Task.where(user_id: @user, sale_time: DateTime.new(2019, 02, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 02, 28, 23, 59, 59).end_of_month)
+    @brokerage_fee = Task.where(user_id: @user, sale_time: DateTime.new(2019, 02, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 02, 28, 23, 59, 59).end_of_month)
+    @processing_fee = Task.where(user_id: @user, sale_time: DateTime.new(2019, 02, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 02, 28, 23, 59, 59).end_of_month)
   end
 
   def expenditure_three_month
@@ -123,6 +145,17 @@ class UsersController < ApplicationController
     @brokerage_fee_expenditure_month = Task.where(user_id: @user, sale_time: Time.new(2019,03,01).beginning_of_month..Time.new(2019,03,31).end_of_month).sum(:brokerage_fee)
     @processing_fee_expenditure_month = Task.where(user_id: @user, sale_time: Time.new(2019,03,01).beginning_of_month..Time.new(2019,03,31).end_of_month).sum(:processing_fee)
     @expenditure_month = @expenditure_input_month + @material_cost_expenditure_month + @brokerage_fee_expenditure_month + @processing_fee_expenditure_month
+
+    @expenditures_rent = Expenditure.where(expenditure_item: "家賃・地代", user_id: @user, updated_at: DateTime.new(2019, 03, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 03, 31, 23, 59, 59).end_of_month)
+    @expenditures_utility = Expenditure.where(expenditure_item: "光熱費", user_id: @user, updated_at: DateTime.new(2019, 03, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 03, 31, 23, 59, 59).end_of_month)
+    @expenditures_personnel = Expenditure.where(expenditure_item: "人件費", user_id: @user, updated_at: DateTime.new(2019, 03, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 03, 31, 23, 59, 59).end_of_month)
+    @expenditures_transport = Expenditure.where(expenditure_item: "交通費", user_id: @user, updated_at: DateTime.new(2019, 03, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 03, 31, 23, 59, 59).end_of_month)
+    @expenditures_net = Expenditure.where(expenditure_item: "ネット通信費", user_id: @user, updated_at: DateTime.new(2019, 03, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 03, 31, 23, 59, 59).end_of_month)
+    @expenditures_loan = Expenditure.where(expenditure_item: "機械ローン", user_id: @user, updated_at: DateTime.new(2019, 03, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 03, 31, 23, 59, 59).end_of_month)
+    @expenditures_otherwise = Expenditure.where(expenditure_item: "その他", user_id: @user, updated_at: DateTime.new(2019, 03, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 03, 31, 23, 59, 59).end_of_month)
+    @material_cost = Task.where(user_id: @user, sale_time: DateTime.new(2019, 03, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 03, 31, 23, 59, 59).end_of_month)
+    @brokerage_fee = Task.where(user_id: @user, sale_time: DateTime.new(2019, 03, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 03, 31, 23, 59, 59).end_of_month)
+    @processing_fee = Task.where(user_id: @user, sale_time: DateTime.new(2019, 03, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 03, 31, 23, 59, 59).end_of_month)
   end
 
   def expenditure_four_month
@@ -132,6 +165,17 @@ class UsersController < ApplicationController
     @brokerage_fee_expenditure_month = Task.where(user_id: @user, sale_time: Time.new(2019,04,01).beginning_of_month..Time.new(2019,04,30).end_of_month).sum(:brokerage_fee)
     @processing_fee_expenditure_month = Task.where(user_id: @user, sale_time: Time.new(2019,04,01).beginning_of_month..Time.new(2019,04,30).end_of_month).sum(:processing_fee)
     @expenditure_month = @expenditure_input_month + @material_cost_expenditure_month + @brokerage_fee_expenditure_month + @processing_fee_expenditure_month
+
+    @expenditures_rent = Expenditure.where(expenditure_item: "家賃・地代", user_id: @user, updated_at: DateTime.new(2019, 04, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 04, 30, 23, 59, 59).end_of_month)
+    @expenditures_utility = Expenditure.where(expenditure_item: "光熱費", user_id: @user, updated_at: DateTime.new(2019, 04, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 04, 30, 23, 59, 59).end_of_month)
+    @expenditures_personnel = Expenditure.where(expenditure_item: "人件費", user_id: @user, updated_at: DateTime.new(2019, 04, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 04, 30, 23, 59, 59).end_of_month)
+    @expenditures_transport = Expenditure.where(expenditure_item: "交通費", user_id: @user, updated_at: DateTime.new(2019, 04, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 04, 30, 23, 59, 59).end_of_month)
+    @expenditures_net = Expenditure.where(expenditure_item: "ネット通信費", user_id: @user, updated_at: DateTime.new(2019, 04, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 04, 30, 23, 59, 59).end_of_month)
+    @expenditures_loan = Expenditure.where(expenditure_item: "機械ローン", user_id: @user, updated_at: DateTime.new(2019, 04, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 04, 30, 23, 59, 59).end_of_month)
+    @expenditures_otherwise = Expenditure.where(expenditure_item: "その他", user_id: @user, updated_at: DateTime.new(2019, 04, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 04, 30, 23, 59, 59).end_of_month)
+    @material_cost = Task.where(user_id: @user, sale_time: DateTime.new(2019, 04, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 04, 30, 23, 59, 59).end_of_month)
+    @brokerage_fee = Task.where(user_id: @user, sale_time: DateTime.new(2019, 04, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 04, 30, 23, 59, 59).end_of_month)
+    @processing_fee = Task.where(user_id: @user, sale_time: DateTime.new(2019, 04, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 04, 30, 23, 59, 59).end_of_month)
   end
 
   def expenditure_five_month
@@ -141,6 +185,17 @@ class UsersController < ApplicationController
     @brokerage_fee_expenditure_month = Task.where(user_id: @user, sale_time: Time.new(2019,05,01).beginning_of_month..Time.new(2019,05,31).end_of_month).sum(:brokerage_fee)
     @processing_fee_expenditure_month = Task.where(user_id: @user, sale_time: Time.new(2019,05,01).beginning_of_month..Time.new(2019,05,31).end_of_month).sum(:processing_fee)
     @expenditure_month = @expenditure_input_month + @material_cost_expenditure_month + @brokerage_fee_expenditure_month + @processing_fee_expenditure_month
+
+    @expenditures_rent = Expenditure.where(expenditure_item: "家賃・地代", user_id: @user, updated_at: DateTime.new(2019, 05, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 05, 31, 23, 59, 59).end_of_month)
+    @expenditures_utility = Expenditure.where(expenditure_item: "光熱費", user_id: @user, updated_at: DateTime.new(2019, 05, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 05, 31, 23, 59, 59).end_of_month)
+    @expenditures_personnel = Expenditure.where(expenditure_item: "人件費", user_id: @user, updated_at: DateTime.new(2019, 05, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 05, 31, 23, 59, 59).end_of_month)
+    @expenditures_transport = Expenditure.where(expenditure_item: "交通費", user_id: @user, updated_at: DateTime.new(2019, 05, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 05, 31, 23, 59, 59).end_of_month)
+    @expenditures_net = Expenditure.where(expenditure_item: "ネット通信費", user_id: @user, updated_at: DateTime.new(2019, 05, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 05, 31, 23, 59, 59).end_of_month)
+    @expenditures_loan = Expenditure.where(expenditure_item: "機械ローン", user_id: @user, updated_at: DateTime.new(2019, 05, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 05, 31, 23, 59, 59).end_of_month)
+    @expenditures_otherwise = Expenditure.where(expenditure_item: "その他", user_id: @user, updated_at: DateTime.new(2019, 05, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 05, 31, 23, 59, 59).end_of_month)
+    @material_cost = Task.where(user_id: @user, sale_time: DateTime.new(2019, 05, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 05, 31, 23, 59, 59).end_of_month)
+    @brokerage_fee = Task.where(user_id: @user, sale_time: DateTime.new(2019, 05, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 05, 31, 23, 59, 59).end_of_month)
+    @processing_fee = Task.where(user_id: @user, sale_time: DateTime.new(2019, 05, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 05, 31, 23, 59, 59).end_of_month)
   end
 
   def expenditure_six_month
@@ -150,6 +205,17 @@ class UsersController < ApplicationController
     @brokerage_fee_expenditure_month = Task.where(user_id: @user, sale_time: Time.new(2019,06,01).beginning_of_month..Time.new(2019,06,30).end_of_month).sum(:brokerage_fee)
     @processing_fee_expenditure_month = Task.where(user_id: @user, sale_time: Time.new(2019,06,01).beginning_of_month..Time.new(2019,06,30).end_of_month).sum(:processing_fee)
     @expenditure_month = @expenditure_input_month + @material_cost_expenditure_month + @brokerage_fee_expenditure_month + @processing_fee_expenditure_month
+
+    @expenditures_rent = Expenditure.where(expenditure_item: "家賃・地代", user_id: @user, updated_at: DateTime.new(2019, 06, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 06, 30, 23, 59, 59).end_of_month)
+    @expenditures_utility = Expenditure.where(expenditure_item: "光熱費", user_id: @user, updated_at: DateTime.new(2019, 06, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 06, 30, 23, 59, 59).end_of_month)
+    @expenditures_personnel = Expenditure.where(expenditure_item: "人件費", user_id: @user, updated_at: DateTime.new(2019, 06, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 06, 30, 23, 59, 59).end_of_month)
+    @expenditures_transport = Expenditure.where(expenditure_item: "交通費", user_id: @user, updated_at: DateTime.new(2019, 06, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 06, 30, 23, 59, 59).end_of_month)
+    @expenditures_net = Expenditure.where(expenditure_item: "ネット通信費", user_id: @user, updated_at: DateTime.new(2019, 06, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 06, 30, 23, 59, 59).end_of_month)
+    @expenditures_loan = Expenditure.where(expenditure_item: "機械ローン", user_id: @user, updated_at: DateTime.new(2019, 06, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 06, 30, 23, 59, 59).end_of_month)
+    @expenditures_otherwise = Expenditure.where(expenditure_item: "その他", user_id: @user, updated_at: DateTime.new(2019, 06, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 06, 30, 23, 59, 59).end_of_month)
+    @material_cost = Task.where(user_id: @user, sale_time: DateTime.new(2019, 06, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 06, 30, 23, 59, 59).end_of_month)
+    @brokerage_fee = Task.where(user_id: @user, sale_time: DateTime.new(2019, 06, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 06, 30, 23, 59, 59).end_of_month)
+    @processing_fee = Task.where(user_id: @user, sale_time: DateTime.new(2019, 06, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 06, 30, 23, 59, 59).end_of_month)
   end
 
   def expenditure_seven_month
@@ -159,6 +225,17 @@ class UsersController < ApplicationController
     @brokerage_fee_expenditure_month = Task.where(user_id: @user, sale_time: Time.new(2019,07,01).beginning_of_month..Time.new(2019,07,31).end_of_month).sum(:brokerage_fee)
     @processing_fee_expenditure_month = Task.where(user_id: @user, sale_time: Time.new(2019,07,01).beginning_of_month..Time.new(2019,07,31).end_of_month).sum(:processing_fee)
     @expenditure_month = @expenditure_input_month + @material_cost_expenditure_month + @brokerage_fee_expenditure_month + @processing_fee_expenditure_month
+
+    @expenditures_rent = Expenditure.where(expenditure_item: "家賃・地代", user_id: @user, updated_at: DateTime.new(2019, 07, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 07, 31, 23, 59, 59).end_of_month)
+    @expenditures_utility = Expenditure.where(expenditure_item: "光熱費", user_id: @user, updated_at: DateTime.new(2019, 07, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 07, 31, 23, 59, 59).end_of_month)
+    @expenditures_personnel = Expenditure.where(expenditure_item: "人件費", user_id: @user, updated_at: DateTime.new(2019, 07, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 07, 31, 23, 59, 59).end_of_month)
+    @expenditures_transport = Expenditure.where(expenditure_item: "交通費", user_id: @user, updated_at: DateTime.new(2019, 07, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 07, 31, 23, 59, 59).end_of_month)
+    @expenditures_net = Expenditure.where(expenditure_item: "ネット通信費", user_id: @user, updated_at: DateTime.new(2019, 07, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 07, 31, 23, 59, 59).end_of_month)
+    @expenditures_loan = Expenditure.where(expenditure_item: "機械ローン", user_id: @user, updated_at: DateTime.new(2019, 07, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 07, 31, 23, 59, 59).end_of_month)
+    @expenditures_otherwise = Expenditure.where(expenditure_item: "その他", user_id: @user, updated_at: DateTime.new(2019, 07, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 07, 31, 23, 59, 59).end_of_month)
+    @material_cost = Task.where(user_id: @user, sale_time: DateTime.new(2019, 07, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 07, 31, 23, 59, 59).end_of_month)
+    @brokerage_fee = Task.where(user_id: @user, sale_time: DateTime.new(2019, 07, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 07, 31, 23, 59, 59).end_of_month)
+    @processing_fee = Task.where(user_id: @user, sale_time: DateTime.new(2019, 07, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 07, 31, 23, 59, 59).end_of_month)
   end
 
   def expenditure_eight_month
@@ -168,6 +245,17 @@ class UsersController < ApplicationController
     @brokerage_fee_expenditure_month = Task.where(user_id: @user, sale_time: Time.new(2019,8,01).beginning_of_month..Time.new(2019,8,31).end_of_month).sum(:brokerage_fee)
     @processing_fee_expenditure_month = Task.where(user_id: @user, sale_time: Time.new(2019,8,01).beginning_of_month..Time.new(2019,8,31).end_of_month).sum(:processing_fee)
     @expenditure_month = @expenditure_input_month + @material_cost_expenditure_month + @brokerage_fee_expenditure_month + @processing_fee_expenditure_month
+
+    @expenditures_rent = Expenditure.where(expenditure_item: "家賃・地代", user_id: @user, updated_at: DateTime.new(2019, 8, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 8, 31, 23, 59, 59).end_of_month)
+    @expenditures_utility = Expenditure.where(expenditure_item: "光熱費", user_id: @user, updated_at: DateTime.new(2019, 8, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 8, 31, 23, 59, 59).end_of_month)
+    @expenditures_personnel = Expenditure.where(expenditure_item: "人件費", user_id: @user, updated_at: DateTime.new(2019, 8, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 8, 31, 23, 59, 59).end_of_month)
+    @expenditures_transport = Expenditure.where(expenditure_item: "交通費", user_id: @user, updated_at: DateTime.new(2019, 8, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 8, 31, 23, 59, 59).end_of_month)
+    @expenditures_net = Expenditure.where(expenditure_item: "ネット通信費", user_id: @user, updated_at: DateTime.new(2019, 8, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 8, 31, 23, 59, 59).end_of_month)
+    @expenditures_loan = Expenditure.where(expenditure_item: "機械ローン", user_id: @user, updated_at: DateTime.new(2019, 8, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 8, 31, 23, 59, 59).end_of_month)
+    @expenditures_otherwise = Expenditure.where(expenditure_item: "その他", user_id: @user, updated_at: DateTime.new(2019, 8, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 8, 31, 23, 59, 59).end_of_month)
+    @material_cost = Task.where(user_id: @user, sale_time: DateTime.new(2019, 8, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 8, 31, 23, 59, 59).end_of_month)
+    @brokerage_fee = Task.where(user_id: @user, sale_time: DateTime.new(2019, 8, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 8, 31, 23, 59, 59).end_of_month)
+    @processing_fee = Task.where(user_id: @user, sale_time: DateTime.new(2019, 8, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 8, 31, 23, 59, 59).end_of_month)
   end
 
   def expenditure_nine_month
@@ -177,6 +265,17 @@ class UsersController < ApplicationController
     @brokerage_fee_expenditure_month = Task.where(user_id: @user, sale_time: Time.new(2019,9,01).beginning_of_month..Time.new(2019,9,30).end_of_month).sum(:brokerage_fee)
     @processing_fee_expenditure_month = Task.where(user_id: @user, sale_time: Time.new(2019,9,01).beginning_of_month..Time.new(2019,9,30).end_of_month).sum(:processing_fee)
     @expenditure_month = @expenditure_input_month + @material_cost_expenditure_month + @brokerage_fee_expenditure_month + @processing_fee_expenditure_month
+
+    @expenditures_rent = Expenditure.where(expenditure_item: "家賃・地代", user_id: @user, updated_at: DateTime.new(2019, 9, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 9, 30, 23, 59, 59).end_of_month)
+    @expenditures_utility = Expenditure.where(expenditure_item: "光熱費", user_id: @user, updated_at: DateTime.new(2019, 9, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 9, 30, 23, 59, 59).end_of_month)
+    @expenditures_personnel = Expenditure.where(expenditure_item: "人件費", user_id: @user, updated_at: DateTime.new(2019, 9, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 9, 30, 23, 59, 59).end_of_month)
+    @expenditures_transport = Expenditure.where(expenditure_item: "交通費", user_id: @user, updated_at: DateTime.new(2019, 9, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 9, 30, 23, 59, 59).end_of_month)
+    @expenditures_net = Expenditure.where(expenditure_item: "ネット通信費", user_id: @user, updated_at: DateTime.new(2019, 9, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 9, 30, 23, 59, 59).end_of_month)
+    @expenditures_loan = Expenditure.where(expenditure_item: "機械ローン", user_id: @user, updated_at: DateTime.new(2019, 9, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 9, 30, 23, 59, 59).end_of_month)
+    @expenditures_otherwise = Expenditure.where(expenditure_item: "その他", user_id: @user, updated_at: DateTime.new(2019, 9, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 9, 30, 23, 59, 59).end_of_month)
+    @material_cost = Task.where(user_id: @user, sale_time: DateTime.new(2019, 9, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 9, 30, 23, 59, 59).end_of_month)
+    @brokerage_fee = Task.where(user_id: @user, sale_time: DateTime.new(2019, 9, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 9, 30, 23, 59, 59).end_of_month)
+    @processing_fee = Task.where(user_id: @user, sale_time: DateTime.new(2019, 9, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 9, 30, 23, 59, 59).end_of_month)
   end
 
   def expenditure_ten_month
@@ -186,6 +285,17 @@ class UsersController < ApplicationController
     @brokerage_fee_expenditure_month = Task.where(user_id: @user, sale_time: Time.new(2018,10,01).beginning_of_month..Time.new(2018,10,31).end_of_month).sum(:brokerage_fee)
     @processing_fee_expenditure_month = Task.where(user_id: @user, sale_time: Time.new(2018,10,01).beginning_of_month..Time.new(2018,10,31).end_of_month).sum(:processing_fee)
     @expenditure_month = @expenditure_input_month + @material_cost_expenditure_month + @brokerage_fee_expenditure_month + @processing_fee_expenditure_month
+
+    @expenditures_rent = Expenditure.where(expenditure_item: "家賃・地代", user_id: @user, updated_at: DateTime.new(2018, 10, 01, 00, 00, 00).beginning_of_month..DateTime.new(2018, 10, 31, 23, 59, 59).end_of_month)
+    @expenditures_utility = Expenditure.where(expenditure_item: "光熱費", user_id: @user, updated_at: DateTime.new(2018, 10, 01, 00, 00, 00).beginning_of_month..DateTime.new(2018, 10, 31, 23, 59, 59).end_of_month)
+    @expenditures_personnel = Expenditure.where(expenditure_item: "人件費", user_id: @user, updated_at: DateTime.new(2018, 10, 01, 00, 00, 00).beginning_of_month..DateTime.new(2018, 10, 31, 23, 59, 59).end_of_month)
+    @expenditures_transport = Expenditure.where(expenditure_item: "交通費", user_id: @user, updated_at: DateTime.new(2018, 10, 01, 00, 00, 00).beginning_of_month..DateTime.new(2018, 10, 31, 23, 59, 59).end_of_month)
+    @expenditures_net = Expenditure.where(expenditure_item: "ネット通信費", user_id: @user, updated_at: DateTime.new(2018, 10, 01, 00, 00, 00).beginning_of_month..DateTime.new(2018, 10, 31, 23, 59, 59).end_of_month)
+    @expenditures_loan = Expenditure.where(expenditure_item: "機械ローン", user_id: @user, updated_at: DateTime.new(2018, 10, 01, 00, 00, 00).beginning_of_month..DateTime.new(2018, 10, 31, 23, 59, 59).end_of_month)
+    @expenditures_otherwise = Expenditure.where(expenditure_item: "その他", user_id: @user, updated_at: DateTime.new(2018, 10, 01, 00, 00, 00).beginning_of_month..DateTime.new(2018, 10, 31, 23, 59, 59).end_of_month)
+    @material_cost = Task.where(user_id: @user, sale_time: DateTime.new(2018, 10, 01, 00, 00, 00).beginning_of_month..DateTime.new(2018, 10, 31, 23, 59, 59).end_of_month)
+    @brokerage_fee = Task.where(user_id: @user, sale_time: DateTime.new(2018, 10, 01, 00, 00, 00).beginning_of_month..DateTime.new(2018, 10, 31, 23, 59, 59).end_of_month)
+    @processing_fee = Task.where(user_id: @user, sale_time: DateTime.new(2018, 10, 01, 00, 00, 00).beginning_of_month..DateTime.new(2018, 10, 31, 23, 59, 59).end_of_month)
   end
 
   def expenditure_eleven_month
@@ -196,8 +306,16 @@ class UsersController < ApplicationController
     @processing_fee_expenditure_month = Task.where(user_id: @user, sale_time: Time.new(2018,11,01).beginning_of_month..Time.new(2018,11,30).end_of_month).sum(:processing_fee)
     @expenditure_month = @expenditure_input_month + @material_cost_expenditure_month + @brokerage_fee_expenditure_month + @processing_fee_expenditure_month
 
-    @expenditures = Expenditure.where(user_id: @user, updated_at: DateTime.new(2018, 11, 01, 00, 00, 00).beginning_of_month..DateTime.new(2018, 11, 30, 23, 59, 59).end_of_month)
-    @tasks = Task.where(user_id: @user, sale_time: DateTime.new(2018, 11, 01, 00, 00, 00).beginning_of_month..DateTime.new(2018, 11, 30, 23, 59, 59).end_of_month)
+    @expenditures_rent = Expenditure.where(expenditure_item: "家賃・地代", user_id: @user, updated_at: DateTime.new(2018, 11, 01, 00, 00, 00).beginning_of_month..DateTime.new(2018, 11, 30, 23, 59, 59).end_of_month)
+    @expenditures_utility = Expenditure.where(expenditure_item: "光熱費", user_id: @user, updated_at: DateTime.new(2018, 11, 01, 00, 00, 00).beginning_of_month..DateTime.new(2018, 11, 30, 23, 59, 59).end_of_month)
+    @expenditures_personnel = Expenditure.where(expenditure_item: "人件費", user_id: @user, updated_at: DateTime.new(2018, 11, 01, 00, 00, 00).beginning_of_month..DateTime.new(2018, 11, 30, 23, 59, 59).end_of_month)
+    @expenditures_transport = Expenditure.where(expenditure_item: "交通費", user_id: @user, updated_at: DateTime.new(2018, 11, 01, 00, 00, 00).beginning_of_month..DateTime.new(2018, 11, 30, 23, 59, 59).end_of_month)
+    @expenditures_net = Expenditure.where(expenditure_item: "ネット通信費", user_id: @user, updated_at: DateTime.new(2018, 11, 01, 00, 00, 00).beginning_of_month..DateTime.new(2018, 11, 30, 23, 59, 59).end_of_month)
+    @expenditures_loan = Expenditure.where(expenditure_item: "機械ローン", user_id: @user, updated_at: DateTime.new(2018, 11, 01, 00, 00, 00).beginning_of_month..DateTime.new(2018, 11, 30, 23, 59, 59).end_of_month)
+    @expenditures_otherwise = Expenditure.where(expenditure_item: "その他", user_id: @user, updated_at: DateTime.new(2018, 11, 01, 00, 00, 00).beginning_of_month..DateTime.new(2018, 11, 30, 23, 59, 59).end_of_month)
+    @material_cost = Task.where(user_id: @user, sale_time: DateTime.new(2018, 11, 01, 00, 00, 00).beginning_of_month..DateTime.new(2018, 11, 30, 23, 59, 59).end_of_month)
+    @brokerage_fee = Task.where(user_id: @user, sale_time: DateTime.new(2018, 11, 01, 00, 00, 00).beginning_of_month..DateTime.new(2018, 11, 30, 23, 59, 59).end_of_month)
+    @processing_fee = Task.where(user_id: @user, sale_time: DateTime.new(2018, 11, 01, 00, 00, 00).beginning_of_month..DateTime.new(2018, 11, 30, 23, 59, 59).end_of_month)
   end
 
   def expenditure_twelve_month
@@ -207,6 +325,17 @@ class UsersController < ApplicationController
     @brokerage_fee_expenditure_month = Task.where(user_id: @user, sale_time: Time.new(2018,12,01).beginning_of_month..Time.new(2018,12,31).end_of_month).sum(:brokerage_fee)
     @processing_fee_expenditure_month = Task.where(user_id: @user, sale_time: Time.new(2018,12,01).beginning_of_month..Time.new(2018,12,31).end_of_month).sum(:processing_fee)
     @expenditure_month = @expenditure_input_month + @material_cost_expenditure_month + @brokerage_fee_expenditure_month + @processing_fee_expenditure_month
+
+    @expenditures_rent = Expenditure.where(expenditure_item: "家賃・地代", user_id: @user, updated_at: DateTime.new(2018, 12, 01, 00, 00, 00).beginning_of_month..DateTime.new(2018, 12, 31, 23, 59, 59).end_of_month)
+    @expenditures_utility = Expenditure.where(expenditure_item: "光熱費", user_id: @user, updated_at: DateTime.new(2018, 12, 01, 00, 00, 00).beginning_of_month..DateTime.new(2018, 12, 31, 23, 59, 59).end_of_month)
+    @expenditures_personnel = Expenditure.where(expenditure_item: "人件費", user_id: @user, updated_at: DateTime.new(2018, 12, 01, 00, 00, 00).beginning_of_month..DateTime.new(2018, 12, 31, 23, 59, 59).end_of_month)
+    @expenditures_transport = Expenditure.where(expenditure_item: "交通費", user_id: @user, updated_at: DateTime.new(2018, 12, 01, 00, 00, 00).beginning_of_month..DateTime.new(2018, 12, 31, 23, 59, 59).end_of_month)
+    @expenditures_net = Expenditure.where(expenditure_item: "ネット通信費", user_id: @user, updated_at: DateTime.new(2018, 12, 01, 00, 00, 00).beginning_of_month..DateTime.new(2018, 12, 31, 23, 59, 59).end_of_month)
+    @expenditures_loan = Expenditure.where(expenditure_item: "機械ローン", user_id: @user, updated_at: DateTime.new(2018, 12, 01, 00, 00, 00).beginning_of_month..DateTime.new(2018, 12, 31, 23, 59, 59).end_of_month)
+    @expenditures_otherwise = Expenditure.where(expenditure_item: "その他", user_id: @user, updated_at: DateTime.new(2018, 12, 01, 00, 00, 00).beginning_of_month..DateTime.new(2018, 12, 31, 23, 59, 59).end_of_month)
+    @material_cost = Task.where(user_id: @user, sale_time: DateTime.new(2018, 12, 01, 00, 00, 00).beginning_of_month..DateTime.new(2018, 12, 31, 23, 59, 59).end_of_month)
+    @brokerage_fee = Task.where(user_id: @user, sale_time: DateTime.new(2018, 12, 01, 00, 00, 00).beginning_of_month..DateTime.new(2018, 12, 31, 23, 59, 59).end_of_month)
+    @processing_fee = Task.where(user_id: @user, sale_time: DateTime.new(2018, 12, 01, 00, 00, 00).beginning_of_month..DateTime.new(2018, 12, 31, 23, 59, 59).end_of_month)
   end
 
 
