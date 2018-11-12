@@ -1,4 +1,78 @@
-<li>
-  <%= link_to "支出金入力", new_expenditure_path, class: "sm" %>
-  <%= link_to "支出履歴", users_expenditure_history_path, class: "sm" %>
-</li>
+<header class="align">
+
+  <nav class="navigation2 navigation--inline">
+    <ul>
+      <li>
+        <a href="http://127.0.0.1:3000/users/income_and_expenditure">
+          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#bell">
+          <span class="invisible">　<　</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+</header>
+
+
+<div class="spending">
+   <div class="input"><%= link_to "支出金入力", users_expenditure_history_path, class: "sn" %></div>
+   <div class="history"><%= link_to "支出履歴", users_expenditure_history_path, class: "sm" %></div>
+</div>
+
+<style>
+
+
+.spending {
+
+  margin-top: 280px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+
+}
+
+.input {
+	       position: relative; left: 50px;
+	       width: 400px;
+           height: 110px;padding: 20px;
+           background: linear-gradient(-135deg, #FF8C00, #FFA500, #FFD700);     /* 背景色     */
+           border: 4px; font-size: 18px; color: #FFFFFF;
+           text-align: center;
+           border-top-left-radius: 30px;
+           border-top-right-radius: 30px;
+           border-bottom-right-radius: 30px;
+           border-bottom-left-radius: 30px;
+           box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
+           padding-top: 110px;
+}
+
+.sn {
+	text-decoration: none;
+	color: #000000;
+    font-size: 40px;
+    font-weight: 600;
+}
+
+.sm {
+	text-decoration: none;
+	color: #FFFFFF;
+    font-size: 40px;
+    font-weight: 600;
+}
+
+.history {
+	position: relative; right: 50px;
+	 width: 400px;
+           height: 110px;padding: 20px;
+           background: linear-gradient(-135deg, #0000FF, #1E90FF, #00FFFF);     /* 背景色     */
+           border: 4px; font-size: 18px; color: #FFFFFF;
+           text-align: center;
+           border-top-left-radius: 30px;
+           border-top-right-radius: 30px;
+           border-bottom-right-radius: 30px;
+           border-bottom-left-radius: 30px;
+           box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
+           padding-top: 110px;
+}
+</style>
