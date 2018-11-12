@@ -50,6 +50,9 @@ Rails.application.routes.draw do
     end
     end
   end
+
+ resources :expenditures do
+ end
   root to: 'users#index'
 
   #検討

@@ -14,6 +14,7 @@ class User < ApplicationRecord
 
   has_many :lists, dependent: :destroy
   has_many :tasks, dependent: :destroy
+  has_many :expenditures, dependent: :destroy
   validates :company_name, presence: true
   validates :president_name, presence: true
   validates :postal_code, presence: true
