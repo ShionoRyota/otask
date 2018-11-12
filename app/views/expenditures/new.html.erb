@@ -43,6 +43,8 @@
   <% end %>
 <ul>
 
+  <%= f.label :"項目" %><br>
+  <%= f.select :expenditure_item, [["家賃", "家賃"], ["光熱費", "光熱費"], ["人件費", "人件費"], ["交通費", "交通費"], ["ネット通信費", "ネット通信費"], ["機械ローン", "機械ローン"], ["その他", "その他"]] ,class:"form-control" %>
 
   <div class="birth_date_field">
     <h9><%= f.label :月 %></h9><br>

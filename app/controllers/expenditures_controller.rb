@@ -7,7 +7,9 @@ class ExpendituresController < ApplicationController
   def create
     @expenditure = Expenditure.new(expenditure_params)
     @expenditure.user_id = current_user.id
-    @expenditure.save
+    if @expenditure.save
+    	redirect_to "/users/expenditure"
+    end
   end
 
   private
