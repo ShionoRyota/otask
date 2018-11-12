@@ -43,10 +43,7 @@
   <% end %>
 <ul>
 
-  <%= f.label :"項目" %><br>
-  <%= f.select :expenditure_item, [["家賃", "家賃"], ["光熱費", "光熱費"], ["人件費", "人件費"], ["交通費", "交通費"], ["ネット通信費", "ネット通信費"], ["機械ローン", "機械ローン"], ["その他", "その他"]] ,class:"form-control" %>
-
-  <div class="birth_date_field">
+  <br><br><br><br><br><br><div class="birth_date_field">
     <h9><%= f.label :月 %></h9><br>
     <%= raw sprintf(
               f.date_select(
@@ -56,12 +53,15 @@
                   end_year:          (Time.now.year + 5),
                   date_separator:    '%s'),
               '年 ', '月 ') + '日' %>
-  </div>
+  </div><br><br><br>
+
+   <div class="field"><h9><%= f.label :"項目" %></h9><br>
+   <%= f.select :expenditure_item, [["家賃", "家賃"], ["光熱費", "光熱費"], ["人件費", "人件費"], ["交通費", "交通費"], ["ネット通信費", "ネット通信費"], ["機械ローン", "機械ローン"], ["その他", "その他"]] ,class:"form-control" %></div><br><br><br>
+
 
   <div class="field">
     <h9><%= f.label :金額 %></h9><br />
-    <%= f.text_field :expenditure_money, size: "50x1", style: "font-size:20px", placeholder: "1000円", class: "textArea" %>  </div>
-
+    <%= f.text_field :expenditure_money, size: "50x1", style: "font-size:20px", placeholder: "1000円", class: "textArea" %>  </div><br><br><br>
 
   <div class="field2">
     <h9><%= f.label :備考 %></h9><br />
