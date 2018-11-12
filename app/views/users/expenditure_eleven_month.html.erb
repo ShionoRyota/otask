@@ -1,0 +1,248 @@
+<header class="align">
+
+  <nav class="navigation2 navigation--inline">
+    <ul>
+      <li>
+        <a href="http://127.0.0.1:3000/users/expenditure_history">
+          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#bell">
+          <span class="invisible">　<　</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+</header>
+
+
+<div class="mokuji1">11月支出金額</div>
+
+<div class="mokuji2">合計 432200 円</div>
+
+
+<div class="lists">
+  <div class="lists_wrap">
+  <div class="list">
+    <ul class="list" id="list1">
+    <header1>家賃・地代</header1>
+    </ul>
+  </div>
+  </div>
+</div>
+
+<div class="lists">
+  <div class="lists_wrap">
+  <div class="list">
+    <ul class="list" id="list2">
+    <header1>光熱費</header1>
+    </ul>
+  </div>
+  </div>
+</div>
+
+<div class="lists">
+  <div class="lists_wrap">
+  <div class="list">
+    <ul class="list" id="list3">
+    <header1>人件費</header1>
+    </ul>
+  </div>
+  </div>
+</div>
+
+<div class="lists">
+  <div class="lists_wrap">
+  <div class="list">
+    <ul class="list" id="list4">
+    <header1>交通費</header1>
+    </ul>
+  </div>
+  </div>
+</div>
+
+<div class="lists">
+  <div class="lists_wrap">
+  <div class="list">
+    <ul class="list" id="list5">
+    <header1>ネット通信費</header1>
+    </ul>
+  </div>
+  </div>
+</div>
+
+
+<div class="lists">
+  <div class="lists_wrap">
+  <div class="list">
+    <ul class="list" id="list6">
+    <header1>機会ローン代</header1>
+    </ul>
+  </div>
+  </div>
+</div>
+
+<div class="lists">
+  <div class="lists_wrap">
+  <div class="list">
+    <ul class="list" id="list7">
+    <header1>その他</header1>
+    </ul>
+  </div>
+  </div>
+</div>
+
+<div class="lists">
+  <div class="lists_wrap">
+  <div class="list">
+    <ul class="list" id="list8">
+    <header1>材料代・仲介料・加工代</header1>
+    </ul>
+  </div>
+  </div>
+</div>
+
+
+<style>
+  body {
+    margin: 10px;
+  }
+  .list {
+    padding-bottom: 20px;
+    margin-top: 200px;
+    margin-right: 50px;
+    margin-left:  50px;
+    float: left;
+    width: $list-width;
+    height: calc(100% - #{$gap} - #{$scrollbar-thickness});
+
+  > * {
+    background-color: $list-bg-color;
+    color: #333;
+
+    padding: 0 $gap;
+  }
+  }
+  .list li {
+    padding: 5px 10px;
+    border: 1px solid #0c5460;
+    list-style: none;
+  }
+  .list li:hover {
+    cursor: move;
+  }
+
+  .list li {
+      /*background-color: #fff;*/
+      padding: $gap;
+      &:not(:last-child) {
+        margin-bottom: $gap;
+      }
+
+      border-radius: $card-border-radius;
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+
+      img {
+        display: block;
+        width: calc(100% + 2 * #{$gap});
+        margin: -$gap 0 $gap (-$gap);
+        border-top-left-radius: $card-border-radius;
+        border-top-right-radius: $card-border-radius;
+      }
+    }
+
+
+    #list1 {
+      position: relative; right: 300px;
+      margin-top: 0px;
+
+    }
+
+    #list2 {
+      position: relative; right: 300px;
+      margin-top: 80px;
+
+    }
+
+    #list3 {
+      position: relative; right: 300px;
+      margin-top: 160px;
+
+    }
+
+    #list4 {
+      position: relative; right: 300px;
+      margin-top: 240px;
+
+    }
+
+    #list5 {
+      position: relative; right: 300px;
+      margin-top: 320px;
+
+    }
+
+    #list6 {
+      position: relative; right: 300px;
+      margin-top: 400px;
+
+    }
+
+    #list7 {
+      position: relative; right: 300px;
+      margin-top: 480px;
+
+    }
+
+    #list8 {
+      position: relative; left: 300px;
+
+    }
+
+    @media only screen and (max-width: 750px) {
+    .list {
+      display: none;
+ }
+  /*.a { background-color: #fff999; }
+  .b { background-color: #f3981d; }
+  .c { background-color: #a4d5bd; }*/
+
+  a4 {
+    color: #1E90FF;
+    font-size: 15px;
+    font-weight: 600;
+    margin-left: 30px;
+  }
+
+  @media only screen and (max-width: 750px) {
+    a4 {
+    color: #1E90FF;
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+  }
+ }
+
+  span.task {
+  }
+
+  span.taskname {
+    text-align: left;
+  }
+
+  p {
+      font-size: 15px;
+      width: 200px;
+
+    }
+
+  a.class {
+    width: 50px;
+  }
+
+  @media only screen and (max-width: 750px) {
+    .sm {
+      display: none;
+    }
+ }
+
+
+</style>
