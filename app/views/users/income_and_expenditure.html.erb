@@ -49,11 +49,11 @@
   <div class="todaybenefit"><a>今日の純利益</a></div>
  </div>
  <div class="todayunder">
-  <div class="todaysales"><a>30000円</a></div>
+  <div class="todaysales"><a><%= @income_day %>円</a></div>
   <span class="minus"><a>-</a></span>
-  <div class="todayexpenses"><a>15000円</a></div>
+  <div class="todayexpenses"><a><%= @expenditure_day %>円</a></div>
   <span class="equal"><a>=</a></span>
-  <div class="todaybenefit"><a>　15000円</a></div>
+  <div class="todaybenefit"><a><%= @profits_day %></a></div>
  </div>
 
  <div class="month">
@@ -62,11 +62,11 @@
   <div class="monthbenefit"><a>今月の純利益</a></div>
  </div>
  <div class="monthunder">
-  <div class="todaysales"><a>30000円</a></div>
+  <div class="todaysales"><a><%= @income_month %>円</a></div>
   <span class="minus"><a>-</a></span>
-  <div class="todayexpenses"><a>15000円</a></div>
+  <div class="todayexpenses"><a><%= @expenditure_month %>円</a></div>
   <span class="equal"><a>=</a></span>
-  <div class="todaybenefit"><a>　15000円</a></div>
+  <div class="todaybenefit"><a><%= @profits_month %></a></div>
  </div>
 
  <div class="year">
@@ -75,11 +75,11 @@
   <div class="yearbenefit"><a>今年の純利益</a></div>
  </div>
  <div class="yearunder">
-  <div class="todaysales"><a>30000円</a></div>
+  <div class="todaysales"><a><%= @income_year %>円</a></div>
   <span class="minus"><a>-</a></span>
-  <div class="todayexpenses"><a>15000円</a></div>
+  <div class="todayexpenses"><a><%= @expenditure_year %>円</a></div>
   <span class="equal"><a>=</a></span>
-  <div class="todaybenefit"><a>　15000円</a></div>
+  <div class="todaybenefit"><a><%= @profits_year %></a></div>
  </div>
  <!-- <div><%= @user.sales %>円</div> -->
  <!-- <div><%= @tasks %>円</div> -->

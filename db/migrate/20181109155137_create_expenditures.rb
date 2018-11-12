@@ -4,7 +4,7 @@ class CreateExpenditures < ActiveRecord::Migration[5.2]
 
       t.datetime :expenditure_date # 日付
       t.string :expenditure_item # 項目
-      t.integer :expenditure_money # 金額
+      t.integer :expenditure_money, default: 0 # 金額
       t.string :expenditure_remarks # 備考
       t.integer :user_id
       t.timestamps

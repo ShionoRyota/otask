@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 2018_11_09_155137) do
   create_table "expenditures", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "expenditure_date"
     t.string "expenditure_item"
-    t.integer "expenditure_money"
+    t.integer "expenditure_money", default: 0
     t.string "expenditure_remarks"
     t.integer "user_id"
     t.datetime "created_at", null: false
@@ -38,8 +38,10 @@ ActiveRecord::Schema.define(version: 2018_11_09_155137) do
     t.string "remarks"
     t.integer "flag_id", default: 0
     t.integer "color_id", default: 0
-    t.integer "sale"
+    t.integer "sale", default: 0
     t.integer "material_cost"
+    t.integer "brokerage_fee"
+    t.integer "processing_fee"
     t.string "duration"
     t.datetime "sale_time"
     t.integer "list_id"

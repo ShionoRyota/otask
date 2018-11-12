@@ -7,26 +7,17 @@ class ListsController < ApplicationController
   def index
     @list = List.new
     @lists = current_user.lists.all #自分のlistのみ全て表示
-
-  ##検討
-    @user = User.find(current_user[:id])
-    @task = Task.where(user_id: @user, sale_time: Time.zone.now.all_day).sum(:sale)
-    @user.update(sales: @task)
-
+    # @user = User.find(current_user[:id])
+    # @task = Task.where(user_id: @user, sale_time: Time.zone.now.all_day).sum(:sale)
+    # @user.update(sales: @task)
   end
 
 #list作成
 	def create
     @list = List.new(list_params)
     @list.user = current_user
-
-  ##検討
-    if @list.save
-      redirect_to :lists
-    else
-      redirect_to :lists
-    end
-
+    @list.save
+    redirect_to lists_path
   end
 
 #listの内容変更
@@ -60,12 +51,6 @@ class ListsController < ApplicationController
 #請求済みの仕事のlistを表示
   def show
     @lists = current_user.lists.all
-    @user = User.find(current_user[:id])
-
-  ##検討
-    @task = Task.where(user_id: @user,sale_time: Time.zone.now.all_day).sum(:sale)
-    @user.update(sales: @task)
-
   end
 
 # 売上履歴（できれば一つにまとめたい）

@@ -7,5 +7,4 @@ class Task < ApplicationRecord
   accepts_nested_attributes_for :thumbnails
 
 
-  validates :taskname, presence: true
 end

@@ -7,24 +7,15 @@ before_action :no_card? # クレカ登録してるか確認(課金者以外排�
   def index
     @Task = Task.all # viewで表示されるtaskを限定
     @list = List.find(params[:list_id]) # 右上list名表示
-
-  # 検討
-    @user = User.find(current_user[:id])
-    @task = Task.where(user_id: @user, sale_time: Time.zone.now.all_day).sum(:sale)
-    @user.update(sales: @task)
-
+  #   @user = User.find(current_user[:id])
+  #   @task = Task.where(user_id: @user, sale_time: Time.zone.now.all_day).sum(:sale)
+  #   @user.update(sales: @task)
   end
 
 # 請求済みの仕事のtaskの表示
   def show
     @Task = Task.all # viewで表示されるtaskを限定
-
-  # 検討
     @suppliers = List.find(params[:list_id])
-    @user = User.find(current_user[:id])
-    @task = Task.where(user_id: @user, sale_time: Time.zone.now.all_day).sum(:sale)
-    @user.update(sales: @task)
-
   end
 
 # task作成
@@ -39,11 +30,20 @@ before_action :no_card? # クレカ登録してるか確認(課金者以外排�
     @list = List.find(params[:list_id])
     @task = @list.tasks.build(task_params)
     @task.user_id = current_user.id
-
   # taskのsaleを計算
     @sale = (@task.number.to_i * @task.price.to_i)
     if @task.update(sale: @sale)
-      render :index
+  # 色変化
+    @aa = @task.term
+    @bb = (@aa - Time.new.to_time)
+      if @bb <= 0
+        @task.update(color_id: 2)
+      elsif 0 < @bb && @bb <= 604800
+        @task.update(color_id: 1)
+      else
+        @task.update(color_id: 0)
+      end
+        redirect_to list_tasks_path
     else
       @task = @list.tasks.new(task_params)
       render :new
@@ -59,11 +59,19 @@ before_action :no_card? # クレカ登録してるか確認(課金者以外排�
     end
   end
 
+  # editで画像押すと拡大
+  def download
+    @task = Thumbnail.find_by(task_id: params[:id])
+  end
+
+
 # editの内容に変更
   def update
     @task = Task.find(params[:id])
     @task.update_attributes(task_params)
-
+    # taskのsaleを計算
+    @sale = (@task.number.to_i * @task.price.to_i)
+    if @task.update(sale: @sale)
   # 色変化
     @aa = @task.term
     @bb = (@aa - Time.new.to_time)
@@ -74,12 +82,11 @@ before_action :no_card? # クレカ登録してるか確認(課金者以外排�
       else
         @task.update(color_id: 0)
       end
-
-  # taskのsaleを計算
-    @sale = (@task.number.to_i * @task.price.to_i)
-      if @task.update(sale: @sale)
         redirect_to list_tasks_path
-      end
+    else
+      @task = @list.tasks.new(task_params)
+      render :new
+    end
   end
 
 # 削除ボタン
@@ -118,9 +125,11 @@ before_action :no_card? # クレカ登録してるか確認(課金者以外排�
     redirect_back(fallback_location: list_tasks_path)
   end
 
-# editで画像押すと拡大（検討）
-  def download
-    @task = Thumbnail.find_by(task_id: params[:id])
+  # 履歴に残すボタン
+  def task_clear
+    @login_user = Task.find(params[:id])
+    @login_user.update(flag_id: 4)
+    redirect_back(fallback_location: list_tasks_path)
   end
 
 # 請求書作成画面へボタン
@@ -148,13 +157,6 @@ before_action :no_card? # クレカ登録してるか確認(課金者以外排�
     @total = Task.where(user_id: @company, flag_id: 3).sum(:sale) #index請求欄のtaskのみ表示
     @tax = (@total.to_i * 0.08).round #小数点以下四捨五入
     @sum = (@total + @tax)
-  end
-
-# 履歴に残すボタン
-  def task_clear
-    @login_user = Task.find(params[:id])
-    @login_user.update(flag_id: 4)
-    redirect_back(fallback_location: list_tasks_path)
   end
 
 #クレジット登録しているか確認
@@ -245,6 +247,6 @@ before_action :no_card? # クレカ登録してるか確認(課金者以外排�
   private
 
     def task_params
-      params.require(:task).permit(:taskname, :number, :price, :order_number, :term, :remarks, :material_cost, :duration, :list_id, :user_id, thumbnails_attributes:[:id, :images])
+      params.require(:task).permit(:taskname, :number, :price, :order_number, :term, :remarks, :material_cost, :brokerage_fee, :processing_fee, :duration, :list_id, :user_id, thumbnails_attributes:[:id, :images])
     end
 end

@@ -2,6 +2,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
 <%= form_for @task, url: list_task_path, multipart: true do |f| %>
+
 <ul>
   <div class="field">
     <h9><%= f.label :仕事名 %></h9><br />
@@ -40,9 +41,20 @@
     <li><a>合計金額 <%= (@task.number.to_i * @task.price.to_i) %>円(税抜き)</a></li><br>
     <li><a>合計金額 <%= (@task.number.to_i * @task.price.to_i * 1.08).round %>円(税込み)</a></li><br><br>
 
-  <div class="field">
+ <div class="field">
     <h9><%= f.label :材料代 %></h9><br />
-    <%= f.text_field :material_cost, id: "tasks_material_cost", size: "50x1", style: "font-size:20px", placeholder: "1000円", class: "textArea" %>  </div>
+    <%= f.text_field :material_cost, size: "50x1", style: "font-size:20px", placeholder: "材料代1000円", class: "textArea" %>
+ </div>
+
+ <div class="field">
+    <h9><%= f.label :仲介料 %></h9><br />
+    <%= f.text_field :brokerage_fee, size: "50x1", style: "font-size:20px", placeholder: "材料代1000円", class: "textArea" %>
+ </div>
+
+ <div class="field">
+    <h9><%= f.label :加工代 %></h9><br />
+    <%= f.text_field :processing_fee, size: "50x1", style: "font-size:20px", placeholder: "材料代1000円", class: "textArea" %>
+ </div>
 
  <div class="field">
     <h9><%= f.label :作業の所要時間 %></h9><br />
