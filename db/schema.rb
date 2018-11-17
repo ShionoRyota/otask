@@ -39,9 +39,9 @@ ActiveRecord::Schema.define(version: 2018_11_09_155137) do
     t.integer "flag_id", default: 0
     t.integer "color_id", default: 0
     t.integer "sale", default: 0
-    t.integer "material_cost"
-    t.integer "brokerage_fee"
-    t.integer "processing_fee"
+    t.integer "material_cost", default: 0
+    t.integer "brokerage_fee", default: 0
+    t.integer "processing_fee", default: 0
     t.string "duration"
     t.datetime "sale_time"
     t.integer "list_id"
