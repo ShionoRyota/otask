@@ -273,6 +273,10 @@ a {
           }
        }
 
+       @media only screen and (max-width: 750px) {
+        .box8 { display: none !important; }
+      }
+
 
        div.box9  { position: absolute; top: 200px; left: 800px; width: 300px;
            height: 140px;padding: 10px;
@@ -299,6 +303,10 @@ a {
 
           }
        }
+
+       @media only screen and (max-width: 750px) {
+        .box9 { display: none !important; }
+      }
 
        div.box11  { position: absolute; top: 350px;  width: 400px;
            height: 160px;padding: 10px;
@@ -351,6 +359,10 @@ a {
 
           }
        }
+
+       @media only screen and (max-width: 750px) {
+        .box12 { display: none !important; }
+      }
 
 
 
