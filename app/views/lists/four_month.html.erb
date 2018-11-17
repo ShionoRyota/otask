@@ -1,5 +1,3 @@
-<!-- 各月の売上履歴 -->
-
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <header class="align">
 
@@ -20,7 +18,6 @@
 
 <% @lists.each do |list| %>
  <div class="box15">
- <!-- 各月の取引先ごとの売上 -->
      <a><%= link_to list.name, list_tasks_four_detail_path(list) %></a>
  </div>
 <% end %>
