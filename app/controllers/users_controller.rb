@@ -27,7 +27,7 @@ class UsersController < ApplicationController
 
 
      plan = Payjp::Plan.create(
-      amount: 2280,
+      amount: 2980,
       currency: 'jpy',
       interval: 'month',
       name: 'otask',
@@ -41,7 +41,7 @@ class UsersController < ApplicationController
      )
 
      charge = Payjp::Charge.create(
-       :amount => 2280,
+       :amount => 2980,
        :card => params['payjp-token'],
        :currency => 'jpy'
      )
