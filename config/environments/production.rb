@@ -76,7 +76,7 @@ Rails.application.configure do
     domain:               'otask.herokuapp.com',
     user_name:            'otask.kouritsu2018@gmail.com',
     password:             'nyvxaxuypfvqcoat',
-    authentication:       'login',
+    authentication:       'plain',
     enable_starttls_auto: true
   }
 
