@@ -64,6 +64,7 @@ Rails.application.routes.draw do
   get 'users/expenditure', to: 'users#expenditure' #収支管理
   get 'users/expenditure_history', to: 'users#expenditure_history' #収支管理
   post '/pay' => "users#pay" # pay.jp連携
+  delete '/pay_delete' => "users#pay_delete"
   get 'lists/show' => "lists#show" #請求済みの仕事のlistを表示
   get 'tasks/show' => "tasks#show" # 請求済みの仕事のtaskの表示
 

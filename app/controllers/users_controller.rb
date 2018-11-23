@@ -53,6 +53,15 @@ class UsersController < ApplicationController
 
   end
 
+  def pay_delete
+    Payjp.api_key = 'sk_test_da41c1a67e47faa9c167e35f'
+    @user = User.find(current_user[:id])
+    pay_id = @user.customer_id
+    customer = Payjp::Customer.retrieve(pay_id)
+    customer.delete
+    @user.update(customer_id: nil)
+  end
+
 # 収支管理
   def income_and_expenditure
     @user = User.find(current_user[:id])
