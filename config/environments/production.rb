@@ -65,20 +65,20 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
 
-  config.action_mailer.default_url_options = { :host => 'https://otask.herokuapp.com' }
-
-  config.action_mailer.raise_delivery_errors = true
-
+  config.action_mailer.default_url_options = {host: 'https://otask.herokuapp.com' }
+  config.action_mailer.raise_delivery_errors = false #この一文も追記!!
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    port:                 587,
-    address:              'smtp.gmail.com',
-    domain:               'otask.herokuapp.com',
-    user_name:            'otask.kouritsu2018@gmail.com',
-    password:             'nyvxaxuypfvqcoat',
-    authentication:       'plain',
-    enable_starttls_auto: true
+      :user_name => "app115925766@heroku.com",
+      :password => "hussmaht8117",
+      :domain => "heroku.com",
+      :address => "smtp.sendgrid.net",
+      :port => 587,
+      :authentication => :plain,
+      :enable_starttls_auto => true
   }
+end
+
 
 
 
