@@ -66,6 +66,7 @@ Rails.application.routes.draw do
   post '/pay' => "users#pay" # pay.jp連携
   delete '/pay_delete' => "users#pay_delete"
   get 'users/delete_confirm' => "users#delete_confirm"
+  get 'users/delete_done' => "users#delete_done"
   get 'lists/show' => "lists#show" #請求済みの仕事のlistを表示
   get 'tasks/show' => "tasks#show" # 請求済みの仕事のtaskの表示
 

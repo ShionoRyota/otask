@@ -60,9 +60,13 @@ class UsersController < ApplicationController
     customer = Payjp::Customer.retrieve(pay_id)
     customer.delete
     @user.update(customer_id: nil)
+    redirect_to users_delete_done_path
   end
 
   def delete_confirm
+  end
+
+  def delete_done
   end
 
 # 収支管理
