@@ -6,7 +6,6 @@ set :repo_url, "git@example.com:me/my_repo.git"
 
 set :whenever_command, "bundle exec whenever"
 require "whenever/capistrano"
-set :whenever_identifier, ->{ "#{fetch(:application)}_#{fetch(:stage)}" } # 追加
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp

@@ -79,9 +79,6 @@ Rails.application.configure do
       :enable_starttls_auto => true
   }
 
-  set :whenever_roles, :batch # 対象ロール
-  set :whenever_environment, :production # 対象環境
-
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
