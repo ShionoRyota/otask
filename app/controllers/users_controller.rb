@@ -62,6 +62,9 @@ class UsersController < ApplicationController
     @user.update(customer_id: nil)
   end
 
+  def delete_confirm
+  end
+
 # 収支管理
   def income_and_expenditure
     @user = User.find(current_user[:id])
