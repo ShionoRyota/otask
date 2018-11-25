@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 	protect_from_forgery except: :pay #payのCSRF対策が無効
-  before_action :authenticate_user!, except: [:index] # index以外はログイン済ユーザーのみにアクセスを許可する
+  before_action :authenticate_user!, except: [:index, :delete_done] # index以外はログイン済ユーザーのみにアクセスを許可する
   before_action :no_card?, except: [:show, :pay, :delete_done] # show,pay以外はクレカ登録してるか確認(課金者以外排除)
 
 # ホーム画面
