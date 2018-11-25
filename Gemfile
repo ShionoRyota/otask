@@ -79,5 +79,6 @@ gem 'capistrano-bundler'
 gem 'capistrano-rails'
 gem 'capistrano3-unicorn'
 gem 'sendgrid-ruby'
+gem 'fog', '~> 1.41.0'
 
 
