@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
 
 # ログイン後のリダイレクト先
     def after_sign_in_path_for(resource)
-          "http://127.0.0.1:3000/users/show"
+          "https://otask.herokuapp.com/users/show"
     end
 
 # ログアウト後のリダイレクト先
