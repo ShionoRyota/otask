@@ -59,7 +59,7 @@ class UsersController < ApplicationController
     pay_id = @user.customer_id
     customer = Payjp::Customer.retrieve(pay_id)
     customer.delete
-    @user.update(customer_id: nil)
+    @user.destroy
     redirect_to users_delete_done_path
   end
 
