@@ -1,0 +1,184 @@
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<header class="align">
+
+  <nav class="navigation navigation--inline">
+    <ul>
+      <li>
+        <a href="https://otask.herokuapp.com/users">
+          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#bell">
+          <span class="demoSpan1">
+          <span class="demoSpan2">
+          </span>
+          </span>
+        </a>
+      </li>
+      <!-- <li>
+        <a href="http://127.0.0.1:3000/users">
+          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#bell">
+          <span class="demoSpan3">
+          </span>
+        </a>
+      </li>
+      <li>
+        <a href="http://127.0.0.1:3000/users">
+          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#bell">
+          <span class="mail icon"></span>
+        </a>
+      </li>
+      <li>
+        <a href="http://127.0.0.1:3000/users">
+          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#bell">
+          <span class="calendar"></span>
+        </a>
+      </li> -->
+    </ul>
+  </nav>
+
+</header>
+
+
+
+<!-- 取引先の登録の時に入力するフォーム -->
+<%= form_for @list do |form| %>
+  <div class="mokuji"><%= form.label :取引先を登録 %></div>
+  <div class="fm"><%= form.text_field :name, size: "25x1", style: "font-size:30px", placeholder: "例: ○△□製作所", class: "smfield" %></div>
+  <button class="button" type="submit">登録する</button>
+<% end %>
+
+
+<% @lists.each do |list| %>
+ <div class="box3">
+     <a1><%= link_to list.name, list_tasks_path(list), class: "A1" %></a1>
+     <a2><%= link_to "編集", edit_list_path(list), :style => 'color: #000000;', class: "A2" %></a2>
+     <a3><%= link_to "削除", list_path(list), :method => :delete, :style => 'color: #FF0000;', class: "A3" %></a3>
+ </div>
+<% end %>
+
+
+<style type="text/css">
+ span{height:40px; width:40px; display:block; position:relative;}
+
+.demoSpan1{width:40px; height:40px; display:block;}
+
+.demoSpan1:before{content:''; height:25px; width:29px; display:block; border:3px #333 solid; border-top:0; position:absolute; top:15px; left:5px;}
+
+.demoSpan1:after{content:''; height:8px; width:6px; display:block; position:absolute; top:25px; left:17px; border:2px solid #333;}
+
+.demoSpan2:before{content:''; height:12px; width:3px; display:block; position:absolute; top:3px; left:37px; background:#333;}
+
+.demoSpan2:after{content:''; height:28px; width:27px; border-top:5px #333 solid; border-right:5px #333 solid; position:absolute; top:3px; left:6px; transform:scale(1,0.8) rotate(-45deg);-webkit-transform:scale(1,0.8) rotate(-45deg);-moz-transform:scale(1,0.8) rotate(-45deg);-o-transform:scale(1,0.8) rotate(-45deg);-ms-transform:scale(1,0.8) rotate(-45deg);}
+
+@media only screen and (max-width: 750px) {
+        .demoSpan1{width:40px; height:40px; display:block;}
+
+.demoSpan1:before{content:''; height:25px; width:29px; display:block; border:3px #333 solid; border-top:0; position:absolute; top:15px; left:-150px;}
+
+.demoSpan1:after{content:''; height:8px; width:6px; display:block; position:absolute; top:25px; left:-138px; border:2px solid #333;}
+
+.demoSpan2:before{content:''; height:12px; width:3px; display:block; position:absolute; top:3px; left:-118px; background:#333;}
+
+.demoSpan2:after{content:''; height:28px; width:27px; border-top:5px #333 solid; border-right:5px #333 solid; position:absolute; top:3px; left:-149px; transform:scale(1,0.8) rotate(-45deg);-webkit-transform:scale(1,0.8) rotate(-45deg);-moz-transform:scale(1,0.8) rotate(-45deg);-o-transform:scale(1,0.8) rotate(-45deg);-ms-transform:scale(1,0.8) rotate(-45deg);}
+
+      }
+
+  </style>
+
+<style type="text/css">
+ span{height:40px; width:40px; display:block; position:relative;}
+
+.demoSpan3:before, .demoSpan3:after{content:''; height:20px; display:block; position:absolute; top:0; left:920px; }
+
+.demoSpan3:before{width:20px; border:3px #333 solid; border-radius:100%;-webkit-border-radius:100%;-moz-border-radius:100%;}
+
+.demoSpan3:after{width:7px; background:#333; transform:rotate(-45deg);-webkit-transform:rotate(-45deg);-moz-transform:rotate(-45deg);-o-transform:rotate(-45deg);-ms-transform:rotate(-45deg); top:17px; left:944px;}
+
+</style>
+
+<style>
+  .mail.icon {
+  color: #000;
+  position: absolute;
+  margin-left: 215px;
+  margin-top: 4px;
+  width: 40px;
+  height: 30px;
+  border-radius: 3px;
+  border: solid 3px currentColor;
+}
+.mail.icon:before {
+  content: '';
+  position: absolute;
+  left: 19px;
+  top: -14px;
+  width: 2px;
+  height: 25px;
+  background-color: currentColor;
+  -webkit-transform-origin: bottom;
+          transform-origin: bottom;
+  -webkit-transform: rotate(-61deg);
+          transform: rotate(-61deg);
+}
+.mail.icon:after {
+  content: '';
+  position: absolute;
+  left: 19px;
+  top: -14px;
+  width: 2px;
+  height: 25px;
+  background-color: currentColor;
+  -webkit-transform-origin: bottom;
+          transform-origin: bottom;
+  -webkit-transform: rotate(61deg);
+          transform: rotate(61deg);
+}
+</style>
+
+<style>
+  /* 枠 */
+.calendar {
+  font-size: 30px;
+  position: relative;
+  top: 5px;
+  left: 580px;
+  width: 1.4em;
+  height: 1em;
+  border: 0.1em solid #000000;
+  border-radius: 0.1em;
+  box-shadow: inset 0 0.3em 0 0 #000000;
+}
+/* リング */
+.calendar::before {
+  content: "";
+  position: absolute;
+  top: -0.4em;
+  left: 0.2em;
+  width: 0.2em;
+  height: 0.5em;
+  border-radius: 0.1em;
+  background-color: #000000;
+  box-shadow:
+    0 0 0 0.1em #fff,
+    0.8em 0 0 0 #000000,
+    0.8em 0 0 0.1em #fff
+  ;
+}
+/* 日付 */
+.calendar::after {
+  content: "";
+  position: absolute;
+  top: 0.4em;
+  left: 0.15em;
+  width: 0.2em;
+  height: 0.2em;
+  background-color: #000000;
+  box-shadow:
+    0.3em 0 0 0 #000000,
+    0.6em 0 0 0 #000000,
+    0.9em 0 0 0 #000000,
+    0 0.3em 0 0 #000000,
+    0.3em 0.3em 0 0 #000000,
+    0.6em 0.3em 0 0 #000000,
+    0.9em 0.3em 0 0 #000000
+  ;
+}
+</style>

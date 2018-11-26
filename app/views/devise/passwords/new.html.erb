@@ -1,0 +1,44 @@
+<h2>パスワードを再発行</h2>
+
+<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", size: "50x1", style: "font-size:20px", placeholder: "メールアドレスを入力してください" %>
+  </div>
+
+
+  <button class="actions" type="submit">再発行する</button>
+
+<% end %><br><br><br>
+
+<%= render "devise/shared/links" %>
+
+
+<style>
+  button.actions {
+           position: absolute; top: 400px; width: 174px;
+           height: 45px;padding: 10px;
+           background: linear-gradient(-135deg, #0000FF, #1E90FF, #00FFFF);     /* 背景色     */
+           border: 4px; font-size: 20px; color: #FFFFFF;
+           text-align: center;
+           border-top-left-radius: 25px;
+           border-top-right-radius: 25px;
+           border-bottom-right-radius: 25px;
+           border-bottom-left-radius: 25px;
+           left:0;
+           right:0;
+           margin:auto;
+           margin-top: 20px;
+           box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
+       }
+
+       div.field {
+        margin-top: 30px;
+       }
+
+       h2 {
+          margin-top: 150px;
+        }
+</style>

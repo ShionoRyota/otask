@@ -1,0 +1,70 @@
+<h2>新規登録</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <% if @user.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= @user.errors.count %>件のエラーがあります。</h2>
+
+    <ul>
+    <% @user.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+  <div class="field">
+    <h9><%= f.label :事業者名 %></h9><br />
+    <%= f.text_field :company_name, size: "50x1", style: "font-size:20px", placeholder: "○△□工場"%>
+  </div>
+
+  <div class="field">
+    <h9><%= f.label :代表者名 %></h9><br />
+    <%= f.text_field :president_name, size: "50x1", style: "font-size:20px", placeholder: "山田 太郎" %>
+  </div>
+
+  <div class="field">
+    <h9><%= f.label :郵便番号 %></h9><br />
+    <%= f.text_field :postal_code, size: "50x1", style: "font-size:20px", placeholder: "123-4567" %>
+  </div>
+
+  <div class="field">
+    <h9><%= f.label :住所 %></h9><br />
+    <%= f.text_field :address, size: "50x1", style: "font-size:20px", placeholder: "大阪府 〇〇市 〇〇 -1234-5678" %>
+  </div>
+
+  <div class="field">
+    <h9><%= f.label :電話番号 %></h9><br>
+    <h9>(※請求書や納品書などに普段記載している電話番号をご登録ください)</h9><br><br />
+    <%= f.text_field :phone_number, size: "50x1", style: "font-size:20px", placeholder: "080-1234-5678" %>
+  </div>
+
+  <div class="field">
+    <h9><%= f.label :FAX番号 %></h9><br />
+    <%= f.text_field :fax_number, size: "50x1", style: "font-size:20px", placeholder: "080-1234-5678" %>
+  </div>
+
+  <div class="field">
+    <h9><%= f.label :メールアドレス %></h9><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", size: "50x1", style: "font-size:20px", placeholder: "gmailで登録してください"%>
+  </div>
+
+  <div class="field">
+    <h9><%= f.label :パスワード %></h9>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> 文字以上)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "new-password", size: "50x1", style: "font-size:20px", placeholder: "パスワードを入力してください" %>
+  </div>
+
+  <div class="field">
+    <h9><%= f.label :パスワード再入力 %></h9><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", size: "50x1", style: "font-size:20px", placeholder: "もう一度入力してください" %>
+  </div>
+
+  <div class="actions">
+    <button class="button4" type="submit">確認して次へ</button>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>

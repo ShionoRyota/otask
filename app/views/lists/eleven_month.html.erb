@@ -1,0 +1,49 @@
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<header class="align">
+
+  <nav class="navigation2 navigation--inline">
+    <ul>
+      <li>
+       <%= link_to "<", users_sale_history_path %>
+      <li>
+    </ul>
+  </nav>
+
+</header>
+
+<div class="mokuji1">11月売上</div>
+
+<div class="mokuji2">合計 <%= @task %> 円</div>
+
+<% @lists.each do |list| %>
+ <div class="box15">
+     <a><%= link_to list.name, list_tasks_eleven_detail_path(list) %></a>
+ </div>
+<% end %>
+
+<style>
+	div.box15 {
+		width: 350px;
+           height: 10px; padding: 20px;
+           background: #FFFFFF;
+           border: 4px; font-size: 13px; color: #000;
+           border-top-left-radius: 30px;
+           border-top-right-radius: 30px;
+           border-bottom-right-radius: 30px;
+           border-bottom-left-radius: 30px;
+           box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
+           left:0;
+           right:0;
+           margin: auto;
+           margin-top: 30px;
+           text-align: center;
+
+          a1 {
+          color: #000000;
+          font-size: 15px;
+          text-decoration: none;
+          font-weight: 600;
+          text-align: center;
+          }
+	}
+</style>

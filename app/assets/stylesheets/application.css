@@ -1,0 +1,165 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+body {
+	background-color: #1E90FF;
+}
+
+h2 {
+	color: #FFFFFF;
+	text-align: center;
+}
+
+h9 {
+	color: #FFFFFF;
+}
+
+em {
+	color: #FFFFFF;
+}
+
+div.field {
+	text-align: center;
+	border-radius : 15px;          /* 角丸       */
+}
+
+div.field2 {
+  text-align: center;
+  border-radius : 15px;          /* 角丸       */
+  margin-top: 30px;
+}
+
+ div.actions {
+ 	text-align: center;
+ 	font-size: 50px;
+ }
+i {
+	color: #FFFFFF;
+	font-weight: 500;
+}
+
+button.button2  { /*position: absolute; *//*top: 650px; */width: 174px;
+           height: 45px;padding: 10px;
+           background: linear-gradient(-135deg, #0000FF, #1E90FF, #00FFFF);     /* 背景色     */
+           border: 4px; font-size: 20px; color: #FFFFFF;
+           text-align: center;
+           border-top-left-radius: 25px;
+           border-top-right-radius: 25px;
+           border-bottom-right-radius: 25px;
+           border-bottom-left-radius: 25px;
+           left:0;
+           right:0;
+           margin:auto;
+           margin-top: 20px;
+           box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
+       }
+
+
+       button.button4  { /*position: absolute; top: 730px;*/ width: 174px;
+           height: 45px;padding: 10px;
+           background: linear-gradient(-135deg, #0000FF, #1E90FF, #00FFFF);     /* 背景色     */
+           border: 4px; font-size: 20px; color: #FFFFFF;
+           text-align: center;
+           border-top-left-radius: 25px;
+           border-top-right-radius: 25px;
+           border-bottom-right-radius: 25px;
+           border-bottom-left-radius: 25px;
+           left:0;
+           right:0;
+           margin:auto;
+           margin-top: 20px;
+           box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
+       }
+
+
+       button.button5  { position: absolute; top: 900px; width: 174px;
+           height: 45px;/*padding: 10px;*/
+           background: linear-gradient(-135deg, #0000FF, #1E90FF, #00FFFF);     /* 背景色     */
+           border: 4px; font-size: 20px; color: #FFFFFF;
+           text-align: center;
+           border-top-left-radius: 25px;
+           border-top-right-radius: 25px;
+           border-bottom-right-radius: 25px;
+           border-bottom-left-radius: 25px;
+           left:0;
+           right:0;
+           margin:auto;
+           box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
+       }
+
+       button.button6  { position: absolute; top: 900px; width: 174px;
+           height: 45px;/*padding: 10px;*/
+           background: linear-gradient(-135deg, #0000FF, #1E90FF, #00FFFF);     /* 背景色     */
+           border: 4px; font-size: 20px; color: #FFFFFF;
+           text-align: center;
+           border-top-left-radius: 25px;
+           border-top-right-radius: 25px;
+           border-bottom-right-radius: 25px;
+           border-bottom-left-radius: 25px;
+           left:0;
+           right:0;
+           margin:auto;
+           box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
+           margin-top: 70px;
+       }
+
+       button.button7  { position: absolute; top: 900px; width: 174px;
+           height: 45px;/*padding: 10px;*/
+           background: linear-gradient(-135deg, #0000FF, #1E90FF, #00FFFF);     /* 背景色     */
+           border: 4px; font-size: 20px; color: #FFFFFF;
+           text-align: center;
+           border-top-left-radius: 25px;
+           border-top-right-radius: 25px;
+           border-bottom-right-radius: 25px;
+           border-bottom-left-radius: 25px;
+           left:0;
+           right:0;
+           margin:auto;
+           box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
+           margin-top: 140px;
+       }
+
+       button.button8  { position: absolute; top: 300px; width: 174px;
+           height: 45px;/*padding: 10px;*/
+           background: linear-gradient(-135deg, #0000FF, #1E90FF, #00FFFF);     /* 背景色     */
+           border: 4px; font-size: 20px; color: #FFFFFF;
+           text-align: center;
+           border-top-left-radius: 25px;
+           border-top-right-radius: 25px;
+           border-bottom-right-radius: 25px;
+           border-bottom-left-radius: 25px;
+           left:0;
+           right:0;
+           margin:auto;
+           box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
+           margin-top: 70px;
+       }
+
+       button.button9  { position: absolute; top: 300px; width: 174px;
+           height: 45px;/*padding: 10px;*/
+           background: linear-gradient(-135deg, #0000FF, #1E90FF, #00FFFF);     /* 背景色     */
+           border: 4px; font-size: 20px; color: #FFFFFF;
+           text-align: center;
+           border-top-left-radius: 25px;
+           border-top-right-radius: 25px;
+           border-bottom-right-radius: 25px;
+           border-bottom-left-radius: 25px;
+           left:0;
+           right:0;
+           margin:auto;
+           box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
+           margin-top: 140px;
+       }

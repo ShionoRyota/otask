@@ -1,0 +1,168 @@
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<style>
+  div.card {
+  	text-align: center;
+  }
+
+  div.company {
+  	text-align: center;
+  	height: 30px;
+  	background-color: #FFFFFF;
+  	border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    width: 500px;
+    margin: auto;
+    padding-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  div.president {
+  	text-align: center;
+  	height: 30px;
+  	background-color: #FFFFFF;
+  	border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    width: 500px;
+    margin: auto;
+    padding-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  div.postal {
+  	text-align: center;
+  	height: 30px;
+  	background-color: #FFFFFF;
+  	border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    width: 500px;
+    margin: auto;
+    padding-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  div.address {
+  	text-align: center;
+  	height: 30px;
+  	background-color: #FFFFFF;
+  	border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    width: 500px;
+    margin: auto;
+    padding-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  div.phone {
+  	text-align: center;
+  	height: 30px;
+  	background-color: #FFFFFF;
+  	border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    width: 500px;
+    margin: auto;
+    padding-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  div.fax {
+  	text-align: center;
+  	height: 30px;
+  	background-color: #FFFFFF;
+  	border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    width: 500px;
+    margin: auto;
+    padding-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  div.email {
+  	text-align: center;
+  	height: 30px;
+  	background-color: #FFFFFF;
+  	border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    width: 500px;
+    margin: auto;
+    padding-top: 10px;
+    margin-bottom: 50px;
+  }
+
+  a4 {
+  	color: #000000;
+  	font-weight: 500;
+  	font-size: 15px;
+  	text-align: center;
+  }
+
+  a5 {
+  	color: #FFFFFF;
+  	font-weight: 500;
+  	font-size: 15px;
+  	text-align: center;
+  }
+
+  div.company_name {
+  	text-align: center;
+  	margin: auto;
+  	padding-bottom: 10px;
+  	margin-top: 10px;
+  }
+
+</style>
+
+<div class="company_name"><a5>記入内容確認画面</a5></div>
+
+<div class="company_name"><a5>申し込み内容</a5></div>
+
+<div class="company"><a4>2980円/月(初月無料)</a4></div>
+
+<div class="company_name"><a5>事業者名</a5></div>
+
+<div class="company"><a4><%= @user.company_name %></a4></div>
+
+<div class="company_name"><a5>代表者名</a5></div>
+
+<div class="president"><a4><%= @user.president_name %></a4></div>
+
+<div class="company_name"><a5>郵便番号</a5></div>
+
+<div class="postal"><a4><%= @user.postal_code %></a4></div>
+
+<div class="company_name"><a5>住所</a5></div>
+
+<div class="address"><a4><%= @user.address %></a4></div>
+
+<div class="company_name"><a5>電話番号</a5></div>
+
+<div class="phone"><a4><%= @user.phone_number %></a4></div>
+
+<div class="company_name"><a5>FAX番号</a5></div>
+
+<div class="fax"><a4><%= @user.fax_number %></a4></div>
+
+<div class="company_name"><a5>メールアドレス</a5></div>
+
+<div class="email"><a4><%= @user.email %></a4></div>
+
+<div class="card">
+<%= form_tag(action: :pay, method: :post) do %>
+   <script type="text/javascript" src="https://checkout.pay.jp" class="payjp-button" data-key="pk_test_0aa72737eba79ace4d91b6e1"></script>
+<% end %>
+</div>
+
