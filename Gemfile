@@ -75,6 +75,3 @@ gem 'whenever', :require => false  #定期的な納期のチェック
 
 # gem 'sendgrid-ruby'
 gem 'fog', '~> 1.41.0'
-
-gem 'recaptcha', require: 'recaptcha/rails'
-
