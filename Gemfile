@@ -74,6 +74,7 @@ gem 'devise-i18n-views'  # deviseの日本語化
 gem 'whenever', :require => false  #定期的な納期のチェック
 
 # gem 'sendgrid-ruby'
-gem 'fog-aws'
+gem 'fog', '~> 1.41.0'
 
+gem 'recaptcha', require: 'recaptcha/rails'
 
