@@ -69,7 +69,7 @@ td {
     <th>品番・品名</th><th>数量</th><th>単価</th><th>金額</th><th>備考</th>
   </tr>
 
-    <% Task.where("list_id = ? AND flag_id = 3", params[:list_id]).find_each do |task| %>
+    <% Task.where(list_id: params[:list_id], flag_id: 3).find_each do |task| %>
           <tr><td><%= simple_format(task.taskname) %></td><td><%= task.number %></td><td><%= task.price %></td><td><%= task.sale %></td><td><%= task.remarks %></td></tr>
     <% end %>
 

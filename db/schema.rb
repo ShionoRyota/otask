@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 2018_11_09_155137) do
 
   create_table "thumbnails", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "images"
+    t.integer "user_id"
     t.bigint "task_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

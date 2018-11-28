@@ -51,9 +51,8 @@
 
   <div class="field">
     <h9><%= f.label :パスワード %></h9>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> 文字以上)</em>
-    <% end %><br />
+    <em>(8文字以上)</em>
+    <br />
     <%= f.password_field :password, autocomplete: "new-password", size: "50x1", style: "font-size:20px", placeholder: "パスワードを入力してください" %>
   </div>
 

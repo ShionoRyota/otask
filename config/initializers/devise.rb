@@ -9,12 +9,16 @@ Devise.setup do |config|
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
   # config.secret_key = '42f890a6ce74782b77ab6730b2138436d59dfc2cb698a2826663469f89b9dcbba7076eada7c15282bc3be91b5273c9ef9b42691f9f800267fbc51f82159e87de'
-  config.unlock_strategy = :email
-  config.maximum_attempts = 4
-  config.unlock_in = 2.hours
+  config.lock_strategy = :failed_attempts # 一定回数ログインミスでロック
+  config.unlock_strategy = :both          # ロック解除条件は時間経過のみ
+  config.maximum_attempts = 4            # 10回連続ミスでロック
+  config.unlock_in = 2.hours               # 1時間ロック継続
+  config.last_attempt_warning = true    # あと1回ミスしてロックされる時に警告を出さない
+
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
   # config.parent_controller = 'DeviseController'
+    config.timeout_in = 1.weeks
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,

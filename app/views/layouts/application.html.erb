@@ -10,6 +10,18 @@
   </head>
 
   <body>
+
+  <% if signed_in? %>
+    <p><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></p>
+  <% else %>
+    <p><%= link_to "ログイン", new_user_session_path %></p>
+  <% end %>
+  <% if notice %>
+    <p class="notice"><%= notice %></p>
+  <% elsif alert %>
+    <p class="alert"><%= alert %></p>
+  <% end %>
+
     <%= yield %>
   </body>
 </html>
