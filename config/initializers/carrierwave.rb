@@ -32,9 +32,9 @@ CarrierWave.configure do |config|
     case Rails.env
     when 'development'
         config.fog_directory  = 'otask'
-        config.asset_host = 'https://s3.amazonaws.com/otask'
+        config.asset_host = 'https://s3-us-east-2.amazonaws.com/otask'
     when 'production'
         config.fog_directory  = 'otask'
-        config.asset_host = 'https://s3.amazonaws.com/otask'
+        config.asset_host = 'https://s3-us-east-2.amazonaws.com/otask'
     end
 end
