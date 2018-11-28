@@ -43,3 +43,4 @@ class Users::PasswordsController < Devise::PasswordsController
 #       params.require(:user).permit(:reset_password_token, :password, :password_confirmation)
 #     end
 # end
+end
