@@ -78,5 +78,5 @@ gem 'capistrano-rbenv'
 gem 'capistrano-bundler'
 gem 'capistrano-rails'
 gem 'capistrano3-unicorn'
-
+# gem 'recaptcha', require: 'recaptcha/rails'
 

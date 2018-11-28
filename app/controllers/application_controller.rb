@@ -1,6 +1,12 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery with: :null_session # CSRF対策を無効
+  protect_from_forgery with: :exception     # エラーを投げる
   before_action :configure_permitted_parameters, if: :devise_controller? # sign_upのパラメータ追加
+  prepend_before_action :set_headers
+
+def set_headers
+  response.headers['Cache-Control'] = 'no-store'
+  response.headers['Pragma'] = 'no-cache'
+end
 
     # def after_sign_up_path_for(resource)
     #      users_show_path
@@ -8,7 +14,11 @@ class ApplicationController < ActionController::Base
 
 # ログイン後のリダイレクト先
     def after_sign_in_path_for(resource)
+      if current_user.customer_id.nil?
           "http://127.0.0.1:3000/users/show"
+      else
+          "http://127.0.0.1:3000/users"
+      end
     end
 
 # ログアウト後のリダイレクト先

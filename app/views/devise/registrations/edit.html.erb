@@ -54,9 +54,8 @@
 
   <div class="field">
     <h9><%= f.label :新しいパスワード %></h9> <br><i>(もし変えたくないなら空白にしてください)</i><br><br>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> 文字以上)</em>
-    <% end %><br />
+    <em>(8文字以上)</em>
+    <br />
     <%= f.password_field :password, autocomplete: "new-password", size: "50x1", style: "font-size:20px", placeholder: "パスワードを入力してください" %>
   </div>
 
@@ -76,3 +75,10 @@
 <% end %>
 
 <div class="actions"><button class="button6" type="submit"><%= link_to "戻る", :users, :style => 'color: #FFFFFF;' %></button></div>
+
+<!-- <h3><%= t('.cancel_my_account') %></h3>
+
+<p><%= t('.unhappy') %> <%= button_to t('.cancel_my_account'), registration_path(resource_name), data: { confirm: t('.are_you_sure') }, method: :delete %></p>
+
+<%= link_to t('devise.shared.links.back'), :back %>
+ -->

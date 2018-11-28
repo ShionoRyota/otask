@@ -22,19 +22,19 @@ class ListsController < ApplicationController
 
 #listの内容変更
   def edit
-    @list = List.find(params[:id])
+    @list = current_user.lists.find(params[:id])
   end
 
 #editの内容に変更
   def update
-    @list = List.find(params[:id])
+    @list = current_user.lists.find(params[:id])
     @list.update_attributes(list_params)
     redirect_to lists_path
   end
 
 #リスト削除
   def destroy
-    @list = List.find(params[:id])
+    @list = current_user.lists.find(params[:id])
     if @list.destroy
       redirect_to lists_path
     end

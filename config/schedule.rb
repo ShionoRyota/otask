@@ -12,9 +12,9 @@ set :environment, rails_env
 set :output, 'log/cron.log'
 
 # # 3分毎に回す
-# every 1.minute do
-# 	rake "check_date:check_state"
-# end
+every 1.minute do
+	rake "check_date:check_state"
+end
 
 # 毎日12時に回す
 every 1.day, :at => '12pm' do

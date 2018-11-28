@@ -9,8 +9,8 @@ class User < ApplicationRecord
          :trackable, # サインイン回数や、サインイン時間、IPアドレスを記録
          :validatable, # バリデーションを提供
          :confirmable, # メールに記載されているURLをクリックして本登録を完了する
-         :lockable # 一定回数サインインを失敗するとアカウントをロック
-
+         :lockable, # 一定回数サインインを失敗するとアカウントをロック
+         :timeoutable
 
   has_many :lists, dependent: :destroy
   has_many :tasks, dependent: :destroy
@@ -20,4 +20,11 @@ class User < ApplicationRecord
   validates :postal_code, presence: true
   validates :address, presence: true
   validates :phone_number, presence: true
+  validate :password_complexity
+
+ def password_complexity
+  return if password.blank? || password =~ /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,70}$/
+  errors.add :password, "パスワードの強度が不足しています。パスワードの長さは8〜70文字とし、大文字と小文字と数字と記号をそれぞれ1文字以上含める必要があります。"
+ end
+
 end

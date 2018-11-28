@@ -31,19 +31,31 @@ Rails.application.configure do
   config.active_storage.service = :local
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = true
+  # config.action_mailer.raise_delivery_errors = true
 
-  config.action_mailer.perform_caching = false
+  # config.action_mailer.perform_caching = false
 
+  # config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.smtp_settings = {
+  #   port:                 587,
+  #   address:              'smtp.gmail.com',
+  #   domain:               'smtp.gmail.com',
+  #   user_name:            'otask.kouritsu2018@gmail.com',
+  #   password:             'nyvxaxuypfvqcoat',
+  #   authentication:       'login',
+  #   enable_starttls_auto: true
+  # }
+
+  config.action_mailer.raise_delivery_errors = false #この一文も追記!!
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    port:                 587,
-    address:              'smtp.gmail.com',
-    domain:               'smtp.gmail.com',
-    user_name:            'otask.kouritsu2018@gmail.com',
-    password:             'nyvxaxuypfvqcoat',
-    authentication:       'login',
-    enable_starttls_auto: true
+      :user_name => ENV['SENDGRID_USERNAME'],
+      :password => ENV['SENDGRID_PASSWORD'],
+      :domain => "heroku.com",
+      :address => "smtp.sendgrid.net",
+      :port => 587,
+      :authentication => :plain,
+      :enable_starttls_auto => true
   }
 
   # Print deprecation notices to the Rails logger.

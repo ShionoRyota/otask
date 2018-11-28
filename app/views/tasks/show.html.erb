@@ -77,7 +77,7 @@
   <div class="list">
     <ul class="list" id="list1">
     <header1><%= @suppliers.name %></header1>
-      <% Task.where("list_id = ? AND flag_id = 4", params[:list_id]).find_each do |task| %>
+      <% Task.where(list_id: params[:list_id], flag_id: 4).find_each do |task| %>
         <li class="a1">
          <%= link_to task.taskname, edit_list_task_path(:id => task.id),  :style => 'color: #000000;' %>
          <%= link_to 'TODOに戻す',  todo_list_task_path(:id => task.id), :method => :put %>
