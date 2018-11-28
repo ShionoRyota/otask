@@ -73,11 +73,6 @@ gem 'devise-i18n' # deviseの日本語化
 gem 'devise-i18n-views'  # deviseの日本語化
 gem 'whenever', :require => false  #定期的な納期のチェック
 
-gem 'capistrano'
-gem 'capistrano-rbenv'
-gem 'capistrano-bundler'
-gem 'capistrano-rails'
-gem 'capistrano3-unicorn'
 # gem 'sendgrid-ruby'
 # gem 'fog', '~> 1.41.0'
 
