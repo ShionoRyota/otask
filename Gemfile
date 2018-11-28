@@ -74,6 +74,6 @@ gem 'devise-i18n-views'  # deviseの日本語化
 gem 'whenever', :require => false  #定期的な納期のチェック
 
 # gem 'sendgrid-ruby'
-gem 'fog'
+gem 'fog-aws'
 
 
