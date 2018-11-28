@@ -14,15 +14,11 @@ end
 
 # ログイン後のリダイレクト先
     def after_sign_in_path_for(resource)
-<<<<<<< HEAD
       if current_user.customer_id.nil?
-          "http://127.0.0.1:3000/users/show"
-      else
-          "http://127.0.0.1:3000/users"
-      end
-=======
           "https://otask.herokuapp.com/users/show"
->>>>>>> d4ba548a862792825483717237d8ed17b4b9f315
+      else
+          "https://otask.herokuapp.com/users"
+      end
     end
 
 # ログアウト後のリダイレクト先
