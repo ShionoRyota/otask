@@ -1,7 +1,13 @@
 class UsersController < ApplicationController
+<<<<<<< HEAD
 	# protect_from_forgery except: :pay #payのCSRF対策が無効
   before_action :authenticate_user!, only: [:index, :show, :pay, :income_and_expenditure, :expenditure, :sale_history, :expenditure_history, :no_card?, :expenditure_one_month, :expenditure_two_month, :expenditure_three_month, :expenditure_four_month, :expenditure_five_month, :expenditure_six_month, :expenditure_seven_month, :expenditure_eight_month, :expenditure_nine_month, :expenditure_ten_month, :expenditure_eleven_month, :expenditure_twelve_month] # index以外はログイン済ユーザーのみにアクセスを許可する
   before_action :no_card?, except: [:show, :pay] # show,pay以外はクレカ登録してるか確認(課金者以外排除)
+=======
+	protect_from_forgery except: :pay #payのCSRF対策が無効
+  before_action :authenticate_user!, except: [:index, :delete_done] # index以外はログイン済ユーザーのみにアクセスを許可する
+  before_action :no_card?, except: [:show, :pay, :delete_done] # show,pay以外はクレカ登録してるか確認(課金者以外排除)
+>>>>>>> d4ba548a862792825483717237d8ed17b4b9f315
 
 # ホーム画面
 	def index
@@ -51,6 +57,22 @@ class UsersController < ApplicationController
 
     flash[:notice] = "支払い完了"
 
+  end
+
+  def pay_delete
+    Payjp.api_key = 'sk_test_da41c1a67e47faa9c167e35f'
+    @user = User.find(current_user[:id])
+    pay_id = @user.customer_id
+    customer = Payjp::Customer.retrieve(pay_id)
+    customer.delete
+    @user.destroy
+    redirect_to users_delete_done_path
+  end
+
+  def delete_confirm
+  end
+
+  def delete_done
   end
 
 # 収支管理

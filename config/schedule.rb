@@ -11,7 +11,7 @@ set :environment, rails_env
 # cronのログの吐き出し場所。ここでエラー内容を確認する
 set :output, 'log/cron.log'
 
-# # 3分毎に回す
+# 3分毎に回す
 every 1.minute do
 	rake "check_date:check_state"
 end
