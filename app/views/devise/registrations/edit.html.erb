@@ -78,7 +78,7 @@
 
 <div class="actions"><button class="button10" type="submit">
  <% if signed_in? %>
-     <%= link_to "ログアウト", destroy_user_session_path, method: :delete %></p>
+     <%= link_to "ログアウト", destroy_user_session_path, method: :delete, :style => 'color: #FFFFFF;' %></p>
    <% else %>
      <%= link_to "ログイン", new_user_session_path %>
    <% end %>
