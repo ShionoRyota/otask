@@ -18,6 +18,7 @@ class CreateTasks < ActiveRecord::Migration[5.2]
       t.datetime :sale_time #taskが請求欄に行った時間（この時点で売上に入るため）
       t.integer :list_id
       t.integer :user_id
+      t.string :image
 
       t.timestamps
     end

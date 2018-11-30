@@ -17,7 +17,7 @@ class ThumbnailUploader < CarrierWave::Uploader::Base
     process :convert => 'jpg'
 
   def filename
-    "#{secure_token}.#{file.extension}" if original_filename.present?
+    "#{secure_token}.#{file.extension}" + '.jpg' if original_filename.present?
   end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:

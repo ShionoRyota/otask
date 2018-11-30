@@ -6,5 +6,6 @@ class Task < ApplicationRecord
 
   accepts_nested_attributes_for :thumbnails
 
+  mount_uploader :image, ThumbnailUploader
 
 end

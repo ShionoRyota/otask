@@ -124,13 +124,19 @@ body {
     <%= f.text_area :taskname, size: "50x2", style: "font-size:20px", placeholder: "シャフト", class: "textArea" %>
   </div>
 
-  <div class="field">
+  <!-- <div class="field">
     <h9><%= f.label :画像 %></h9><br />
     <%= f.fields_for :thumbnails do |thumbnail| %>
     <%= thumbnail.file_field :images %>
     <% end %>
 
+  </div> -->
+
+  <div class="field">
+    <h9><%= f.label :画像 %></h9><br />
+    <%= f.file_field :image %>
   </div>
+
 
 
   <div class="field">
