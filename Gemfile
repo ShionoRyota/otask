@@ -72,6 +72,4 @@ gem 'payjp' # クレカ支払い登録
 gem 'devise-i18n' # deviseの日本語化
 gem 'devise-i18n-views'  # deviseの日本語化
 gem 'whenever', :require => false  #定期的な納期のチェック
-
-# gem 'sendgrid-ruby'
 gem 'fog-aws'
