@@ -1,0 +1,11 @@
+production:
+
+cloud_name: "hxwqzeyrt"
+
+api_key: ENV['CLOUDINARY_KEY']
+
+api_secret: ENV['CLOUDINARY_SECRET_KEY']
+
+secure: true
+
+cdn_subdomain: true

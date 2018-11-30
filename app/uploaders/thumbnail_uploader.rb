@@ -1,6 +1,7 @@
 class ThumbnailUploader < CarrierWave::Uploader::Base
 
   # Include RMagick or MiniMagick support:
+  include Cloudinary::CarrierWave if Rails.env.production?
   include CarrierWave::RMagick
   include CarrierWave::MiniMagick
 
