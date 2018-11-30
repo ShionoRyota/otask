@@ -4,9 +4,6 @@ lock "~> 3.11.0"
 set :application, "otask"
 set :repo_url, "git@example.com:me/my_repo.git"
 
-set :whenever_command, "bundle exec whenever"
-require "whenever/capistrano"
-
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
