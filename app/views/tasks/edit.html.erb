@@ -9,19 +9,15 @@
     <%= f.text_area :taskname, size: "50x2", style: "font-size:20px", placeholder: "シャフト"%>
   </div>
 
-  <div class="field">
+  <<div class="field">
     <h9><%= f.label :NEW画像 %></h9><br />
-    <%= f.fields_for :thumbnails do |thumbnail| %>
-    <%= thumbnail.file_field :images %>
-    <% end %>
-
+        <%= f.file_field :image %>
   </div>
-  <!-- <div class="field"><br>
+
+  <div class="field"><br>
         <h9>変更前</h9><br><br>
-    <% Thumbnail.where(task_id: params[:id]).find_each do |thumbnails| %>
-            <%= link_to image_tag(thumbnails.images.to_s, :width => '100', :height => '100'), download_list_task_path %>
-    <% end %>
-  </div> -->
+        <%= link_to image_tag(@task.image.to_s, :width => '100', :height => '100'), download_list_task_path %>
+  </div>
 
   <div class="field">
     <h9><%= f.label :注文番号 %></h9><br />

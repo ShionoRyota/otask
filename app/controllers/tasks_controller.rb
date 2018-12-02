@@ -61,7 +61,7 @@ before_action :no_card? # クレカ登録してるか確認(課金者以外排�
 
   # editで画像押すと拡大
   def download
-    @task = Thumbnail.find_by(task_id: params[:id])
+    @task = current_user.tasks.find(params[:id])
   end
 
 
