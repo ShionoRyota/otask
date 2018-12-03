@@ -77,16 +77,7 @@
 <div class="actions"><button class="button6" type="submit"><%= link_to "戻る", :users, :style => 'color: #FFFFFF;' %></button></div>
 
 <div class="actions"><button class="button10" type="submit">
- <% if signed_in? %>
      <%= link_to "ログアウト", destroy_user_session_path, method: :delete, :style => 'color: #FFFFFF;' %></p>
-   <% else %>
-     <%= link_to "ログイン", new_user_session_path %>
-   <% end %>
-   <% if notice %>
-     <p class="notice"><%= notice %></p>
-   <% elsif alert %>
-     <p class="alert"><%= alert %></p>
-   <% end %>
 </button></div>
 
 <div class="actions"><button class="button7" type="submit"><%= link_to "解約する", :users_delete_confirm, :style => 'color: #FFFFFF;' %></button></div>
