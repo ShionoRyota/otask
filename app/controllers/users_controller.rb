@@ -43,8 +43,8 @@ class UsersController < ApplicationController
      charge = Payjp::Charge.create(
        :amount => 2980,
        :card => params['payjp-token'],
-       :currency => 'jpy'
-       customer: customer
+       :currency => 'jpy',
+       customer: customer,
        subscription: subscription
      )
 
