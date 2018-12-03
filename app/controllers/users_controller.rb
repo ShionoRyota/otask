@@ -35,7 +35,7 @@ class UsersController < ApplicationController
     )
 
 
-     Payjp::Subscription.create(
+     subscription = Payjp::Subscription.create(
       plan: plan,
       customer: customer
      )
@@ -44,6 +44,8 @@ class UsersController < ApplicationController
        :amount => 2980,
        :card => params['payjp-token'],
        :currency => 'jpy'
+       customer: customer
+       subscription: subscription
      )
 
 
