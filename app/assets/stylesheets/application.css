@@ -68,7 +68,7 @@ button.button2  { /*position: absolute; *//*top: 650px; */width: 174px;
        }
 
 
-       button.button4  { /*position: absolute; top: 730px;*/ width: 174px;
+       button.g-recaptcha   { /*position: absolute; top: 730px;*/ width: 174px;
            height: 45px;padding: 10px;
            background: linear-gradient(-135deg, #0000FF, #1E90FF, #00FFFF);     /* 背景色     */
            border: 4px; font-size: 20px; color: #FFFFFF;
@@ -82,6 +82,8 @@ button.button2  { /*position: absolute; *//*top: 650px; */width: 174px;
            margin:auto;
            margin-top: 20px;
            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
+           font-size: 20px;
+           color: #FFFFFF;
        }
 
 
