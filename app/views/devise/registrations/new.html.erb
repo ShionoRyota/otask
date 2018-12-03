@@ -64,7 +64,7 @@
   <div class="actions">
     <button class="button4" type="submit">
      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-       <%= invisible_recaptcha_tags({ text: "確認して次へ", class: "btn" }) %>
+       <%= invisible_recaptcha_tags({ text: "確認して次へ" }) %>
      <% end %>
     </button>
   </div>
