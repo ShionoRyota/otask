@@ -14,10 +14,10 @@ class UsersController < ApplicationController
 
 # pay.jpと連携
 	def pay
-     Payjp.api_key = 'sk_test_da41c1a67e47faa9c167e35f'
+     Payjp.api_key = ENV['PAY_ID']
 
      customer = Payjp::Customer.create(
-      description: 'test'
+      description: 'OTask本番環境サービス利用者'
      )
 
      @user = User.find(current_user[:id])
@@ -54,7 +54,7 @@ class UsersController < ApplicationController
   end
 
   def pay_delete
-    Payjp.api_key = 'sk_test_da41c1a67e47faa9c167e35f'
+    Payjp.api_key = ENV['PAY_ID']
     @user = User.find(current_user[:id])
     pay_id = @user.customer_id
     customer = Payjp::Customer.retrieve(pay_id)
