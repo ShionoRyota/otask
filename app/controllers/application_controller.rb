@@ -38,4 +38,19 @@ end
         redirect_to new_user_session_url unless user_signed_in?
     end
 
+# チェックボックス押すと、最終セッションからログイン状態を保持
+before_filter :setup
+def setup
+  if session[:user_id]
+    if session[:persistent] # 「ログイン状態を保持する」チェックボックスをチェックしたらtrueになるようにしておく
+      session.instance_variable_get(:@dbman).instance_variable_get(:@cookie_options)['expires'] = 3.months.from_now # ここが要所！
+      session[:persistent] = Time.now 
+    end
+
+    # Fetch the user record.
+    @user = User.find_by_id(session[:user_id], :readonly => true)
+  end
+end
+
+
 end
