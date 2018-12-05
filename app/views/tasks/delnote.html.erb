@@ -97,7 +97,7 @@ td {
   </tr>
 
     <% Task.where(list_id: params[:list_id], flag_id: 3).find_each do |task| %>
-          <tr><td><%= simple_format(task.taskname) %></td><td><%= task.number %></td><td><%= task.price %></td><td><%= task.sale %></td><td><form action="#" method="post"><input type="text", size="12x3"></form></td></tr>
+          <tr><td><%= simple_format(task.taskname) %></td><td><%= task.number %></td><td><%= task.price %></td><td><%= task.sale %></td><td><form><textarea name="memo" cols="16" rows="3"></textarea></form></td></tr>
     <% end %>
 
   </tr>
