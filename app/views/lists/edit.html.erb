@@ -20,5 +20,27 @@
 <%= form_for @list do |form| %>
   <div class="mokuji"><%= form.label :変更後の取引先を登録 %></div>
   <div class="fm"><%= form.text_field :name, size: "25x1", style: "font-size:30px", placeholder: "例: ◯△□製作所", class: "smfield" %></div>
+
+  <div class="field">
+    <h9><%= form.label :郵便番号 %></h9><br />
+    <%= form.text_field :customers_postal_code, size: "50x1", style: "font-size:20px", placeholder: "123-4567" %>
+  </div>
+
+  <div class="field">
+    <h9><%= form.label :住所 %></h9><br />
+    <%= form.text_field :customers_address, size: "50x1", style: "font-size:20px", placeholder: "大阪府 〇〇市 〇〇 -1234-5678" %>
+  </div>
+
+  <div class="field">
+    <h9><%= form.label :電話番号 %></h9><br>
+    <h9>(※請求書や納品書などに普段記載している電話番号をご登録ください)</h9><br><br />
+    <%= form.text_field :customers_phone_number, size: "50x1", style: "font-size:20px", placeholder: "080-1234-5678" %>
+  </div>
+
+  <div class="field">
+    <h9><%= form.label :FAX番号 %></h9><br />
+    <%= form.text_field :customers_fax_number, size: "50x1", style: "font-size:20px", placeholder: "080-1234-5678" %>
+  </div>
+
   <button class="button" type="submit">登録する</button>
 <% end %>
