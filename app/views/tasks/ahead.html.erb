@@ -24,14 +24,10 @@ h5 {
 }
 
 .info {
-	text-align: left;
+	text-align: center;
 	margin-right: 550px;
 }
 
-.info3 {
-  text-align: left;
-  margin-right: 550px;
-}
 
 
 .info2 {
@@ -55,13 +51,12 @@ td {
 <h5><%= Date.today.strftime("%Y-%m-%d")%></h5>
 
 <div class= "info">
- <li><%= @suppliers.name %>様</li>
+ <h1><%= @suppliers.name %>様</h1>
  <li>〒<%= @suppliers.customers_postal_code %></li>
  <li>〒<%= @suppliers.customers_address %></li>
  <li>TEL.<%= @suppliers.customers_phone_number %></li>
  <li>FAX.<%= @suppliers.customers_fax_number %></li>
 </div>
-
 
 <div class= "info2">
  <li><%= @company.company_name %></li>
