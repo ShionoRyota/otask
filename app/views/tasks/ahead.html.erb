@@ -24,10 +24,16 @@ h5 {
 }
 
 .info {
-	text-align: center;
+	text-align: left;
 	margin-right: 550px;
 }
 
+.info {
+  text-align: left;
+  margin-right: 550px;
+  position: relative;
+  left: 400px;
+}
 
 
 .info2 {
@@ -52,6 +58,13 @@ td {
 
 <div class= "info">
  <h1><%= @suppliers.name %>様</h1>
+ <li>〒<%= @suppliers.customers_postal_code %></li>
+ <li>〒<%= @suppliers.customers_address %></li>
+ <li>TEL.<%= @suppliers.customers_phone_number %></li>
+ <li>FAX.<%= @suppliers.customers_fax_number %></li>
+</div>
+
+<div class= "info3">
  <li>〒<%= @suppliers.customers_postal_code %></li>
  <li>〒<%= @suppliers.customers_address %></li>
  <li>TEL.<%= @suppliers.customers_phone_number %></li>
