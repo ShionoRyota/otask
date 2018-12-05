@@ -36,11 +36,6 @@ h5 {
 }
 
 @media print {
-  h1 {
-  font-weight: 500;
-  text-align: left;
-  margin-left: 200px;
-}
   .info {
   text-align: left;
   /*margin-right: 550px;*/
@@ -69,7 +64,7 @@ td {
 <h5><%= Date.today.strftime("%Y-%m-%d")%></h5>
 
 <div class= "info">
- <h1><%= @suppliers.name %>様</h1>
+ <li><%= @suppliers.name %>様</li>
  <li>〒<%= @suppliers.customers_postal_code %></li>
  <li>〒<%= @suppliers.customers_address %></li>
  <li>TEL.<%= @suppliers.customers_phone_number %></li>
