@@ -4,7 +4,6 @@
   body {
   	background-color: #FFFFFF;
     margin-top: 80px;
-    width: 100%;
 }
 
 h1 {
@@ -25,23 +24,19 @@ h5 {
 }
 
 .info {
-	text-align: center;
+	text-align: left;
 	margin-right: 550px;
 }
 
 .info3 {
   text-align: left;
   margin-right: 550px;
-  position: absolute;
-  left: 365px;
 }
 
 
 .info2 {
-  /*position: relative;
-  left: 800px;*/
-  right: auto;
-  left: auto;
+  position: relative;
+  left: 800px;
 }
 
 li {
@@ -63,12 +58,12 @@ td {
  <h1><%= @suppliers.name %>様</h1>
 </div>
 
-<!-- <div class= "info3">
+<div class= "info3">
  <li>〒<%= @suppliers.customers_postal_code %></li>
  <li>〒<%= @suppliers.customers_address %></li>
  <li>TEL.<%= @suppliers.customers_phone_number %></li>
  <li>FAX.<%= @suppliers.customers_fax_number %></li>
-</div> -->
+</div>
 
 <div class= "info2">
  <li><%= @company.company_name %></li>
