@@ -215,12 +215,6 @@ answer.innerHTML = parseInt( number.value, 10 ) * parseInt( price.value, 10 ); /
               '年 ', '月 ') + '日' %>
 </div>
 
-
-  <div class="field2">
-    <h9><%= f.label :"備考(請求書等に反映されます)" %></h9><br />
-    <%= f.text_area :remarks, size: "50x2", style: "font-size:20px", class: "textArea" %>
-  </div>
-
   <div class="field">
     <h9><%= f.label :メモ %></h9><br />
     <%= f.text_area :memo, size: "50x2", style: "font-size:20px", class: "textArea" %>
