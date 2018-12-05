@@ -10,7 +10,7 @@ class User < ApplicationRecord
          :validatable, # バリデーションを提供
          :confirmable, # メールに記載されているURLをクリックして本登録を完了する
          :lockable, # 一定回数サインインを失敗するとアカウントをロック
-         :timeoutable
+         :timeoutable #セッション時間を決められる
 
   has_many :lists, dependent: :destroy
   has_many :tasks, dependent: :destroy
