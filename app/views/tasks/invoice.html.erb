@@ -43,6 +43,19 @@ h5 {
   left: 800px;
 }
 
+@media print {
+  .info3 {
+  text-align: left;
+  /*margin-right: 550px;*/
+  /*margin-left: 200px;*/
+  left: 168px;
+}
+  .info2 {
+  position: relative;
+  left: 650px;
+}
+}
+
 li {
   list-style: none;
 }
@@ -55,12 +68,16 @@ span.taskname {
   text-align: left;
 }
 
+textarea.bikou{border:1px white solid;}
+
+
 
 </style>
 
 <body>
 <h1>請求書</h1>
-<h5><%= Date.today.strftime("%Y-%m-%d")%></h5>
+<!-- <h5><%= Date.today.strftime("%Y-%m-%d")%></h5> -->
+<h5><%= @suppliers.closing_date.strftime("%Y-%m-%d")%></h5>
 
 <div class= "info">
  <h1><%= @suppliers.name %>様</h1>
@@ -89,7 +106,7 @@ span.taskname {
   </tr>
 
     <% Task.where(list_id: params[:list_id], flag_id: 3).find_each do |task| %>
-          <tr><td><%= simple_format(task.taskname) %></td><td><%= task.number %></td><td><%= task.price %></td><td><%= task.sale %></td><td><span class="taskname"><%= task.remarks %></span></td></tr>
+          <tr><td><%= simple_format(task.taskname) %></td><td><%= task.number %></td><td><%= task.price %></td><td><%= task.sale %></td><td><form><textarea class="bikou" cols="16" rows="3"></textarea></form></td></tr>
     <% end %>
 
   </tr>
