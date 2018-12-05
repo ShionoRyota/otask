@@ -43,9 +43,9 @@
   </div>
 
   <div class="birth_date_field">
-  <h9><%= f.label :締め日 %></h9><br>
+  <h9><%= form.label :締め日 %></h9><br>
   <%= raw sprintf(
-              f.date_select(
+              form.date_select(
                   :closing_date,
                   use_month_numbers: true,
                   start_year:        2018,
