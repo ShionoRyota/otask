@@ -16,7 +16,11 @@
 
   <div class="field"><br>
         <h9>変更前</h9><br><br>
+    <% if @task.image.blank? %>
+         <%= image_tag 'no_image', :width => '100', :height => '100' %>
+    <% else %>
         <%= link_to image_tag(@task.image.to_s, :width => '100', :height => '100'), download_list_task_path %>
+    <% end %>
   </div>
 
   <div class="field">
