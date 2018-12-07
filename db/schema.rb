@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_07_050734) do
+ActiveRecord::Schema.define(version: 2018_12_07_070009) do
 
   create_table "expenditures", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "expenditure_date"
@@ -44,9 +44,9 @@ ActiveRecord::Schema.define(version: 2018_12_07_050734) do
     t.integer "flag_id", default: 0
     t.integer "color_id", default: 0
     t.integer "sale", default: 0
-    t.string "material_cost", default: "0"
-    t.string "brokerage_fee", default: "0"
-    t.string "processing_fee", default: "0"
+    t.string "material_cost"
+    t.string "brokerage_fee"
+    t.string "processing_fee"
     t.string "duration"
     t.datetime "sale_time"
     t.integer "list_id"
