@@ -103,11 +103,11 @@ textarea.bikou{border:1px white solid;}
 
   <h5>下記の通りご請求申し上げます。</h5>
   <tr>
-    <th>品番・品名</th><th>数量</th><th>単位</th><th>金額</th><th>備考</th>
+    <th>品番・品名</th><th>数量</th><th>金額</th><th>備考</th>
   </tr>
 
     <% Task.where(list_id: params[:list_id], flag_id: 3).find_each do |task| %>
-          <tr><td><%= simple_format(task.taskname) %></td><td><%= task.number %></td><td><%= task.unit %></td><td><%= task.price %></td><td><%= task.sale %></td><td><form><textarea class="bikou" cols="16" rows="3"></textarea></form></td></tr>
+          <tr><td><%= simple_format(task.taskname) %></td><td><%= task.number %></td><td><%= task.price %></td><td><%= task.sale %></td><td><form><textarea class="bikou" cols="16" rows="3"></textarea></form></td></tr>
     <% end %>
 
   </tr>

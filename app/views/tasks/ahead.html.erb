@@ -114,7 +114,7 @@ textarea.bikou{border:1px white solid;}
   </tr>
 
     <% Task.where(list_id: params[:list_id], flag_id: 3).find_each do |task| %>
-          <tr><td><%= simple_format(task.taskname) %></td><td><%= task.number %></td><td><%= task.unit %></td><td><%= task.price %></td><td><%= task.sale %></td><td><form><textarea class="bikou" cols="16" rows="3"></textarea></form></td></tr>
+          <tr><td><%= simple_format(task.taskname) %></td><td><%= task.number %></td><td><%= task.price %></td><td><%= task.sale %></td><td><form><textarea class="bikou" cols="16" rows="3"></textarea></form></td></tr>
     <% end %>
 
   </tr>
