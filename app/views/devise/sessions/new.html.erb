@@ -3,12 +3,12 @@
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
     <%= f.label :メールアドレス %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", size: "50x1", style: "font-size:20px", placeholder: "gmailでログインしてください", class: "textArea" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", size: "50x1", style: "font-size:20px", placeholder: "gmailでログインしてください" %>
   </div>
 
   <div class="field">
     <%= f.label :パスワード %><br />
-    <%= f.password_field :password, autocomplete: "current-password", size: "50x1", style: "font-size:20px", placeholder: "パスワードを入力してください", class: "textArea" %>
+    <%= f.password_field :password, autocomplete: "current-password", size: "50x1", style: "font-size:20px", placeholder: "パスワードを入力してください" %>
   </div>
 
   <% if devise_mapping.rememberable? -%>
@@ -58,7 +58,15 @@
  }
 
  @media only screen and (max-width: 750px) {
-    .textArea {
+    #user_email {
+      width: 240px;
+      font-size: 18px;
+      margin: auto;
+    }
+ }
+
+ @media only screen and (max-width: 750px) {
+    #user_password {
       width: 240px;
       font-size: 18px;
       margin: auto;
