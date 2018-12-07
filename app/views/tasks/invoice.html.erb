@@ -76,8 +76,7 @@ textarea.bikou{border:1px white solid;}
 
 <body>
 <h1>請求書</h1>
-<!-- <h5><%= Date.today.strftime("%Y-%m-%d")%></h5> -->
-<h5><%= @suppliers.closingdate.strftime("%Y-%m-%d")%></h5>
+<h5><%= Date.today.strftime("%Y-%m-")%><td><input size="6" maxlength="2"></td></h5>
 
 <div class= "info">
  <h1><%= @suppliers.name %>様</h1>
