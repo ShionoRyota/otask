@@ -76,11 +76,6 @@ textarea.bikou{border:1px white solid;}
   margin-left: 80px;
 }
 
-select{
-font-size:18px;
-border:1px white solid;
-text-decoration: none;
-}
 
 
 </style>
@@ -117,15 +112,7 @@ text-decoration: none;
   </tr>
 
     <% Task.where(list_id: params[:list_id], flag_id: 3).find_each do |task| %>
-          <tr><td><%= simple_format(task.taskname) %></td><td>
-            <select>
-             <option>個</option>
-             <option>本</option>
-             <option>枚</option>
-             <option>式</option>
-            </select></td>
-          <td><%= task.number %></td><td><%= task.price %></td><td><%= task.sale %></td>
-          <td><form><textarea class="bikou" cols="16" rows="3"></textarea></form></td></tr>
+          <tr><td><%= simple_format(task.taskname) %></td><td><%= task.number %></td><td><%= task.unit %></td><td><%= task.price %></td><td><%= task.sale %></td><td><form><textarea class="bikou" cols="16" rows="3"></textarea></form></td></tr>
     <% end %>
 
   </tr>
