@@ -109,6 +109,17 @@ button.button  { position: absolute; top: 200px; width: 174px;
  }
 
 
+ @media only screen and (max-width: 750px) {
+    .navigation a {
+    padding: 1.5rem;
+    position: relative;
+    text-decoration: none;
+    color: #000000;
+    font-size: 15px;
+    font-weight: 600;
+   }
+ }
+
  a1 {
      text-align: center;
      position: relative;
