@@ -84,8 +84,7 @@ before_action :no_card? # クレカ登録してるか確認(課金者以外排�
       end
         redirect_to list_tasks_path
     else
-      @task = @list.tasks.new(task_params)
-      render :new
+      render :edit
     end
   end
 
