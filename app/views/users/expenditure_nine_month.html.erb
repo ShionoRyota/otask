@@ -105,10 +105,12 @@
   <div class="list">
     <ul class="list" id="list8">
     <header1>材料代</header1>
-        <% @material_cost.each do |task| %>
-        <div class="box3">
+      <% @material_cost.each do |task| %>
+        <% if task.material_cost.present? %>
+          <div class="box3">
            <a><%= task.taskname %>,        <%= task.material_cost %>円</a>
-        </div>
+          </div>
+        <% end %>
       <% end %>
     </ul>
   </div>
@@ -116,10 +118,12 @@
   <div class="list">
     <ul class="list" id="list9">
     <header1>仲介料</header1>
-        <% @brokerage_fee.each do |task| %>
-        <div class="box3">
+      <% @brokerage_fee.each do |task| %>
+        <% if task.brokerage_fee.present? %>
+          <div class="box3">
            <a><%= task.taskname %>,        <%= task.brokerage_fee %>円</a>
-        </div>
+          </div>
+        <% end %>
       <% end %>
     </ul>
   </div>
@@ -127,10 +131,12 @@
   <div class="list">
     <ul class="list" id="list10">
     <header1>加工代</header1>
-        <% @processing_fee.each do |task| %>
-        <div class="box3">
+      <% @processing_fee.each do |task| %>
+        <% if task.processing_fee.present? %>
+          <div class="box3">
            <a><%= task.taskname %>,        <%= task.processing_fee %>円</a>
-        </div>
+          </div>
+        <% end %>
       <% end %>
     </ul>
   </div>
