@@ -20,6 +20,12 @@
 
     <button class="actions" type="submit">ログイン</button>
 
+    <div class="actions">
+     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+       <%= invisible_recaptcha_tags({ text: "確認して次へ" }) %>
+     <% end %>
+  </div>
+
 <% end %>
 
 <%= render "devise/shared/links" %>
