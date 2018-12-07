@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_07_070009) do
+ActiveRecord::Schema.define(version: 2018_12_07_071759) do
 
   create_table "expenditures", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "expenditure_date"
     t.string "expenditure_item"
-    t.integer "expenditure_money", default: 0
+    t.integer "expenditure_money"
     t.string "expenditure_remarks"
     t.integer "user_id"
     t.datetime "created_at", null: false
