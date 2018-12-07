@@ -65,13 +65,19 @@ td {
 
 textarea.bikou{border:1px white solid;}
 
+.inputdaily {
+  font-size: 18px;
+  border:1px white solid;
+  margin-left: 80px;
+}
+
 </style>
 
 <body>
 <h1>納品書</h1>
 
 <!-- <h5><%= Date.today.strftime("%Y-%m-%d")%></h5> -->
-<h5><%= @suppliers.closingdate.strftime("%Y-%m-%d")%></h5>
+<h5><td><input type="date" class="inputdaily"></td></h5>
 
 
 <div class= "info">
@@ -80,7 +86,7 @@ textarea.bikou{border:1px white solid;}
 
 <div class= "info3">
  <li>〒<%= @suppliers.customers_postal_code %></li>
- <li>〒<%= @suppliers.customers_address %></li>
+ <li><%= @suppliers.customers_address %></li>
  <li>TEL.<%= @suppliers.customers_phone_number %></li>
  <li>FAX.<%= @suppliers.customers_fax_number %></li>
 </div>
