@@ -70,13 +70,19 @@ span.taskname {
 
 textarea.bikou{border:1px white solid;}
 
+.inputdaily {
+  font-size: 18px;
+  border:1px white solid;
+}
+
 
 
 </style>
 
 <body>
 <h1>請求書</h1>
-<h5><%= Date.today.strftime("%Y-%m-")%><td><input type="date" size="18" maxlength="2"></td></h5>
+<!-- <h5><%= Date.today.strftime("%Y-%m-")%> --><!-- </h5> -->
+<td><input type="date" class="inputdaily"></td>
 
 <div class= "info">
  <h1><%= @suppliers.name %>様</h1>
