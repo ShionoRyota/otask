@@ -189,6 +189,29 @@ a {
       }
 
       @media only screen and (max-width: 750px) {
+        .box16 { width: 204px;
+           height: 65px; padding: 10px;
+           background: #FFFFFF;
+           border: 4px; font-size: 80px; color: #000;
+           text-align: center;
+           border-top-left-radius: 30px;
+           border-top-right-radius: 30px;
+           border-bottom-right-radius: 30px;
+           border-bottom-left-radius: 30px;
+           margin:auto;
+           margin-top: 50px;
+           box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
+          a {
+          color: #000000;
+          font-size: 30px;
+          text-decoration: none;
+          font-weight: 600;
+          align-items: center;
+          }
+        }
+      }
+
+      @media only screen and (max-width: 750px) {
         .box5 { display: none !important; }
       }
 

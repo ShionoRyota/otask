@@ -29,6 +29,17 @@
     .textArea {
       width: 240px;
       font-size: 18px;
+      margin-right: 25px;
+      color: #000000;
+    }
+ }
+
+ @media only screen and (max-width: 750px) {
+    .form-control {
+      width: 240px;
+      font-size: 18px;
+      margin-right: 25px;
+      color: #FFFFFF;
     }
  }
 
@@ -38,8 +49,32 @@
       height: 35px;
       font-size: 18px;
       padding: 0px;
+      margin-right: 25px;
+      color: #FFFFFF;
     }
  }
+
+ @media only screen and (max-width: 750px) {
+    div.field {
+      margin-right: 25px;
+      color: #FFFFFF;
+    }
+ }
+
+ @media only screen and (max-width: 750px) {
+    div.field2 {
+      margin-right: 25px;
+      color: #FFFFFF;
+    }
+ }
+
+ @media only screen and (max-width: 750px) {
+    div.birth_date_field {
+      margin-right: 25px;
+      color: #FFFFFF;
+    }
+ }
+
 
  select{
 font-size:18px;
@@ -61,7 +96,7 @@ border:1px;
   <% end %>
 <ul>
 
-  <br><br><br><br><br><br><div class="birth_date_field">
+  <br><br><br><br><div class="birth_date_field">
     <h9><%= f.label :月 %></h9><br>
     <%= raw sprintf(
               f.date_select(
