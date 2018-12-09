@@ -167,79 +167,34 @@ before_action :no_card? # クレカ登録してるか確認(課金者以外排�
   end
 
 # 売上履歴（できれば一つにまとめたい）
-  def one_detail
+  def sale_detail
     @user = User.find(current_user[:id])
     @list = current_user.lists.find(params[:list_id])
+  if params[:type] == '1'
     @tasks = Task.where(list_id: @list, user_id: @user, sale_time: DateTime.new(2019, 1, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 1, 31, 23, 59, 59).end_of_month)
-  end
-
-  def two_detail
-    @user = User.find(current_user[:id])
-    @list = current_user.lists.find(params[:list_id])
+  elsif params[:type] == '2'
     @tasks = Task.where(list_id: @list, user_id: @user, sale_time: DateTime.new(2019, 2, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 2, 28, 23, 59, 59).end_of_month)
-  end
-
-  def three_detail
-    @user = User.find(current_user[:id])
-    @list = current_user.lists.find(params[:list_id])
+  elsif params[:type] == '3'
     @tasks = Task.where(list_id: @list, user_id: @user, sale_time: DateTime.new(2019, 3, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 3, 31, 23, 59, 59).end_of_month)
-  end
-
-  def four_detail
-    @user = User.find(current_user[:id])
-    @list = current_user.lists.find(params[:list_id])
+  elsif params[:type] == '4'
     @tasks = Task.where(list_id: @list, user_id: @user, sale_time: DateTime.new(2019, 4, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 4, 30, 23, 59, 59).end_of_month)
-  end
-
-  def five_detail
-    @user = User.find(current_user[:id])
-    @list = current_user.lists.find(params[:list_id])
+  elsif params[:type] == '5'
     @tasks = Task.where(list_id: @list, user_id: @user, sale_time: DateTime.new(2019, 5, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 5, 31, 23, 59, 59).end_of_month)
-  end
-
-  def six_detail
-    @user = User.find(current_user[:id])
-    @list = current_user.lists.find(params[:list_id])
+  elsif params[:type] == '6'
     @tasks = Task.where(list_id: @list, user_id: @user, sale_time: DateTime.new(2019, 6, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 6, 30, 23, 59, 59).end_of_month)
-  end
-
-  def seven_detail
-    @user = User.find(current_user[:id])
-    @list = current_user.lists.find(params[:list_id])
+  elsif params[:type] == '7'
     @tasks = Task.where(list_id: @list, user_id: @user, sale_time: DateTime.new(2019, 7, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 7, 31, 23, 59, 59).end_of_month)
-  end
-
-
-  def eight_detail
-    @user = User.find(current_user[:id])
-    @list = current_user.lists.find(params[:list_id])
+  elsif params[:type] == '8'
     @tasks = Task.where(list_id: @list, user_id: @user, sale_time: DateTime.new(2019, 8, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 8, 31, 23, 59, 59).end_of_month)
-  end
-
-
-  def nine_detail
-    @user = User.find(current_user[:id])
-    @list = current_user.lists.find(params[:list_id])
+  elsif params[:type] == '9'
     @tasks = Task.where(list_id: @list, user_id: @user, sale_time: DateTime.new(2019, 9, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 9, 30, 23, 59, 59).end_of_month)
-  end
-
-
-  def ten_detail
-    @user = User.find(current_user[:id])
-    @list = current_user.lists.find(params[:list_id])
+  elsif params[:type] == '10'
     @tasks = Task.where(list_id: @list, user_id: @user, sale_time: DateTime.new(2018, 10, 01, 00, 00, 00).beginning_of_month..DateTime.new(2018, 10, 31, 23, 59, 59).end_of_month)
-  end
-
-  def eleven_detail
-    @user = User.find(current_user[:id])
-    @list = current_user.lists.find(params[:list_id])
+  elsif params[:type] == '11'
     @tasks = Task.where(list_id: @list, user_id: @user, sale_time: DateTime.new(2018, 11, 01, 00, 00, 00).beginning_of_month..DateTime.new(2018, 11, 30, 23, 59, 59).end_of_month)
-  end
-
-  def twelve_detail
-    @user = User.find(current_user[:id])
-    @list = current_user.lists.find(params[:list_id])
+  elsif params[:type] == '12'
     @tasks = Task.where(list_id: @list, user_id: @user, sale_time: DateTime.new(2018, 12, 01, 00, 00, 00).beginning_of_month..DateTime.new(2018, 12, 31, 23, 59, 59).end_of_month)
+  end
   end
 
 

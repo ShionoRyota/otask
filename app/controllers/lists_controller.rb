@@ -54,77 +54,47 @@ class ListsController < ApplicationController
   end
 
 # 売上履歴（できれば一つにまとめたい）
-  def one_month
-    @user = User.find(current_user[:id])
+def sale_months
+  @user = User.find(current_user[:id])
+  @lists = current_user.lists.all
+  if params[:type] == '1'
     @task = Task.where(user_id: @user, sale_time: Time.new(2019,01,01).beginning_of_month..Time.new(2019,01,31).end_of_month).sum(:sale)
-    @lists = current_user.lists.all
-  end
-
-  def two_month
-    @user = User.find(current_user[:id])
+    @month = 1
+  elsif params[:type] == '2'
     @task = Task.where(user_id: @user, sale_time: Time.new(2019,02,01).beginning_of_month..Time.new(2019,02,28).end_of_month).sum(:sale)
-    @lists = current_user.lists.all
-  end
-
-  def three_month
-    @user = User.find(current_user[:id])
+    @month = 2
+  elsif params[:type] == '3'
     @task = Task.where(user_id: @user, sale_time: Time.new(2019,03,01).beginning_of_month..Time.new(2019,03,31).end_of_month).sum(:sale)
-    @lists = current_user.lists.all
-  end
-
-  def four_month
-    @user = User.find(current_user[:id])
+    @month = 3
+  elsif params[:type] == '4'
     @task = Task.where(user_id: @user, sale_time: Time.new(2019,04,01).beginning_of_month..Time.new(2019,04,30).end_of_month).sum(:sale)
-    @lists = current_user.lists.all
-  end
-
-  def five_month
-    @user = User.find(current_user[:id])
+    @month = 4
+  elsif params[:type] == '5'
     @task = Task.where(user_id: @user, sale_time: Time.new(2019,05,01).beginning_of_month..Time.new(2019,05,31).end_of_month).sum(:sale)
-    @lists = current_user.lists.all
-  end
-
-  def six_month
-    @user = User.find(current_user[:id])
+    @month = 5
+  elsif params[:type] == '6'
     @task = Task.where(user_id: @user, sale_time: Time.new(2019,06,01).beginning_of_month..Time.new(2019,06,30).end_of_month).sum(:sale)
-    @lists = current_user.lists.all
-  end
-
-  def seven_month
-    @user = User.find(current_user[:id])
+    @month = 6
+  elsif params[:type] == '7'
     @task = Task.where(user_id: @user, sale_time: Time.new(2019,07,01).beginning_of_month..Time.new(2019,07,31).end_of_month).sum(:sale)
-    @lists = current_user.lists.all
-  end
-
-  def eight_month
-    @user = User.find(current_user[:id])
+    @month = 7
+  elsif params[:type] == '8'
     @task = Task.where(user_id: @user, sale_time: Time.new(2019,8,01).beginning_of_month..Time.new(2019,8,31).end_of_month).sum(:sale)
-    @lists = current_user.lists.all
-  end
-
-  def nine_month
-    @user = User.find(current_user[:id])
+    @month = 8
+  elsif params[:type] == '9'
     @task = Task.where(user_id: @user, sale_time: Time.new(2018,9,01).beginning_of_month..Time.new(2018,9,30).end_of_month).sum(:sale)
-    @lists = current_user.lists.all
-  end
-
-  def ten_month
-    @user = User.find(current_user[:id])
+    @month = 9
+  elsif params[:type] == '10'
     @task = Task.where(user_id: @user, sale_time: Time.new(2018,10,01).beginning_of_month..Time.new(2018,10,31).end_of_month).sum(:sale)
-    @lists = current_user.lists.all
-  end
-
-  def eleven_month
-    @user = User.find(current_user[:id])
+    @month = 10
+  elsif params[:type] == '11'
     @task = Task.where(user_id: @user, sale_time: Time.new(2018,11,01).beginning_of_month..Time.new(2018,11,30).end_of_month).sum(:sale)
-    @lists = current_user.lists.all
-  end
-
-  def twelve_month
-    @user = User.find(current_user[:id])
+    @month = 11
+  elsif params[:type] == '12'
     @task = Task.where(user_id: @user, sale_time: Time.new(2018,12,01).beginning_of_month..Time.new(2018,12,31).end_of_month).sum(:sale)
-    @lists = current_user.lists.all
+    @month = 12
   end
+end
 
 
 

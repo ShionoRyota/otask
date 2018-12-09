@@ -1,17 +1,5 @@
-<head>
-  <meta charset="utf-8">
-  <!-- Global site tag (gtag.js) - Google Analytics -->
- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130654065-1"></script>
- <script>
-   window.dataLayer = window.dataLayer || [];
-   function gtag(){dataLayer.push(arguments);}
-   gtag('js', new Date());
-
-   gtag('config', 'UA-130654065-1');
- </script>
-</head>
-
 <meta name="viewport" content="width=device-width,initial-scale=1">
+
 <header class="align">
 
   <nav class="navigation2 navigation--inline">
@@ -25,13 +13,13 @@
 </header>
 
 
-<div class="mokuji1">5月売上</div>
+<div class="mokuji1"><%= @month %>月売上</div>
 
 <div class="mokuji2">合計 <%= @task %> 円</div>
 
 <% @lists.each do |list| %>
  <div class="box15">
-     <a><%= link_to list.name, list_tasks_five_detail_path(list) %></a>
+     <a><%= link_to list.name, list_tasks_sale_detail_path(list, type: @month) %></a>
  </div>
 <% end %>
 
