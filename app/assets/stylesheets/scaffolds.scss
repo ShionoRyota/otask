@@ -21,7 +21,7 @@ pre {
 
 a {
   color: #000;
-
+  font-family: verdana, arial, helvetica, sans-serif;
   &:visited {
     // color: #666;
   }
@@ -81,4 +81,5 @@ div {
 
 label {
   display: block;
+  font-family: verdana, arial, helvetica, sans-serif;
 }
