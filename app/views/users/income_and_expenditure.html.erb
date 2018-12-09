@@ -2,7 +2,7 @@
   <nav class="navigation navigation--inline">
     <ul>
       <li>
-        <a href="https://otask.herokuapp.com/users">
+        <a href="http://127.0.0.1:3000/users">
           <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#bell">
           <span class="demoSpan1">
           <span class="demoSpan2">
@@ -36,8 +36,15 @@
 
 
   <div class="sales">
-   <div class="sh"><%= link_to "売上管理", users_sale_history_path, class: "sm" %></div>
-   <div class="expense"><%= link_to "支出管理", users_expenditure_path, class: "sm" %></div>
+
+   <%= link_to users_sale_history_path, :style=>"text-decoration: none;", class: "sh" do %>
+    <p>売上管理</p>
+   <% end %>
+
+   <%= link_to users_expenditure_path, :style=>"text-decoration: none;", class: "expense" do %>
+    <p>支出管理</p>
+   <% end %>
+
   </div>
 
 
@@ -199,11 +206,20 @@
 }
 
 .sm {
-	margin-top: 150px;
-	font-size: 20px;
-	text-decoration: none;
-	color: #FFFFFF;
+  margin-top: 150px;
+  font-size: 20px;
+  text-decoration: none;
+  color: #FFFFFF;
 }
+
+p {
+          color: #fff;
+          font-size: 20px;
+          text-decoration: none;
+          font-weight: 600;
+          margin-top: 0px;
+          margin-bottom: 0px;
+          }
 
 .sales {
 
@@ -216,8 +232,8 @@
 }
 
 .sh {
-	       position: relative; left: 200px;
-	       width: 124px;
+         position: relative; left: 200px;
+         width: 124px;
            height: 20px;padding: 20px;
            background: linear-gradient(-135deg, #FF8C00, #FFA500, #FFD700);     /* 背景色     */
            border: 4px; font-size: 18px; color: #FFFFFF;
@@ -230,9 +246,9 @@
 }
 
 .expense {
-	position: relative; right: 200px;
-	 margin-right: 40px;
-	 width: 124px;
+  position: relative; right: 200px;
+   margin-right: 40px;
+   width: 124px;
            height: 20px;padding: 20px;
            background: linear-gradient(-135deg, #FF8C00, #FFA500, #FFD700);     /* 背景色     */
            border: 4px; font-size: 18px; color: #FFFFFF;
@@ -260,38 +276,38 @@
 }
 
 .todaysales {
-	/*position: relative; left: 150px;*/
-	font-size: 20px;
-	font-weight: 600;
-	padding-top: 20px
+  /*position: relative; left: 150px;*/
+  font-size: 20px;
+  font-weight: 600;
+  padding-top: 20px
 }
 
 .minus {
-	position: absolute; left: 550px;
-	font-size: 30px;
-	font-weight: 600;
-	padding-top: 20px
+  position: absolute; left: 550px;
+  font-size: 30px;
+  font-weight: 600;
+  padding-top: 20px
 }
 
 .todayexpenses {
-	font-size: 20px;
-	font-weight: 600;
-	padding-top: 20px
+  font-size: 20px;
+  font-weight: 600;
+  padding-top: 20px
 }
 
 .equal {
-	position: absolute; right: 580px;
-	font-size: 20px;
-	font-weight: 600;
-	padding-top: 20px
+  position: absolute; right: 580px;
+  font-size: 20px;
+  font-weight: 600;
+  padding-top: 20px
 }
 
 .todaybenefit {
-	/*margin-right: 20px;*/
-	/*position: relative; right: 150px;*/
-	font-size: 20px;
-	font-weight: 600;
-	padding-top: 20px
+  /*margin-right: 20px;*/
+  /*position: relative; right: 150px;*/
+  font-size: 20px;
+  font-weight: 600;
+  padding-top: 20px
 }
 
 .month {
@@ -310,23 +326,23 @@
 }
 
 .monthsales {
-	/*position: relative; left: 150px;*/
-	font-size: 20px;
-	font-weight: 600;
-	padding-top: 20px
+  /*position: relative; left: 150px;*/
+  font-size: 20px;
+  font-weight: 600;
+  padding-top: 20px
 }
 
 .monthexpenses {
-	font-size: 20px;
-	font-weight: 600;
-	padding-top: 20px
+  font-size: 20px;
+  font-weight: 600;
+  padding-top: 20px
 }
 
 .monthbenefit {
-	/*position: relative; right: 150px;*/
-	font-size: 20px;
-	font-weight: 600;
-	padding-top: 20px
+  /*position: relative; right: 150px;*/
+  font-size: 20px;
+  font-weight: 600;
+  padding-top: 20px
 }
 
 .year {
@@ -345,24 +361,24 @@
 }
 
 .yearsales {
-	/*position: relative; left: 150px;*/
-	font-size: 20px;
-	font-weight: 600;
-	padding-top: 20px
+  /*position: relative; left: 150px;*/
+  font-size: 20px;
+  font-weight: 600;
+  padding-top: 20px
 }
 
 .yearexpenses {
-	font-size: 20px;
-	font-weight: 600;
-	padding-top: 20px
+  font-size: 20px;
+  font-weight: 600;
+  padding-top: 20px
 }
 
 .yearbenefit {
-	/*margin-right: 20px;
-	position: relative; right: 150px;*/
-	font-size: 20px;
-	font-weight: 600;
-	padding-top: 20px
+  /*margin-right: 20px;
+  position: relative; right: 150px;*/
+  font-size: 20px;
+  font-weight: 600;
+  padding-top: 20px
 }
 
 .todayunder {
