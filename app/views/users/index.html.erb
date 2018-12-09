@@ -16,8 +16,8 @@
 
   <nav class="navigation navigation--inline">
     <ul>
-      <li>
-        <a href="https://otask.herokuapp.com/users">
+      <!-- <li>
+        <a href="http://127.0.0.1:3000/users">
           <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#bell">
           <span class="demoSpan1">
           <span class="demoSpan2">
@@ -25,7 +25,7 @@
           </span>
         </a>
       </li>
-      <!-- <li>
+      <li>
         <a href="http://127.0.0.1:3000/users">
           <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#bell">
           <span class="demoSpan3">
@@ -49,23 +49,42 @@
 
 </header>
 
+<%= link_to lists_path do %>
+<div class="box5">
+  <p>仕事管理</p>
+</div>
+<% end %>
 
-<div class="box5"><a href="https://otask.herokuapp.com/lists">仕事管理</a></div>
-<div class="box8"><a href="https://otask.herokuapp.com/lists/show">請求済みの仕事</a></div>
+<%= link_to lists_show_path do %>
+<div class="box8">
+  <p>請求済みの仕事</p>
+</div>
+<% end %>
 
+<%= link_to lists_path do %>
+<div class="box15">
+  <p>仕事管理</p>
+</div>
+<% end %>
 
-<div class="box15"><a href="https://otask.herokuapp.com/lists">仕事管理</a></div>
-<div class="box16"><a href="http://127.0.0.1:3000/users/income_and_expenditure">収支管理</a></div>
+<%= link_to lists_path do %>
+<div class="box16">
+  <p>収支管理</p>
+</div>
+<% end %>
 
+<%= link_to users_income_and_expenditure_path do %>
+<div class="box9">
+  <p>収支管理</p>
+</div>
+<% end %>
 
+<%= link_to edit_user_registration_path do %>
+<div class="box12">
+  <p>ユーザー編集</p>
+</div>
+<% end %>
 
-
-
- <div class="box9"><a href="https://otask.herokuapp.com/users/income_and_expenditure">収支管理</a></div>
- <div class="box12"><a href="https://otask.herokuapp.com/users/edit">ユーザー編集</a></div>
-
- <!-- <div class="box7"><a href="http://127.0.0.1:3000/users/sale_history">売上履歴</a></div> -->
- <!-- <div class="box11"><a>今月の売上<br><br><br><br><%= @tasks %>円</a></div> <br><br><br><br> -->
 
  <style type="text/css">
  span{height:40px; width:40px; display:block; position:relative;}
