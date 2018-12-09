@@ -1,4 +1,17 @@
 <%# encoding: UTF-8 %>
+<head>
+  <meta charset="utf-8">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+ <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130654065-1"></script>
+ <script>
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments);}
+   gtag('js', new Date());
+
+   gtag('config', 'UA-130654065-1');
+ </script>
+</head>
+
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
 <%= form_for @task, url: list_task_path, multipart: true do |f| %>
@@ -6,7 +19,7 @@
 <ul>
   <div class="field">
     <h9><%= f.label :仕事名 %></h9><br />
-    <%= f.text_area :taskname, size: "50x2", style: "font-size:20px", placeholder: "シャフト"%>
+    <%= f.text_area :taskname, size: "50x2", style: "font-size:20px", placeholder: "シャフト", class: "textArea"%>
   </div>
 
   <div class="field">
@@ -25,17 +38,17 @@
 
   <div class="field">
     <h9><%= f.label :注文番号 %></h9><br />
-    <%= f.text_field :order_number, size: "50x1", style: "font-size:20px", placeholder:"1234-5678" %>
+    <%= f.text_field :order_number, size: "50x1", style: "font-size:20px", placeholder:"1234-5678", class: "textArea" %>
   </div>
 
   <div class="field">
     <h9><%= f.label :単価 %></h9><br />
-    <%= f.text_field :price, size: "50x1", style: "font-size:20px", placeholder: "1000円" %>
+    <%= f.text_field :price, size: "50x1", style: "font-size:20px", placeholder: "1000円", class: "textArea" %>
   </div>
 
   <div class="field">
     <h9><%= f.label :個数 %></h9><br />
-    <%= f.text_field :number, size: "50x1", style: "font-size:20px", placeholder: "10本"%>
+    <%= f.text_field :number, size: "50x1", style: "font-size:20px", placeholder: "10本", class: "textArea"%>
   </div><br><br>
 
     <li><a>合計金額 <%= (@task.number.to_i * @task.price.to_i) %>円(税抜き)</a></li><br>
@@ -180,5 +193,112 @@ border:1px;
 body {
   color: #1E90FF;
 }
+
+</style>
+
+<style>
+ table {
+  margin: auto;
+  margin-bottom: 30px;
+  margin-top: 20px;
+  color: #FFFFFF;
+ }
+.goukei {
+  text-align: center;
+  color: #FFFFFF;
+  margin-top: 20px;
+}
+
+@media only screen and (max-width: 750px) {
+    .textArea {
+      width: 240px;
+      font-size: 18px;
+      margin: auto;
+    }
+ }
+
+ @media only screen and (max-width: 750px) {
+    button.button2 {
+      width: 144px;
+      height: 35px;
+      font-size: 18px;
+      padding: 0px;
+      margin-right: 10px;
+    }
+ }
+
+ @media only screen and (max-width: 750px) {
+    body {
+      margin-right: 20px;
+    }
+ }
+
+ @media only screen and (max-width: 750px) {
+    div.field {
+      margin-right: 20px;
+      color: #FFFFFF;
+    }
+ }
+
+ @media only screen and (max-width: 750px) {
+    div.field2 {
+      margin-right: 20px;
+    }
+ }
+
+ @media only screen and (max-width: 750px) {
+    div.goukei {
+      margin-right: 20px;
+    }
+ }
+
+ @media only screen and (max-width: 750px) {
+    table {
+      position: relative; right: 10px;
+    }
+ }
+
+ @media only screen and (max-width: 750px) {
+    div.birth_date_field {
+      margin-right: 20px;
+      color: #FFFFFF;
+    }
+ }
+
+ select{
+font-size:18px;
+border:1px;
+}
+
+#task_image {
+  font-size: 20px;
+  position: relative; left: 163px; top: 30px;
+  margin-bottom: 40px;
+}
+
+@media only screen and (max-width: 750px) {
+    #task_image {
+     font-size: 13px;
+     background-color: #FFFFFF;
+     position: relative; left: 0px; top: 30px;
+     margin-bottom: 40px;
+     width: 110px;
+    }
+ }
+
+#canvas {
+  position: relative; right: 215px;
+}
+
+body {
+  color: #1E90FF;
+}
+
+@media only screen and (max-width: 750px) {
+    #canvas {
+  position: relative; left: -60px;
+}
+ }
+
 
 </style>

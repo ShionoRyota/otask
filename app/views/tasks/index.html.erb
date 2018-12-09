@@ -1,3 +1,16 @@
+<head>
+  <meta charset="utf-8">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+ <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130654065-1"></script>
+ <script>
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments);}
+   gtag('js', new Date());
+
+   gtag('config', 'UA-130654065-1');
+ </script>
+</head>
+
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <body>
 
@@ -10,7 +23,7 @@
         <a href="https://otask.herokuapp.com/lists">
           <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#bell">
           <span class="invisible">　<　</span>
-          <%= link_to "＋仕事を追加する", new_list_task_path, data: {"turbolinks" => false}, class: "sm" %>
+          <%= link_to "＋仕事を追加する", new_list_task_path, data: {"turbolinks" => false}, class: "sn" %>
           <%= link_to "請求書作成画面へ", list_tasks_invoice_path, class: "sm" %>
           <%= link_to "納品書作成画面へ", list_tasks_delnote_path, class: "sm" %>
           <%= link_to "控え作成画面へ", list_tasks_ahead_path, class: "sm" %>
@@ -76,7 +89,47 @@
 
     @media only screen and (max-width: 750px) {
     .list {
-      display: none;
+    padding-bottom: 20px;
+    margin-right: 30px;
+    margin-left: 30px;
+    float: left;
+    width: 280px;
+    height: calc(100% - #{$gap} - #{$scrollbar-thickness});
+
+  > * {
+    background-color: $list-bg-color;
+    color: #333;
+
+    padding: 0 $gap;
+  }
+  }
+  .list li {
+    padding: 5px 10px;
+    border: 1px solid #0c5460;
+    list-style: none;
+  }
+  .list li:hover {
+    cursor: move;
+  }
+
+  .list li {
+      /*background-color: #fff;*/
+      padding: $gap;
+      &:not(:last-child) {
+        margin-bottom: $gap;
+      }
+
+      border-radius: $card-border-radius;
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+
+      img {
+        display: block;
+        width: calc(100% + 2 * #{$gap});
+        margin: -$gap 0 $gap (-$gap);
+        border-top-left-radius: $card-border-radius;
+        border-top-right-radius: $card-border-radius;
+      }
+    }
  }
   /*.a { background-color: #fff999; }
   .b { background-color: #f3981d; }
@@ -92,9 +145,9 @@
   @media only screen and (max-width: 750px) {
     a4 {
     color: #1E90FF;
-    font-size: 20px;
+    font-size: 15px;
     font-weight: 600;
-    text-align: center;
+    margin-left: 0px;
   }
  }
 
@@ -122,9 +175,6 @@
  }
 
 </style>
-
-<!-- <div class="container"> -->
-<div class="box15"><%= link_to "仕事を追加", new_list_task_path, data: {"turbolinks" => false} %></div>
 
  <div class="lists">
   <div class="lists_wrap">

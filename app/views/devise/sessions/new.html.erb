@@ -1,3 +1,16 @@
+<head>
+  <meta charset="utf-8">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+ <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130654065-1"></script>
+ <script>
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments);}
+   gtag('js', new Date());
+
+   gtag('config', 'UA-130654065-1');
+ </script>
+</head>
+
 <h2>ログイン</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -18,11 +31,9 @@
     </div><br><br><br>
   <% end -%>
 
-    <button class="actions" type="submit">ログイン</button>
-
     <div class="actions">
      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-       <%= invisible_recaptcha_tags({ text: "確認して次へ" }) %>
+       <%= invisible_recaptcha_tags({ text: "ログイン" }) %>
      <% end %>
   </div>
 
