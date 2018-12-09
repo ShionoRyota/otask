@@ -61,9 +61,15 @@
 </div>
 <% end %>
 
-<%= link_to lists_path do %>
+<%= link_to lists_path, :style=>"text-decoration: none;" do %>
 <div class="box15">
-  <p>仕事管理へ</p>
+  <p>仕事管理</p>
+</div>
+<% end %>
+
+<%= link_to users_income_and_expenditure_path, :style=>"text-decoration: none;" do %>
+<div class="box16">
+  <p>収支管理</p>
 </div>
 <% end %>
 
