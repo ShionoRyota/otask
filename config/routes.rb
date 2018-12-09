@@ -83,5 +83,7 @@ Rails.application.routes.draw do
   get 'users/expenditure_eleven_month' => "users#expenditure_eleven_month"
   get 'users/expenditure_twelve_month' => "users#expenditure_twelve_month"
 
+  get 'users/expenditure_months' => "users#expenditure_months"
+
 
 end
