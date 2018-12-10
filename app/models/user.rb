@@ -22,6 +22,23 @@ class User < ApplicationRecord
   validates :phone_number, presence: true
   validate :password_complexity
 
+
+  def postal_code=(value)
+    value.tr!('/[０-９ー]/', '/[0-9-]/') if value.is_a?(String)
+    super(value)
+  end
+
+  def phone_number=(value)
+    value.tr!('/[０-９ー]/', '/[0-9-]/') if value.is_a?(String)
+    super(value)
+  end
+
+  def fax_number=(value)
+    value.tr!('/[０-９ー]/', '/[0-9-]/') if value.is_a?(String)
+    super(value)
+  end
+
+
  def password_complexity
   return if password.blank? || password =~ /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,70}$/
   errors.add :password, "パスワードの強度が不足しています。パスワードの長さは8〜70文字とし、大文字と小文字と数字をそれぞれ1文字以上含める必要があります。"
