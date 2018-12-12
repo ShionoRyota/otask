@@ -7,6 +7,7 @@ before_action :no_card? # クレカ登録してるか確認(課金者以外排�
   def index
     @Task = Task.all # viewで表示されるtaskを限定
     @list = current_user.lists.find(params[:list_id]) # 右上list名表示
+    @invoice_sale = Task.where(list_id: @list, flag_id: 3).sum(:sale)
   #   @user = User.find(current_user[:id])
   #   @task = Task.where(user_id: @user, sale_time: Time.zone.now.all_day).sum(:sale)
   #   @user.update(sales: @task)
