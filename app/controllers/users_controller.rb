@@ -133,9 +133,7 @@ def expenditure_months
 
     @month = 1
     @expenditures = Expenditure.where(user_id: @user, updated_at: DateTime.new(2019, 01, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 01, 31, 23, 59, 59).end_of_month)
-    @material_cost = Task.where(user_id: @user, create_at: DateTime.new(2019, 01, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 01, 31, 23, 59, 59).end_of_month)
-    @brokerage_fee = Task.where(user_id: @user, create_at: DateTime.new(2019, 01, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 01, 31, 23, 59, 59).end_of_month)
-    @processing_fee = Task.where(user_id: @user, create_at: DateTime.new(2019, 01, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 01, 31, 23, 59, 59).end_of_month)
+    @task_expenditure = Task.where(user_id: @user, create_at: DateTime.new(2019, 01, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 01, 31, 23, 59, 59).end_of_month)
 
   elsif params[:type] == '2'
     @user = User.find(current_user[:id])
@@ -147,9 +145,7 @@ def expenditure_months
 
     @month = 2
     @expenditures = Expenditure.where(user_id: @user, updated_at: DateTime.new(2019, 02, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 02, 28, 23, 59, 59).end_of_month)
-    @material_cost = Task.where(user_id: @user, sale_time: DateTime.new(2019, 02, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 02, 28, 23, 59, 59).end_of_month)
-    @brokerage_fee = Task.where(user_id: @user, sale_time: DateTime.new(2019, 02, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 02, 28, 23, 59, 59).end_of_month)
-    @processing_fee = Task.where(user_id: @user, sale_time: DateTime.new(2019, 02, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 02, 28, 23, 59, 59).end_of_month)
+    @task_expenditure = Task.where(user_id: @user, sale_time: DateTime.new(2019, 02, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 02, 28, 23, 59, 59).end_of_month)
 
   elsif params[:type] == '3'
     @user = User.find(current_user[:id])
@@ -161,9 +157,7 @@ def expenditure_months
 
     @month = 3
     @expenditures = Expenditure.where(user_id: @user, updated_at: DateTime.new(2019, 03, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 03, 31, 23, 59, 59).end_of_month)
-    @material_cost = Task.where(user_id: @user, sale_time: DateTime.new(2019, 03, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 03, 31, 23, 59, 59).end_of_month)
-    @brokerage_fee = Task.where(user_id: @user, sale_time: DateTime.new(2019, 03, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 03, 31, 23, 59, 59).end_of_month)
-    @processing_fee = Task.where(user_id: @user, sale_time: DateTime.new(2019, 03, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 03, 31, 23, 59, 59).end_of_month)
+    @task_expenditure = Task.where(user_id: @user, sale_time: DateTime.new(2019, 03, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 03, 31, 23, 59, 59).end_of_month)
 
   elsif params[:type] == '4'
     @user = User.find(current_user[:id])
@@ -175,9 +169,7 @@ def expenditure_months
 
     @month = 4
     @expenditures = Expenditure.where(user_id: @user, updated_at: DateTime.new(2019, 04, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 04, 30, 23, 59, 59).end_of_month)
-    @material_cost = Task.where(user_id: @user, sale_time: DateTime.new(2019, 04, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 04, 30, 23, 59, 59).end_of_month)
-    @brokerage_fee = Task.where(user_id: @user, sale_time: DateTime.new(2019, 04, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 04, 30, 23, 59, 59).end_of_month)
-    @processing_fee = Task.where(user_id: @user, sale_time: DateTime.new(2019, 04, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 04, 30, 23, 59, 59).end_of_month)
+    @task_expenditure = Task.where(user_id: @user, sale_time: DateTime.new(2019, 04, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 04, 30, 23, 59, 59).end_of_month)
 
   elsif params[:type] == '5'
     @user = User.find(current_user[:id])
@@ -189,9 +181,7 @@ def expenditure_months
 
     @month = 5
     @expenditures = Expenditure.where(user_id: @user, updated_at: DateTime.new(2019, 05, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 05, 31, 23, 59, 59).end_of_month)
-    @material_cost = Task.where(user_id: @user, sale_time: DateTime.new(2019, 05, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 05, 31, 23, 59, 59).end_of_month)
-    @brokerage_fee = Task.where(user_id: @user, sale_time: DateTime.new(2019, 05, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 05, 31, 23, 59, 59).end_of_month)
-    @processing_fee = Task.where(user_id: @user, sale_time: DateTime.new(2019, 05, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 05, 31, 23, 59, 59).end_of_month)
+    @task_expenditure = Task.where(user_id: @user, sale_time: DateTime.new(2019, 05, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 05, 31, 23, 59, 59).end_of_month)
 
   elsif params[:type] == '6'
     @user = User.find(current_user[:id])
@@ -203,9 +193,7 @@ def expenditure_months
 
     @month = 6
     @expenditures = Expenditure.where(user_id: @user, updated_at: DateTime.new(2019, 06, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 06, 30, 23, 59, 59).end_of_month)
-    @material_cost = Task.where(user_id: @user, sale_time: DateTime.new(2019, 06, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 06, 30, 23, 59, 59).end_of_month)
-    @brokerage_fee = Task.where(user_id: @user, sale_time: DateTime.new(2019, 06, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 06, 30, 23, 59, 59).end_of_month)
-    @processing_fee = Task.where(user_id: @user, sale_time: DateTime.new(2019, 06, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 06, 30, 23, 59, 59).end_of_month)
+    @task_expenditure = Task.where(user_id: @user, sale_time: DateTime.new(2019, 06, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 06, 30, 23, 59, 59).end_of_month)
 
   elsif params[:type] == '7'
     @user = User.find(current_user[:id])
@@ -217,9 +205,7 @@ def expenditure_months
 
     @month = 7
     @expenditures = Expenditure.where(user_id: @user, updated_at: DateTime.new(2019, 07, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 07, 31, 23, 59, 59).end_of_month)
-    @material_cost = Task.where(user_id: @user, sale_time: DateTime.new(2019, 07, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 07, 31, 23, 59, 59).end_of_month)
-    @brokerage_fee = Task.where(user_id: @user, sale_time: DateTime.new(2019, 07, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 07, 31, 23, 59, 59).end_of_month)
-    @processing_fee = Task.where(user_id: @user, sale_time: DateTime.new(2019, 07, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 07, 31, 23, 59, 59).end_of_month)
+    @task_expenditure = Task.where(user_id: @user, sale_time: DateTime.new(2019, 07, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 07, 31, 23, 59, 59).end_of_month)
 
   elsif params[:type] == '8'
     @user = User.find(current_user[:id])
@@ -231,9 +217,7 @@ def expenditure_months
 
     @month = 8
     @expenditures = Expenditure.where(user_id: @user, updated_at: DateTime.new(2019, 8, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 8, 31, 23, 59, 59).end_of_month)
-   @material_cost = Task.where(user_id: @user, sale_time: DateTime.new(2019, 8, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 8, 31, 23, 59, 59).end_of_month)
-    @brokerage_fee = Task.where(user_id: @user, sale_time: DateTime.new(2019, 8, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 8, 31, 23, 59, 59).end_of_month)
-    @processing_fee = Task.where(user_id: @user, sale_time: DateTime.new(2019, 8, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 8, 31, 23, 59, 59).end_of_month)
+    @task_expenditure = Task.where(user_id: @user, sale_time: DateTime.new(2019, 8, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 8, 31, 23, 59, 59).end_of_month)
 
   elsif params[:type] == '9'
     @user = User.find(current_user[:id])
@@ -245,9 +229,7 @@ def expenditure_months
 
     @month = 9
     @expenditures = Expenditure.where(user_id: @user, updated_at: DateTime.new(2019, 9, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 9, 30, 23, 59, 59).end_of_month)
-    @material_cost = Task.where(user_id: @user, sale_time: DateTime.new(2019, 9, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 9, 30, 23, 59, 59).end_of_month)
-    @brokerage_fee = Task.where(user_id: @user, sale_time: DateTime.new(2019, 9, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 9, 30, 23, 59, 59).end_of_month)
-    @processing_fee = Task.where(user_id: @user, sale_time: DateTime.new(2019, 9, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 9, 30, 23, 59, 59).end_of_month)
+    @task_expenditure = Task.where(user_id: @user, sale_time: DateTime.new(2019, 9, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 9, 30, 23, 59, 59).end_of_month)
 
   elsif params[:type] == '10'
     @user = User.find(current_user[:id])
@@ -259,9 +241,7 @@ def expenditure_months
 
     @month = 10
     @expenditures = Expenditure.where(user_id: @user, updated_at: DateTime.new(2018, 10, 01, 00, 00, 00).beginning_of_month..DateTime.new(2018, 10, 31, 23, 59, 59).end_of_month)
-    @material_cost = Task.where(user_id: @user, sale_time: DateTime.new(2018, 10, 01, 00, 00, 00).beginning_of_month..DateTime.new(2018, 10, 31, 23, 59, 59).end_of_month)
-    @brokerage_fee = Task.where(user_id: @user, sale_time: DateTime.new(2018, 10, 01, 00, 00, 00).beginning_of_month..DateTime.new(2018, 10, 31, 23, 59, 59).end_of_month)
-    @processing_fee = Task.where(user_id: @user, sale_time: DateTime.new(2018, 10, 01, 00, 00, 00).beginning_of_month..DateTime.new(2018, 10, 31, 23, 59, 59).end_of_month)
+    @task_expenditure = Task.where(user_id: @user, sale_time: DateTime.new(2018, 10, 01, 00, 00, 00).beginning_of_month..DateTime.new(2018, 10, 31, 23, 59, 59).end_of_month)
 
   elsif params[:type] == '11'
     @user = User.find(current_user[:id])
@@ -273,9 +253,7 @@ def expenditure_months
 
     @month = 11
     @expenditures = Expenditure.where(user_id: @user, updated_at: DateTime.new(2018, 11, 01, 00, 00, 00).beginning_of_month..DateTime.new(2018, 11, 30, 23, 59, 59).end_of_month)
-     @material_cost = Task.where(user_id: @user, sale_time: DateTime.new(2018, 11, 01, 00, 00, 00).beginning_of_month..DateTime.new(2018, 11, 30, 23, 59, 59).end_of_month)
-    @brokerage_fee = Task.where(user_id: @user, sale_time: DateTime.new(2018, 11, 01, 00, 00, 00).beginning_of_month..DateTime.new(2018, 11, 30, 23, 59, 59).end_of_month)
-    @processing_fee = Task.where(user_id: @user, sale_time: DateTime.new(2018, 11, 01, 00, 00, 00).beginning_of_month..DateTime.new(2018, 11, 30, 23, 59, 59).end_of_month)
+    @task_expenditure = Task.where(user_id: @user, sale_time: DateTime.new(2018, 11, 01, 00, 00, 00).beginning_of_month..DateTime.new(2018, 11, 30, 23, 59, 59).end_of_month)
 
   elsif params[:type] == '12'
     @user = User.find(current_user[:id])
@@ -287,10 +265,7 @@ def expenditure_months
 
     @month = 12
     @expenditures = Expenditure.where(user_id: @user, updated_at: DateTime.new(2018, 12, 01, 00, 00, 00).beginning_of_month..DateTime.new(2018, 12, 31, 23, 59, 59).end_of_month)
-    @material_cost = Task.where(user_id: @user, sale_time: DateTime.new(2018, 12, 01, 00, 00, 00).beginning_of_month..DateTime.new(2018, 12, 31, 23, 59, 59).end_of_month)
-    @brokerage_fee = Task.where(user_id: @user, sale_time: DateTime.new(2018, 12, 01, 00, 00, 00).beginning_of_month..DateTime.new(2018, 12, 31, 23, 59, 59).end_of_month)
-    @processing_fee = Task.where(user_id: @user, sale_time: DateTime.new(2018, 12, 01, 00, 00, 00).beginning_of_month..DateTime.new(2018, 12, 31, 23, 59, 59).end_of_month)
-
+    @task_expenditure = Task.where(user_id: @user, sale_time: DateTime.new(2018, 12, 01, 00, 00, 00).beginning_of_month..DateTime.new(2018, 12, 31, 23, 59, 59).end_of_month)
   end
 end
 
