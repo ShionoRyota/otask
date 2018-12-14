@@ -32,13 +32,13 @@
 
 <div class="spending">
 
-  <h1><%= link_to new_expenditure_path, :style=>"text-decoration: none;", class: "input" do %>
+  <%= link_to new_expenditure_path, :style=>"text-decoration: none;", class: "input" do %>
     <p class="sn">本日済んだ仕事</p>
-  <% end %></h1>
+  <% end %>
 
-  <h1><%= link_to lists_show_path, :style=>"text-decoration: none;", class: "history" do %>
+  <%= link_to lists_show_path, :style=>"text-decoration: none;", class: "history" do %>
     <p class="sm">請求済みの仕事履歴</p>
-  <% end %></h1>
+  <% end %>
 
 </div>
 
