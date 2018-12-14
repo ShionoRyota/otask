@@ -48,6 +48,7 @@ Rails.application.routes.draw do
   get 'users/delete_confirm' => "users#delete_confirm"
   get 'users/delete_done' => "users#delete_done"
   get 'users/billed' => "users#billed" #請求みの仕事で本日の履歴か全部の履歴かを選択する画面
+  get 'users/billed_today' => "users#billed_today"
   get 'lists/show' => "lists#show" #請求済みの仕事のlistを表示
   get 'tasks/show' => "tasks#show" # 請求済みの仕事のtaskの表示
 

@@ -125,6 +125,12 @@ end
   def billed
   end
 
+  def billed_today
+    @user = User.find(current_user[:id])
+    @lists = current_user.lists.all #自分のlistのみ全て表示
+  end
+
+
 # 売上履歴（できれば一つにまとめたい）
 def expenditure_months
   if params[:type] == '1'

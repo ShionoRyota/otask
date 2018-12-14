@@ -114,14 +114,14 @@ before_action :no_card? # クレカ登録してるか確認(課金者以外排�
 # 完了ボタン
   def finish
     @login_user = current_user.tasks.find(params[:id])
-    @login_user.update(flag_id: 2, sale_time: "NULL")
+    @login_user.update(flag_id: 2, sale_time: Time.now)
     redirect_back(fallback_location: list_tasks_path)
   end
 
 # 請求ボタン
   def sale
     @login_user = current_user.tasks.find(params[:id])
-    @login_user.update(flag_id: 3, sale_time: Time.now)
+    @login_user.update(flag_id: 3)
     redirect_back(fallback_location: list_tasks_path)
   end
 
