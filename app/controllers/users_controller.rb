@@ -128,6 +128,7 @@ end
   def billed_today
     @user = User.find(current_user[:id])
     @lists = current_user.lists.all #自分のlistのみ全て表示
+    @today = detatime.now
   end
 
 
