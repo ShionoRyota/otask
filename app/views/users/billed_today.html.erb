@@ -90,9 +90,10 @@
   <div class="list">
     <ul class="list" id="list1">
     <% @lists.each do |list| %>
-    <header1><%= link_to list.name %></header1>
+    <header1></header1>
       <% Task.where(user_id: @user, list_id: list.id, flag_id: [2, 3], sale_time: Time.new.all_day).find_each do |task| %>
         <li class="a1">
+         <%= link_to list.name %>
          <%= link_to task.taskname %>
         </li>
       <% end %>
