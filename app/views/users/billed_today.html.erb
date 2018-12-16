@@ -64,7 +64,7 @@ a {
 </style>
 
 <div class="mokuji"></div>
-
+<%= Date.today.strftime("%Y年%m月%d日") %>
 <% @lists.each do |list| %>
   <div class="box10">
     <a><%= link_to list.name %></a>
