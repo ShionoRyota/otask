@@ -1,23 +1,10 @@
-<head>
-  <meta charset="utf-8">
-  <!-- Global site tag (gtag.js) - Google Analytics -->
- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130654065-1"></script>
- <script>
-   window.dataLayer = window.dataLayer || [];
-   function gtag(){dataLayer.push(arguments);}
-   gtag('js', new Date());
-
-   gtag('config', 'UA-130654065-1');
- </script>
-</head>
-
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<!-- <meta name="viewport" content="width=device-width,initial-scale=1">
 <header class="align">
 
   <nav class="navigation navigation--inline">
     <ul>
       <li>
-        <a href="https://otask.herokuapp.com/users">
+        <a href="http://127.0.0.1:3000/users">
           <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#bell">
           <span class="demoSpan1">
           <span class="demoSpan2">
@@ -26,7 +13,7 @@
         </a>
       </li>
       <li>
-        <a href="https://otask.herokuapp.com/tasks/search">
+        <a href="http://127.0.0.1:3000/tasks/search">
           <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#bell">
           <span class="demoSpan3">
           </span>
@@ -43,50 +30,43 @@
           <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#bell">
           <span class="calendar"></span>
         </a>
-      </li> -->
+      </li>
     </ul>
   </nav>
 
-</header>
+</header> -->
 
-<%= link_to lists_path do %>
-<div class="box5">
-  <p>仕事管理</p>
-</div>
+
+<h2>過去の仕事を検索</h2>
+<form id="form1">
+<%= form_tag(tasks_search_path, :method => 'get' ) do %>
+  <%= text_field_tag :search, params[:search], placeholder: "キーワードを入力", class: "sbox" %>
+  <%= submit_tag '検索', :name => nil, class: "sbtn" %>
 <% end %>
+</form>
 
-<%= link_to users_billed_path do %>
-<div class="box8">
-  <p>請求済みの仕事</p>
+<div class="lists">
+  <div class="lists_wrap">
+  <div class="list">
+    <ul class="list" id="list1">
+    <header1>
+      <% @tasks.each do |tasks| %>
+        <li class="a">
+         <%= link_to tasks.taskname, :style => 'color: #000000;' %>
+        </li>
+      <% end %>
+    </ul>
+    </header1>
+  </div>
+  </div>
 </div>
-<% end %>
-
-<%= link_to lists_path, :style=>"text-decoration: none;" do %>
-<div class="box15">
-  <p>仕事管理</p>
-</div>
-<% end %>
-
-<%= link_to users_income_and_expenditure_path, :style=>"text-decoration: none;" do %>
-<div class="box16">
-  <p>収支管理</p>
-</div>
-<% end %>
-
-<%= link_to users_income_and_expenditure_path do %>
-<div class="box9">
-  <p>収支管理</p>
-</div>
-<% end %>
-
-<%= link_to edit_user_registration_path do %>
-<div class="box12">
-  <p>ユーザー編集</p>
-</div>
-<% end %>
 
 
- <style type="text/css">
+
+
+
+
+<style type="text/css">
  span{height:40px; width:40px; display:block; position:relative;}
 
 .demoSpan1{width:40px; height:40px; display:block;}
@@ -225,5 +205,54 @@
 @media only screen and (max-width: 750px) {
         .calendar { display: none !important; }
       }
+
+
+/*フォーム全体*/
+#form1{
+position:absolute;/*フォームの絶対位置*/ 
+left:570px;
+position:relative;/*フォームの相対位置*/ 
+max-width:270px;/*フォームのサイズ*/
+margin-bottom:15px;/*フォームの下に余白*/
+}
+/*検索ボックス*/
+.sbox{
+position:absolute;/*フォームの絶対位置*/ 
+left: -5px;
+top:0;  
+outline:0;/*クリック時の青い枠線消す*/  
+height:50px;/*検索ボックスの高さ*/ 
+width: 200px;
+padding:0 10px;/*テキスト位置調整*/  
+border-radius:2px 0 0 2px;/*検索ボックスの角を丸める*/    
+background:#eee;/*検索ボックスの背景カラー*/    
+}
+/*検索ボタン*/
+.sbtn{
+width:80px;/*検索ボタンの横幅*/ 
+height:54px;/*検索ボタンの縦幅*/ 
+position:absolute;/*検索ボタンの絶対位置*/  
+left:215px;/*検索ボタンの位置調整*/  
+top:0;
+border-radius:0 2px 2px 0;/*検索ボタンの角を丸める*/ 
+background: linear-gradient(-135deg, #FF8C00, #FFA500, #FFD700);     /* 背景色     */border:none;/*検索ボタンの枠線を消す*/ 
+color:#fff;/*検索ボタンのテキストカラー*/ 
+font-weight:bold;/*検索ボタンのテキスト太字*/ 
+font-size:16px;/*検索ボタンのフォントサイズ*/ 
+}
+/*検索ボタンマウスオーバー時*/
+#sbtn:hover{
+color:#666;/*検索ボタンマウスオーバー時のフォントカラー*/ 
+}
+
+h2 {
+  margin-top: 100px;
+}
+
+.lists {
+  position: absolute;
+   top: 250px;
+   left: -10px;
+}
 
 </style>

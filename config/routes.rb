@@ -51,6 +51,7 @@ Rails.application.routes.draw do
   get 'users/billed_today' => "users#billed_today"
   get 'lists/show' => "lists#show" #請求済みの仕事のlistを表示
   get 'tasks/show' => "tasks#show" # 請求済みの仕事のtaskの表示
+  get 'tasks/search' => "tasks#search"
 
 #支出履歴
   get 'users/expenditure_months' => "users#expenditure_months"
