@@ -167,10 +167,6 @@ before_action :no_card? # クレカ登録してるか確認(課金者以外排�
       end
   end
 
-  def search
-    @tasks = Task.where(user_id: current_user[:id]).search(params[:search])
-  end
-
 # 売上履歴（できれば一つにまとめたい）
   def sale_detail
     @user = User.find(current_user[:id])
@@ -202,6 +198,9 @@ before_action :no_card? # クレカ登録してるか確認(課金者以外排�
   end
   end
 
+  def search
+    @tasks = Task.where(user_id: current_user[:id]).search(params[:search])
+  end
 
   private
 
