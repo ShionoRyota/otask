@@ -35,4 +35,12 @@ class Task < ApplicationRecord
     super(value)
   end
 
+  def self.search(search) #ここでのself.はUser.を意味する
+    if search
+      where(['taskname LIKE(?)', "%#{search}%"])
+    else
+      all
+    end
+ end
+
 end
