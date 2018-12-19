@@ -199,7 +199,7 @@ before_action :no_card? # クレカ登録してるか確認(課金者以外排�
   end
 
   def search
-    @tasks = Task.where(user_id: current_user[:id]).search(params[:search])
+    @tasks = Task.where(user_id: current_user[:id]).search(params[:search]).includes(:list)
   end
 
   private
