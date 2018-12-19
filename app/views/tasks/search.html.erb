@@ -120,8 +120,12 @@
 .demoSpan3:after{width:7px; background:#333; transform:rotate(-45deg);-webkit-transform:rotate(-45deg);-moz-transform:rotate(-45deg);-o-transform:rotate(-45deg);-ms-transform:rotate(-45deg); top:17px; left:944px;}
 
 @media only screen and (max-width: 750px) {
-        .demoSpan3 { display: none !important; }
-      }
+  .demoSpan3:before, .demoSpan3:after{content:''; height:20px; display:block; position:absolute; top:0; left:35px; }
+
+  .demoSpan3:before{width:20px; border:3px #333 solid; border-radius:100%;-webkit-border-radius:100%;-moz-border-radius:100%;}
+
+  .demoSpan3:after{width:7px; background:#333; transform:rotate(-45deg);-webkit-transform:rotate(-45deg);-moz-transform:rotate(-45deg);-o-transform:rotate(-45deg);-ms-transform:rotate(-45deg); top:17px; left:59px;}
+}
 
 </style>
 
@@ -231,6 +235,17 @@ position:relative;/*フォームの相対位置*/
 max-width:270px;/*フォームのサイズ*/
 margin-bottom:15px;/*フォームの下に余白*/
 }
+
+@media only screen and (max-width: 750px) {
+  #form1{
+    position: absolute;
+    left: 0; right: 0;
+    margin: auto;
+    max-width:270px;/*フォームのサイズ*/
+    margin-bottom:15px;/*フォームの下に余白*/
+  }
+}
+
 /*検索ボックス*/
 .sbox{
 position:absolute;/*フォームの絶対位置*/
@@ -261,6 +276,14 @@ font-size:16px;/*検索ボタンのフォントサイズ*/
 color:#666;/*検索ボタンマウスオーバー時のフォントカラー*/
 }
 
+@media only screen and (max-width: 750px) {
+  .sbtn{
+    padding-right: 0px;
+    padding-left: 0px;
+    left: 200px;
+  }
+}
+
 h2 {
   margin-top: 120px;
 }
@@ -269,6 +292,17 @@ h2 {
   position: absolute;
    top: 250px;
    left: -10px;
+}
+
+@media only screen and (max-width: 750px) {
+  .list {
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    width: 250px;
+    height: calc(100% - 10px - 17px);
+  }
 }
 
 </style>

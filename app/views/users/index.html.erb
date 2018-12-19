@@ -127,8 +127,12 @@
 .demoSpan3:after{width:7px; background:#333; transform:rotate(-45deg);-webkit-transform:rotate(-45deg);-moz-transform:rotate(-45deg);-o-transform:rotate(-45deg);-ms-transform:rotate(-45deg); top:17px; left:944px;}
 
 @media only screen and (max-width: 750px) {
-        .demoSpan3 { display: none !important; }
-      }
+  .demoSpan3:before, .demoSpan3:after{content:''; height:20px; display:block; position:absolute; top:0; left:35px; }
+
+  .demoSpan3:before{width:20px; border:3px #333 solid; border-radius:100%;-webkit-border-radius:100%;-moz-border-radius:100%;}
+
+  .demoSpan3:after{width:7px; background:#333; transform:rotate(-45deg);-webkit-transform:rotate(-45deg);-moz-transform:rotate(-45deg);-o-transform:rotate(-45deg);-ms-transform:rotate(-45deg); top:17px; left:59px;}
+}
 
 </style>
 
