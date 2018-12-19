@@ -143,7 +143,7 @@ def expenditure_months
 
     @month = 1
     @expenditures = Expenditure.where(user_id: @user, updated_at: DateTime.new(2019, 01, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 01, 31, 23, 59, 59).end_of_month)
-    @task_expenditure = Task.where(user_id: @user, create_at: DateTime.new(2019, 01, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 01, 31, 23, 59, 59).end_of_month)
+    @task_expenditure = Task.where(user_id: @user, sale_time: DateTime.new(2019, 01, 01, 00, 00, 00).beginning_of_month..DateTime.new(2019, 01, 31, 23, 59, 59).end_of_month)
 
   elsif params[:type] == '2'
     @user = User.find(current_user[:id])
