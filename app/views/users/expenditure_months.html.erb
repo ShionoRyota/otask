@@ -23,7 +23,7 @@
       <div class="list">
         <ul class="list" id="list1">
           <header1>家賃・地代</header1>
-          <% Expenditure.where(expenditure_item: "家賃・地代").find_each do |expenditure| %>
+          <% @expenditures.where(expenditure_item: "家賃・地代").find_each do |expenditure| %>
           <div class="box3">
            <a><%= expenditure.expenditure_date.strftime("%-d日") %>, <%= expenditure.expenditure_money %>円, <%= expenditure.expenditure_remarks %> </a>
          </div>
@@ -34,7 +34,7 @@
      <div class="list">
       <ul class="list" id="list2">
         <header1>光熱費</header1>
-          <% Expenditure.where(expenditure_item: "光熱費").find_each do |expenditure| %>
+          <% @expenditures.where(expenditure_item: "光熱費").find_each do |expenditure| %>
         <div class="box3">
          <a><%= expenditure.expenditure_date.strftime("%-d日") %>, <%= expenditure.expenditure_money %>円, <%= expenditure.expenditure_remarks %> </a>
        </div>
@@ -45,7 +45,7 @@
    <div class="list">
     <ul class="list" id="list3">
       <header1>人件費</header1>
-          <% Expenditure.where(expenditure_item: "人件費").find_each do |expenditure| %>
+          <% @expenditures.where(expenditure_item: "人件費").find_each do |expenditure| %>
       <div class="box3">
        <a><%= expenditure.expenditure_date.strftime("%-d日") %>, <%= expenditure.expenditure_money %>円, <%= expenditure.expenditure_remarks %> </a>
      </div>
@@ -56,7 +56,7 @@
  <div class="list">
   <ul class="list" id="list4">
     <header1>交通費</header1>
-          <% Expenditure.where(expenditure_item: "交通費").find_each do |expenditure| %>
+          <% @expenditures.where(expenditure_item: "交通費").find_each do |expenditure| %>
     <div class="box3">
      <a><%= expenditure.expenditure_date.strftime("%-d日") %>, <%= expenditure.expenditure_money %>円, <%= expenditure.expenditure_remarks %> </a>
    </div>
@@ -67,7 +67,7 @@
 <div class="list">
   <ul class="list" id="list5">
     <header1>ネット通信費</header1>
-          <% Expenditure.where(expenditure_item: "ネット通信費").find_each do |expenditure| %>
+          <% @expenditures.where(expenditure_item: "ネット通信費").find_each do |expenditure| %>
     <div class="box3">
      <a><%= expenditure.expenditure_date.strftime("%-d日") %>, <%= expenditure.expenditure_money %>円, <%= expenditure.expenditure_remarks %> </a>
    </div>
@@ -78,7 +78,7 @@
 <div class="list">
   <ul class="list" id="list6">
     <header1>機械ローン代</header1>
-          <% Expenditure.where(expenditure_item: "機械ローン").find_each do |expenditure| %>
+          <% @expenditures.where(expenditure_item: "機械ローン").find_each do |expenditure| %>
     <div class="box3">
      <a><%= expenditure.expenditure_date.strftime("%-d日") %>, <%= expenditure.expenditure_money %>円, <%= expenditure.expenditure_remarks %> </a>
    </div>
@@ -89,7 +89,7 @@
 <div class="list">
   <ul class="list" id="list7">
     <header1>その他</header1>
-          <% Expenditure.where(expenditure_item: "その他").find_each do |expenditure| %>
+          <% @expenditures.where(expenditure_item: "その他").find_each do |expenditure| %>
     <div class="box3">
      <a><%= expenditure.expenditure_date.strftime("%-d日") %>, <%= expenditure.expenditure_money %>円, <%= expenditure.expenditure_remarks %> </a>
    </div>
