@@ -136,9 +136,9 @@ def expenditure_months
   if params[:type] == '1'
     @user = User.find(current_user[:id])
     @expenditure_input_month = Expenditure.where(user_id: @user, updated_at: Time.new(2019,01,01).beginning_of_month..Time.new(2019,01,31).end_of_month).sum(:expenditure_money)
-    @material_cost_expenditure_month = Task.where(user_id: @user, create_at: Time.new(2019,01,01).beginning_of_month..Time.new(2019,01,31).end_of_month).sum(:material_cost)
-    @brokerage_fee_expenditure_month = Task.where(user_id: @user, create_at: Time.new(2019,01,01).beginning_of_month..Time.new(2019,01,31).end_of_month).sum(:brokerage_fee)
-    @processing_fee_expenditure_month = Task.where(user_id: @user, create_at: Time.new(2019,01,01).beginning_of_month..Time.new(2019,01,31).end_of_month).sum(:processing_fee)
+    @material_cost_expenditure_month = Task.where(user_id: @user, sale_time: Time.new(2019,01,01).beginning_of_month..Time.new(2019,01,31).end_of_month).sum(:material_cost)
+    @brokerage_fee_expenditure_month = Task.where(user_id: @user, sale_time: Time.new(2019,01,01).beginning_of_month..Time.new(2019,01,31).end_of_month).sum(:brokerage_fee)
+    @processing_fee_expenditure_month = Task.where(user_id: @user, sale_time: Time.new(2019,01,01).beginning_of_month..Time.new(2019,01,31).end_of_month).sum(:processing_fee)
     @expenditure_month = @expenditure_input_month.to_i + @material_cost_expenditure_month.to_i + @brokerage_fee_expenditure_month.to_i + @processing_fee_expenditure_month.to_i
 
     @month = 1
