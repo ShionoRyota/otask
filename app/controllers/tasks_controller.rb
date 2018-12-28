@@ -133,28 +133,28 @@ before_action :no_card? # クレカ登録してるか確認(課金者以外排�
   end
 
 # 請求書作成画面へボタン
-  def invoice
-    @suppliers = current_user.lists.find(params[:list_id])
-    @company = User.find(current_user[:id])
-    @total = Task.where(user_id: @company, flag_id: 3).sum(:sale) #index請求欄のtaskのみ表示
+def invoice
+  @suppliers = current_user.lists.find(params[:list_id])
+  @company = User.find(current_user[:id])
+    @total = Task.where(list_id: @list, flag_id: 3).sum(:sale) #index請求欄のtaskのみ表示
     @tax = (@total.to_i * 0.08).round #小数点以下四捨五入
     @sum = (@total + @tax)
   end
 
 # 納品書作成画面へボタン
-  def delnote
-    @suppliers = current_user.lists.find(params[:list_id])
-    @company = User.find(current_user[:id])
-    @total = Task.where(user_id: @company, flag_id: 3).sum(:sale) #index請求欄のtaskのみ表示
+def delnote
+  @suppliers = current_user.lists.find(params[:list_id])
+  @company = User.find(current_user[:id])
+    @total = Task.where(list_id: @list, flag_id: 3).sum(:sale) #index請求欄のtaskのみ表示
     @tax = (@total.to_i * 0.08).round #小数点以下四捨五入
     @sum = (@total + @tax)
   end
 
 # 控え作成画面へボタン
-  def ahead
-    @suppliers = current_user.lists.find(params[:list_id])
-    @company = User.find(current_user[:id])
-    @total = Task.where(user_id: @company, flag_id: 3).sum(:sale) #index請求欄のtaskのみ表示
+def ahead
+  @suppliers = current_user.lists.find(params[:list_id])
+  @company = User.find(current_user[:id])
+    @total = Task.where(list_id: @list, flag_id: 3).sum(:sale) #index請求欄のtaskのみ表示
     @tax = (@total.to_i * 0.08).round #小数点以下四捨五入
     @sum = (@total + @tax)
   end
