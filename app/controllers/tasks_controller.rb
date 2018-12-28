@@ -136,6 +136,7 @@ before_action :no_card? # クレカ登録してるか確認(課金者以外排�
 def invoice
   @suppliers = current_user.lists.find(params[:list_id])
   @company = User.find(current_user[:id])
+  @list = current_user.lists.find(params[:list_id]) # 右上list名表示
     @total = Task.where(list_id: @list, flag_id: 3).sum(:sale) #index請求欄のtaskのみ表示
     @tax = (@total.to_i * 0.08).round #小数点以下四捨五入
     @sum = (@total + @tax)
@@ -145,6 +146,7 @@ def invoice
 def delnote
   @suppliers = current_user.lists.find(params[:list_id])
   @company = User.find(current_user[:id])
+  @list = current_user.lists.find(params[:list_id]) # 右上list名表示
     @total = Task.where(list_id: @list, flag_id: 3).sum(:sale) #index請求欄のtaskのみ表示
     @tax = (@total.to_i * 0.08).round #小数点以下四捨五入
     @sum = (@total + @tax)
@@ -154,6 +156,7 @@ def delnote
 def ahead
   @suppliers = current_user.lists.find(params[:list_id])
   @company = User.find(current_user[:id])
+  @list = current_user.lists.find(params[:list_id]) # 右上list名表示
     @total = Task.where(list_id: @list, flag_id: 3).sum(:sale) #index請求欄のtaskのみ表示
     @tax = (@total.to_i * 0.08).round #小数点以下四捨五入
     @sum = (@total + @tax)
