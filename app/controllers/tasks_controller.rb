@@ -138,7 +138,7 @@ def invoice
   @company = User.find(current_user[:id])
   @list = current_user.lists.find(params[:list_id]) # 右上list名表示
     @total = Task.where(list_id: @list, flag_id: 3).sum(:sale) #index請求欄のtaskのみ表示
-    @tax = (@total.to_i * 0.08).round #小数点以下四捨五入
+    @tax = (@total.to_i * 0.1).round #小数点以下四捨五入
     @sum = (@total + @tax)
   end
 
@@ -148,7 +148,7 @@ def delnote
   @company = User.find(current_user[:id])
   @list = current_user.lists.find(params[:list_id]) # 右上list名表示
     @total = Task.where(list_id: @list, flag_id: 3).sum(:sale) #index請求欄のtaskのみ表示
-    @tax = (@total.to_i * 0.08).round #小数点以下四捨五入
+    @tax = (@total.to_i * 0.1).round #小数点以下四捨五入
     @sum = (@total + @tax)
   end
 
@@ -158,7 +158,7 @@ def ahead
   @company = User.find(current_user[:id])
   @list = current_user.lists.find(params[:list_id]) # 右上list名表示
     @total = Task.where(list_id: @list, flag_id: 3).sum(:sale) #index請求欄のtaskのみ表示
-    @tax = (@total.to_i * 0.08).round #小数点以下四捨五入
+    @tax = (@total.to_i * 0.1).round #小数点以下四捨五入
     @sum = (@total + @tax)
   end
 
