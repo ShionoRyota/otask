@@ -64,7 +64,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'jquery-rails'
 gem 'pry-rails'
 gem 'devise' # 認証機能
-gem 'carrierwave', '~> 1.0.0'  #画像アップロード
+gem 'carrierwave', '~> 1.3.2'  #画像アップロード
 gem 'mini_magick' # 画像編集
 gem 'rmagick' # 画像編集
 gem 'payjp' # クレカ支払い登録
